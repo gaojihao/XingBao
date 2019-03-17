@@ -1,4 +1,4 @@
 package com.lizhi.xingbao.controller;
 
-public class TagController {
+public class TagController extends BaseController{
 }

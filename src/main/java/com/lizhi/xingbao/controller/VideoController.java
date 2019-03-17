@@ -1,4 +1,4 @@
 package com.lizhi.xingbao.controller;
 
-public class VideoController {
+public class VideoController extends BaseController{
 }

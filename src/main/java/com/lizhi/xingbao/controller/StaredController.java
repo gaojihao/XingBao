@@ -1,4 +1,4 @@
 package com.lizhi.xingbao.controller;
 
-public class StaredController {
+public class StaredController extends BaseController{
 }

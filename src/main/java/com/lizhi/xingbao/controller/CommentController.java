@@ -1,4 +1,4 @@
 package com.lizhi.xingbao.controller;
 
-public class CommentController {
+public class CommentController extends BaseController{
 }

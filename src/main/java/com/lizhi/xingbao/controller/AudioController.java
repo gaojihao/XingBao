@@ -1,4 +1,4 @@
 package com.lizhi.xingbao.controller;
 
-public class AudioController {
+public class AudioController extends  BaseController{
 }

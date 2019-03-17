@@ -1,4 +1,4 @@
 package com.lizhi.xingbao.controller;
 
-public class CollectController {
+public class CollectController extends BaseController{
 }

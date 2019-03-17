@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("xingbao/api/v1")
-public class CategoryController {
+public class CategoryController extends BaseController{
     @Autowired
     private CourseCategoryRespository respository;
 
