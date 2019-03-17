@@ -7,6 +7,8 @@
 
 ### Redis
 
+[Redis中文网](http://www.redis.cn)
+
 
 
 ### Thymeleaf
