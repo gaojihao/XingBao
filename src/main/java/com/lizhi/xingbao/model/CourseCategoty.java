@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "coursecategoty")
-public class CourseCategoty extends BaseModel {
+public class CourseCategoty {
 
     /**
      * 功能描述:序列化时候的唯一性

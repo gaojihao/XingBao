@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("xingbao/api/v1")
+@RequestMapping("xingbao/api/v1/category")
 public class CategoryController extends BaseController{
     @Autowired
     private CourseCategoryRespository respository;
