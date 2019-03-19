@@ -14,9 +14,11 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
+    @Column(name = "create_time")
     @CreatedDate
     private Long createTime;
 
+    @Column(name = "update_time")
     @LastModifiedDate
     private Long updateTime;
 
