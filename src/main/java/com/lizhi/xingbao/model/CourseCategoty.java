@@ -7,36 +7,14 @@ import java.util.Date;
 
 @Entity
 @Table(name = "coursecategoty")
-public class CourseCategoty {
+public class CourseCategoty extends BaseEntity{
 
-    /**
-     * 功能描述:序列化时候的唯一性
-     */
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer categoryId;
-
-    private String name;
-
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
-
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date updateTime;
 
     public CourseCategoty(){
 
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
+    private String name;
 
     public String getName() {
         return name;
