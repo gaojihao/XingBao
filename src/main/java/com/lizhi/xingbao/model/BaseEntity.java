@@ -28,17 +28,13 @@ public abstract class BaseEntity {
         return Id;
     }
 
-    public void setId(Integer id) {
-        Id = id;
-    }
+    public void setId(Integer id) { Id = id; }
 
     public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
+    public void setCreateTime(Long createTime) { this.createTime = createTime; }
 
     public Long getUpdateTime() {
         return updateTime;
