@@ -22,6 +22,8 @@ public abstract class BaseEntity {
     @LastModifiedDate
     private Long updateTime;
 
+    private Boolean delete_flag;
+
     public Integer getId() {
         return Id;
     }
@@ -44,5 +46,13 @@ public abstract class BaseEntity {
 
     public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Boolean getDelete_flag() {
+        return delete_flag;
+    }
+
+    public void setDelete_flag(Boolean delete_flag) {
+        this.delete_flag = delete_flag;
     }
 }
