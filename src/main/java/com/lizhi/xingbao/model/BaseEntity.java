@@ -48,11 +48,7 @@ public abstract class BaseEntity {
         this.updateTime = updateTime;
     }
 
-    public Boolean getDelete_flag() {
-        return delete_flag;
-    }
+    public Boolean getDelete_flag() { return delete_flag; }
 
-    public void setDelete_flag(Boolean delete_flag) {
-        this.delete_flag = delete_flag;
-    }
+    public void setDelete_flag(Boolean delete_flag) { this.delete_flag = delete_flag; }
 }
