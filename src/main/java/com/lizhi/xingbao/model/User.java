@@ -52,7 +52,7 @@ public class User extends BaseEntity{
     }
 
     public String getImgUrl() {
-        return imgurl;
+        return imgUrl;
     }
 
     public void setImgUrl(String imgUrl) {
