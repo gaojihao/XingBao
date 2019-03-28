@@ -5,6 +5,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -16,13 +17,29 @@ public abstract class BaseEntity {
 
     @Column(name = "create_time")
     @CreatedDate
-    private Long createTime;
+    private Date createTime;
 
     @Column(name = "update_time")
     @LastModifiedDate
-    private Long updateTime;
+    private Date updateTime;
 
-    private Boolean delete_flag;
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    private Boolean delete_flag = false;
 
     public Integer getId() {
         return Id;
@@ -30,19 +47,6 @@ public abstract class BaseEntity {
 
     public void setId(Integer id) { Id = id; }
 
-    public Long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Long createTime) { this.createTime = createTime; }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
 
     public Boolean getDelete_flag() { return delete_flag; }
 

@@ -1,10 +1,11 @@
 package com.lizhi.xingbao.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "xbuser")
-public class User extends BaseEntity{
+@Table(name = "account")
+public class Account extends BaseEntity {
 
     private String phone;
     private String password;
@@ -14,10 +15,9 @@ public class User extends BaseEntity{
     private String jwt;
 
     private String imgUrl;
-    private Boolean vip;
+    private Boolean vip = false;
     private String sex;
-    private String desc;
-    private short level;
+    private short level = 0;
 
     public String getPhone() {
         return phone;
@@ -75,14 +75,6 @@ public class User extends BaseEntity{
         this.sex = sex;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public short getLevel() {
         return level;
     }
@@ -92,7 +84,8 @@ public class User extends BaseEntity{
     }
 
 
-    public User(){
+    public Account(){
 
     }
+
 }
