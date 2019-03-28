@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,17 +12,23 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
 
+    private static final long serialVersionUID = 1782474744437162148L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(name = "create_time")
+    @Column(name = "create_time",nullable = false, updatable = false)
     @CreatedDate
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
 
     @Column(name = "update_time")
     @LastModifiedDate
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
+
+    private Boolean delete_flag = false;
+
 
     public Date getCreateTime() {
         return createTime;
@@ -39,7 +46,6 @@ public abstract class BaseEntity {
         this.updateTime = updateTime;
     }
 
-    private Boolean delete_flag = false;
 
     public Integer getId() {
         return Id;

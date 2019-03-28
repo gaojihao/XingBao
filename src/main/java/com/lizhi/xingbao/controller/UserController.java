@@ -20,7 +20,7 @@ public class UserController extends BaseController {
         if (exist){
             return Result.fail("用户已存在");
         }
-        return Result.success("123");
+        return Result.success(userService.createAccount(phone, password));
     }
 
     @RequestMapping("/login")

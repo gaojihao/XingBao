@@ -17,7 +17,7 @@ public class Account extends BaseEntity {
     private String imgUrl;
     private Boolean vip = false;
     private String sex;
-    private short level = 0;
+    private Integer level = 0;
 
     public String getPhone() {
         return phone;
@@ -75,11 +75,11 @@ public class Account extends BaseEntity {
         this.sex = sex;
     }
 
-    public short getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(short level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
