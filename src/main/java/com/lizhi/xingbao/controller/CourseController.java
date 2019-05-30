@@ -6,4 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("xingbao/api/v1/course")
 public class CourseController extends BaseController{
+    
 }

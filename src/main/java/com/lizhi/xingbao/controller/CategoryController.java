@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.controller;
 
+import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.model.CourseCategoty;
 import com.lizhi.xingbao.respository.CourseCategoryRespository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,8 @@ public class CategoryController extends BaseController{
     private CourseCategoryRespository respository;
 
     @RequestMapping("saveCategory")
-    public CourseCategoty saveCategory(String name){
+    public Result saveCategory(String name){
 
-        CourseCategoty categoty = new CourseCategoty();
-        categoty.setName(name);
-
-        return respository.save(categoty);
+        return Result.fail("111");
     }
 }

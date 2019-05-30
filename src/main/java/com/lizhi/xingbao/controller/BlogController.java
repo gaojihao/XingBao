@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.controller;
 
+import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.model.Blog;
 import com.lizhi.xingbao.respository.BlogRespository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,8 @@ public class BlogController extends BaseController{
     private BlogRespository dao;
 
     @RequestMapping("/create")
-    public Blog createBlog(String title,String content){
-        Blog blog = new Blog();
+    public Result createBlog(String title, String content){
 
-        blog.setContent(content);
-        blog.setTitle(title);
-
-        return dao.saveAndFlush(blog);
+        return Result.fail("error");
     }
 }

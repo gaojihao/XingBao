@@ -11,8 +11,7 @@ public class CategoryService {
     private CourseCategoryRespository categoryRespository;
 
     public void save(){
-        CourseCategoty categoty = new CourseCategoty();
-        categoty.setName("123");
+        CourseCategoty categoty = new CourseCategoty("123");
 
         categoryRespository.save(categoty);
     }
