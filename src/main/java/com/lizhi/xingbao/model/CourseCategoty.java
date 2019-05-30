@@ -3,15 +3,14 @@ package com.lizhi.xingbao.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "coursecategoty")
+@Table(name = "categoty")
 public class CourseCategoty extends BaseEntity{
 
 
-    public CourseCategoty(){
-
+    public CourseCategoty(String name) {
+        this.name = name;
     }
 
     private String name;

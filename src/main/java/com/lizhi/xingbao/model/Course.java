@@ -6,7 +6,13 @@ import javax.persistence.*;
 @Table(name = "course")
 public class Course extends BaseEntity{
 
-    public Course(){
+    @Column(nullable = false,length = 50)
+    private String title;
 
-    }
+    @Column(nullable = false,length = 128)
+    private String summary;
+
+    private String desc;
+
+
 }
