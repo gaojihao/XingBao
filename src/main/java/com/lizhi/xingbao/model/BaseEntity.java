@@ -21,29 +21,29 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "create_time",nullable = false, updatable = false)
     @CreatedDate
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Date createTime;
+    private Long createTime;
 
     @Column(name = "update_time")
     @LastModifiedDate
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Date updateTime;
+    private Long updateTime;
 
     private Boolean delete_flag = false;
 
 
-    public Date getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 
