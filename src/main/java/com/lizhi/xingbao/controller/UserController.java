@@ -23,6 +23,12 @@ public class UserController extends BaseController {
         return Result.success(userService.createAccount(phone, password));
     }
 
+    /**
+     * 用户登录
+     * @param phone
+     * @param password
+     * @return
+     */
     @RequestMapping("/login")
     public Result login(String phone, String password){
 
