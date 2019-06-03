@@ -57,5 +57,8 @@ public class UserDao {
         return userRespository.save(account);
     }
 
+    public Account userLogin (String phone, String password){
+        return userRespository.findAccountByPhoneAndPassword(phone, password);
+    }
 
 }

@@ -23,8 +23,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Account createAccount(String phone, String password) {
+
         return userDao.createAccount(phone, password);
     }
 
 
+    @Override
+    public Account updateHeadImg(Integer id, String url) {
+        return userDao.updateHeaderImage(id,url);
+    }
+
+    @Override
+    public Account userLogin(String phone, String password) {
+        return userDao.userLogin(phone, password);
+    }
 }

@@ -26,10 +26,11 @@ public class UserController extends BaseController {
     @RequestMapping("/login")
     public Result login(String phone, String password){
 
-        System.out.println(phone);
-        System.out.println(password);
+        if (userService.userLogin(phone, password) == null){
+            return Result.fail("用户名或密码错误");
+        }
 
-        return Result.success(null);
+        return Result.success(userService.userLogin(phone, password));
     }
 
 
