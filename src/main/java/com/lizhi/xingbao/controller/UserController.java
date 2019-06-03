@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController extends BaseController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping("/register")
     public Result register(String phone, String password){
 
-        boolean exist = userService.userExist(phone);
+        boolean exist = userService.isUserExist(phone);
         if (exist){
             return Result.fail("用户已存在");
         }

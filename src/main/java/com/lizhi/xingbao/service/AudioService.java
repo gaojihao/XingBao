@@ -1,12 +1,6 @@
 package com.lizhi.xingbao.service;
 
-import com.lizhi.xingbao.respository.AudioRespository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+public interface AudioService {
 
-@Service
-public class AudioService {
 
-    @Autowired
-    AudioRespository respository;
 }
