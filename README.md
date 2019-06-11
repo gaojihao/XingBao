@@ -10,13 +10,6 @@
 [Redis中文网](http://www.redis.cn)
 
 
-
-### Thymeleaf
-
-[Thymeleaf官方文档](https://www.thymeleaf.org/index.html)
-
-
-
 ### Spring Security
 
 
