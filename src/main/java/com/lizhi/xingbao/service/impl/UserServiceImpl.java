@@ -40,16 +40,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Account modifyPwd(Integer id, String currentPwd, String password) {
-
+        return userDao.modifyPwd(id, currentPwd, password);
     }
 
     @Override
     public Account modifyNickName(Integer id, String nickName) {
-
+        return userDao.modifyNickName(id, nickName);
     }
 
     @Override
     public Account modifyPhone(Integer id, String phone) {
-
+        return userDao.modifyPhone(id, phone);
     }
 }
