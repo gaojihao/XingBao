@@ -61,4 +61,25 @@ public class UserDao {
         return userRespository.findAccountByPhoneAndPassword(phone, password);
     }
 
+    public Account modifyPwd(Integer id, String currentPwd, String password) {
+        Account account = queryById(id);
+        if (account == null) {
+            return null;
+        }
+    }
+
+    public Account modifyNickName(Integer id, String nickName) {
+        Account account = queryById(id);
+        if (account == null) {
+            return null;
+        }
+    }
+
+    public Account modifyPhone(Integer id, String phone) {
+        Account account = queryById(id);
+        if (account == null) {
+            return null;
+        }
+    }
+
 }
