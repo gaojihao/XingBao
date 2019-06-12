@@ -37,4 +37,19 @@ public class UserServiceImpl implements UserService {
     public Account userLogin(String phone, String password) {
         return userDao.userLogin(phone, password);
     }
+
+    @Override
+    public Account modifyPwd(Integer id, String currentPwd, String password) {
+
+    }
+
+    @Override
+    public Account modifyNickName(Integer id, String nickName) {
+
+    }
+
+    @Override
+    public Account modifyPhone(Integer id, String phone) {
+
+    }
 }
