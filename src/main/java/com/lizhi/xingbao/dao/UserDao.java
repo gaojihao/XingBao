@@ -66,6 +66,9 @@ public class UserDao {
         if (account == null) {
             return null;
         }
+
+        account.setPassword(password);
+        return userRespository.save(account);
     }
 
     public Account modifyNickName(Integer id, String nickName) {
@@ -73,6 +76,9 @@ public class UserDao {
         if (account == null) {
             return null;
         }
+
+        account.setNickName(nickName);
+        return userRespository.save(account);
     }
 
     public Account modifyPhone(Integer id, String phone) {
@@ -80,6 +86,9 @@ public class UserDao {
         if (account == null) {
             return null;
         }
+
+        account.setPhone(phone);
+        return userRespository.save(account);
     }
 
 }
