@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -21,6 +22,11 @@ public class PictureQueryServiceImpl implements PictureQueryService {
 
     @Autowired
     private PictureRepository pictureRepository;
+
+    @Override
+    public Picture upload(MultipartFile file){
+
+    }
 
     @Override
     public List<Picture> queryAll(Picture picture, Pageable pageable) {
