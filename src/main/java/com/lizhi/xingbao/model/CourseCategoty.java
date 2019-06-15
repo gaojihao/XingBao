@@ -15,6 +15,26 @@ public class CourseCategoty extends BaseEntity{
 
     private String name;
 
+    private String desc;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
+
+    private String subTitle;
+
     public String getName() {
         return name;
     }
@@ -25,6 +45,10 @@ public class CourseCategoty extends BaseEntity{
 
     @Override
     public String toString() {
-        return name;
+        return "CourseCategoty{" +
+                "name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", subTitle='" + subTitle + '\'' +
+                '}';
     }
 }

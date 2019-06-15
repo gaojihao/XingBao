@@ -9,10 +9,9 @@ public class Account extends BaseEntity {
 
     private String phone;
     private String password;
-
     private String nickName;
 
-    private String jwt;
+    private String userId;
 
     private String imgUrl;
     private Boolean vip = false;
@@ -42,14 +41,6 @@ public class Account extends BaseEntity {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
-    }
-
-    public String getJwt() {
-        return jwt;
-    }
-
-    public void setJwt(String jwt) {
-        this.jwt = jwt;
     }
 
     public String getImgUrl() {
@@ -82,6 +73,14 @@ public class Account extends BaseEntity {
 
     public void setLevel(Integer level) {
         this.level = level;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
