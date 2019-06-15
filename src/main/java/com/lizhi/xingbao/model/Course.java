@@ -69,6 +69,11 @@ public class Course extends BaseEntity{
      */
     private float grade;
 
+    /**
+     * 类型
+     */
+    private Integer type;
+
     public String getTitle() {
         return title;
     }
@@ -165,6 +170,14 @@ public class Course extends BaseEntity{
         this.grade = grade;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
@@ -180,6 +193,7 @@ public class Course extends BaseEntity{
                 ", tags=" + tags +
                 ", buyCount=" + buyCount +
                 ", grade=" + grade +
+                ", type=" + type +
                 '}';
     }
 }
