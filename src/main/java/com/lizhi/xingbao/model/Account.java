@@ -7,15 +7,44 @@ import javax.persistence.Table;
 @Table(name = "account")
 public class Account extends BaseEntity {
 
+    /**
+     * 手机号
+     */
     private String phone;
+
+    /**
+     * 密码
+     */
     private String password;
+
+    /**
+     * 昵称
+     */
     private String nickName;
 
+    /**
+     * 个人唯一标识
+     */
     private String userId;
 
+    /**
+     * 头像
+     */
     private String imgUrl;
+
+    /**
+     * 是否为vip
+     */
     private Boolean vip = false;
+
+    /**
+     * 性别
+     */
     private String sex;
+
+    /**
+     * VIP等级
+     */
     private Integer level = 0;
 
 
