@@ -6,7 +6,5 @@ import javax.persistence.*;
 @Table(name = "comment")
 public class Comment extends BaseEntity{
 
-    public Comment(){
 
-    }
 }
