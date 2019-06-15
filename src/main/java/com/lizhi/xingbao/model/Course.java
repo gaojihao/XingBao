@@ -55,11 +55,6 @@ public class Course extends BaseEntity{
     private Integer price;
 
     /**
-     * 标签
-     */
-    private List<String> tags;
-
-    /**
      * 购买人数
      */
     private Integer buyCount;
@@ -146,14 +141,6 @@ public class Course extends BaseEntity{
         this.price = price;
     }
 
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
     public Integer getBuyCount() {
         return buyCount;
     }
@@ -190,7 +177,6 @@ public class Course extends BaseEntity{
                 ", categoryName='" + categoryName + '\'' +
                 ", realPrice=" + realPrice +
                 ", price=" + price +
-                ", tags=" + tags +
                 ", buyCount=" + buyCount +
                 ", grade=" + grade +
                 ", type=" + type +

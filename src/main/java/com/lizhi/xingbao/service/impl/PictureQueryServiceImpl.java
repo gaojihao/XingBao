@@ -26,6 +26,9 @@ public class PictureQueryServiceImpl implements PictureQueryService {
     @Override
     public Picture upload(MultipartFile file){
 
+        Picture picture = new Picture();
+
+        return picture;
     }
 
     @Override
