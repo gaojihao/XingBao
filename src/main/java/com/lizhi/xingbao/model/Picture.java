@@ -7,6 +7,7 @@ import javax.persistence.Table;
 @Table(name = "picture")
 public class Picture extends BaseEntity {
 
+    private static final long serialVersionUID = -2416730922565709707L;
     private String filename;
 
     public String getFilename() {

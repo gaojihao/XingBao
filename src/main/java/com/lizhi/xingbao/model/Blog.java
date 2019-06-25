@@ -11,6 +11,8 @@ import javax.persistence.*;
 
 public class Blog extends BaseEntity{
 
+    private static final long serialVersionUID = -8386641090887103548L;
+
     @Column(nullable = false,length = 50)
     private String title;
 

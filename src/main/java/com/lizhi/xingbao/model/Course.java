@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "course")
 public class Course extends BaseEntity{
 
+    private static final long serialVersionUID = -5960960584954140332L;
     /**
      * 名称
      */

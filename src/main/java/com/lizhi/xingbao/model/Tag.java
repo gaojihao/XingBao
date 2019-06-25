@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "tag")
 public class Tag extends BaseEntity{
 
+    private static final long serialVersionUID = -4634788068753143904L;
     private String name;
 
     private String desc;

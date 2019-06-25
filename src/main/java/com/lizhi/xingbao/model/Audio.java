@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "audio")
 public class Audio extends BaseEntity{
 
+    private static final long serialVersionUID = 2875226371844957533L;
     /**
      * 标题
      */

@@ -7,6 +7,7 @@ import javax.persistence.Table;
 @Table(name = "account")
 public class Account extends BaseEntity {
 
+    private static final long serialVersionUID = 3298587435085505430L;
     /**
      * 手机号
      */

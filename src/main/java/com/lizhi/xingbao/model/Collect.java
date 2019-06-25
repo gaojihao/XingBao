@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "collect")
 public class Collect extends BaseEntity{
 
+    private static final long serialVersionUID = 2021114237133735688L;
     /**
      * 所属个人
      */
