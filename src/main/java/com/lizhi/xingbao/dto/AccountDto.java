@@ -1,7 +1,10 @@
 package com.lizhi.xingbao.dto;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class AccountDto implements Serializable {
 
     private static final long serialVersionUID = 5366396563939682455L;
