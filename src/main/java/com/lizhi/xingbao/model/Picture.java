@@ -8,7 +8,31 @@ import javax.persistence.Table;
 public class Picture extends BaseEntity {
 
     private static final long serialVersionUID = -2416730922565709707L;
+
+    /**
+     * 名称
+     */
     private String filename;
+
+    /**
+     * 尺寸
+     */
+    private String size;
+
+    /**
+     * 高
+     */
+    private Integer height;
+
+    /**
+     * 宽
+     */
+    private Integer width;
+
+    /**
+     * 链接
+     */
+    private String url;
 
     public String getFilename() {
         return filename;
@@ -26,27 +50,38 @@ public class Picture extends BaseEntity {
         this.size = size;
     }
 
-    public String getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
-    public String getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
-    public void setWidth(String width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 
-    private String size;
+    public String getUrl() {
+        return url;
+    }
 
-    private String height;
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-    private String width;
-
-
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "filename='" + filename + '\'' +
+                ", size='" + size + '\'' +
+                ", height=" + height +
+                ", width=" + width +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }
