@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "blog")
-@EntityListeners(AuditingEntityListener.class)
-
 public class Blog extends BaseEntity{
 
     private static final long serialVersionUID = -8386641090887103548L;
@@ -23,6 +21,8 @@ public class Blog extends BaseEntity{
     private String url;
 
     private Integer readNum = 0;
+
+    private String content;
 
 
     public String getTitle() {
@@ -57,9 +57,22 @@ public class Blog extends BaseEntity{
         this.readNum = readNum;
     }
 
-    public Blog(String title, String summary, String url) {
-        this.title = title;
-        this.summary = summary;
-        this.url = url;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                ", url='" + url + '\'' +
+                ", readNum=" + readNum +
+                ", content='" + content + '\'' +
+                '}';
     }
 }
