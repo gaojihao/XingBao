@@ -31,4 +31,10 @@ public class PictureController extends BaseController {
     public Result upload(@RequestParam MultipartFile file) {
         return  Result.success(pictureQueryService.upload(file));
     }
+
+
+    @GetMapping(value = "/pictures/{id}")
+    public Result delete(@PathVariable Integer id){
+        return Result.success(null);
+    }
 }
