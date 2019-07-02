@@ -22,4 +22,10 @@ public interface PictureQueryService {
      * @return
      */
     List<Picture> queryAll(Picture picture, Pageable pageable);
+
+    /**
+     * 删除图片
+     * @param id
+     */
+    void delete(Integer id);
 }

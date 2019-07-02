@@ -3,6 +3,7 @@ package com.lizhi.xingbao.service.impl;
 import com.lizhi.xingbao.model.Picture;
 import com.lizhi.xingbao.respository.PictureRepository;
 import com.lizhi.xingbao.service.PictureQueryService;
+import com.lizhi.xingbao.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import javax.persistence.criteria.Root;
 import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service("PictureQueryService")
 public class PictureQueryServiceImpl implements PictureQueryService {
@@ -29,6 +31,19 @@ public class PictureQueryServiceImpl implements PictureQueryService {
         Picture picture = new Picture();
 
         return picture;
+    }
+
+    @Override
+    public void delete(Integer id){
+        Optional<Picture> picture = pictureRepository.findById(id);
+
+        ValidationUtil.isNull(picture,"Picture", "id", id);
+
+        Picture pic =  picture.get();
+
+        pic.setDelete_flag(true);
+
+        pictureRepository.save(pic);
     }
 
     @Override
