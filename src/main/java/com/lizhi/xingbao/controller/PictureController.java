@@ -45,6 +45,7 @@ public class PictureController extends BaseController {
      */
     @GetMapping(value = "/pictures/{id}")
     public Result delete(@PathVariable Integer id){
+        pictureQueryService.delete(id);
         return Result.success(null);
     }
 }
