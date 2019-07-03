@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service("UserService")
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -19,7 +21,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean isUserExist(String phone){
 
-        return true;
+        Account account = userRespository.findAccountsByPhoneEquals(phone);
+
+        return account == null? false:true;
     }
 
     @Override
@@ -27,7 +31,6 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
-
 
     @Override
     public AccountDto updateHeadImg(Integer id, String url) {
