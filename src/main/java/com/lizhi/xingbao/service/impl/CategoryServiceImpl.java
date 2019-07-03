@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.dao.CourseCategoryDao;
+import com.lizhi.xingbao.respository.CourseCategoryRespository;
 import com.lizhi.xingbao.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,5 +12,5 @@ public class CategoryServiceImpl implements CategoryService {
     private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     @Autowired
-    private CourseCategoryDao courseCategoryDao;
+    private CourseCategoryRespository courseCategoryRespository;
 }

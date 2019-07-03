@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.dao.TagDao;
+import com.lizhi.xingbao.respository.TagRespository;
 import com.lizhi.xingbao.service.TagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,5 +12,5 @@ public class TagServiceImpl implements TagService {
     private static final Logger logger = LoggerFactory.getLogger(TagServiceImpl.class);
 
     @Autowired
-    private TagDao tagDao;
+    private TagRespository tagRespository;
 }

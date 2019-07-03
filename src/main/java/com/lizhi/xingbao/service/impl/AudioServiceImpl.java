@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.dao.AudioDao;
+import com.lizhi.xingbao.respository.AudioRespository;
 import com.lizhi.xingbao.service.AudioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,5 +12,5 @@ public class AudioServiceImpl implements AudioService {
     private static final Logger logger = LoggerFactory.getLogger(AudioServiceImpl.class);
 
     @Autowired
-    private AudioDao audioDao;
+    private AudioRespository respository;
 }

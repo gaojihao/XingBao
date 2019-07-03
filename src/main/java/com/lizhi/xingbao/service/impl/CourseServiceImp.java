@@ -1,8 +1,8 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.dao.CourseDao;
 import com.lizhi.xingbao.dto.CourseDto;
 import com.lizhi.xingbao.entity.Course;
+import com.lizhi.xingbao.respository.CourseRespository;
 import com.lizhi.xingbao.service.CourseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class CourseServiceImp implements CourseService {
     private static final Logger logger = LoggerFactory.getLogger(CourseServiceImp.class);
 
     @Autowired
-    private CourseDao courseDao;
+    private CourseRespository courseRespository;
 
     @Override
     public List<CourseDto> queryAll(Course course, Pageable pageable) {

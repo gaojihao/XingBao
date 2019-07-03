@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.dao.CommentDao;
+import com.lizhi.xingbao.respository.CommentRespository;
 import com.lizhi.xingbao.service.CommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,5 +12,5 @@ public class CommentServiceImpl implements CommentService {
     private static final Logger logger = LoggerFactory.getLogger(CommentServiceImpl.class);
 
     @Autowired
-    private CommentDao commentDao;
+    private CommentRespository commentRespository;
 }

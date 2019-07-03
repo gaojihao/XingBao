@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.dao.VideoDao;
+import com.lizhi.xingbao.respository.VideoRespository;
 import com.lizhi.xingbao.service.VideoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,6 @@ public class VideoServiceImpl implements VideoService {
     private static final Logger logger = LoggerFactory.getLogger(VideoServiceImpl.class);
 
     @Autowired
-    private VideoDao videoDao;
+    private VideoRespository videoRespository;
 
 }
