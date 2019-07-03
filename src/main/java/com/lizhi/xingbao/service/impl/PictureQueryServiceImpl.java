@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.model.Picture;
+import com.lizhi.xingbao.entity.Picture;
 import com.lizhi.xingbao.respository.PictureRepository;
 import com.lizhi.xingbao.service.PictureQueryService;
 import com.lizhi.xingbao.utils.ValidationUtil;

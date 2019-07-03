@@ -1,6 +1,5 @@
-package com.lizhi.xingbao.model;
+package com.lizhi.xingbao.entity;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 
 

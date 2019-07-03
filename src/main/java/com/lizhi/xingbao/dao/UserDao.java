@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.dao;
 
-import com.lizhi.xingbao.model.Account;
+import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.respository.UserRespository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

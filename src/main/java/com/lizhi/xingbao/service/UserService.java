@@ -1,7 +1,7 @@
 package com.lizhi.xingbao.service;
 
 
-import com.lizhi.xingbao.model.Account;
+import com.lizhi.xingbao.entity.Account;
 
 public interface UserService {
 

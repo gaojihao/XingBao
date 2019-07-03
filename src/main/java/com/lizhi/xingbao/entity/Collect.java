@@ -1,12 +1,12 @@
-package com.lizhi.xingbao.model;
+package com.lizhi.xingbao.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "star")
-public class Stared extends BaseEntity{
+@Table(name = "collect")
+public class Collect extends BaseEntity{
 
-    private static final long serialVersionUID = -5917699228674048265L;
+    private static final long serialVersionUID = 2021114237133735688L;
     /**
      * 所属个人
      */
@@ -35,7 +35,7 @@ public class Stared extends BaseEntity{
 
     @Override
     public String toString() {
-        return "Stared{" +
+        return "Collect{" +
                 "userId='" + userId + '\'' +
                 ", course=" + course +
                 '}';

@@ -1,7 +1,7 @@
 package com.lizhi.xingbao.service.impl;
 
 import com.lizhi.xingbao.dao.UserDao;
-import com.lizhi.xingbao.model.Account;
+import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
 package com.lizhi.xingbao.service;
 
 
-import com.lizhi.xingbao.model.Course;
+import com.lizhi.xingbao.entity.Course;
 
 import java.awt.print.Pageable;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service;
 
-import com.lizhi.xingbao.model.Picture;
+import com.lizhi.xingbao.entity.Picture;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.print.Pageable;

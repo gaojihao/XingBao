@@ -1,7 +1,6 @@
 package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
-import com.lizhi.xingbao.model.Blog;
 import com.lizhi.xingbao.respository.BlogRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

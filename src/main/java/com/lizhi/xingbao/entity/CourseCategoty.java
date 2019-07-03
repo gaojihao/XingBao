@@ -1,6 +1,4 @@
-package com.lizhi.xingbao.model;
-
-import org.springframework.format.annotation.DateTimeFormat;
+package com.lizhi.xingbao.entity;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.lizhi.xingbao.model;
+package com.lizhi.xingbao.entity;
 
 import javax.persistence.*;
 
