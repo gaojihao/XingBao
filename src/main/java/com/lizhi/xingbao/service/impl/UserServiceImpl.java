@@ -9,8 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service("UserService")
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -33,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AccountDto updateHeadImg(Integer id, String url) {
+    public AccountDto updateHeadImg(String userId, String url) {
         return null;
     }
 
@@ -43,17 +41,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AccountDto modifyPwd(Integer id, String currentPwd, String password) {
+    public AccountDto modifyPwd(String userId, String currentPwd, String password) {
         return null;
     }
 
     @Override
-    public AccountDto modifyNickName(Integer id, String nickName) {
+    public AccountDto modifyNickName(String userId, String nickName) {
         return null;
     }
 
     @Override
-    public AccountDto modifyPhone(Integer id, String phone) {
+    public AccountDto modifyPhone(String userId, String phone) {
         return null;
     }
 }

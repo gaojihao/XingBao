@@ -2,7 +2,6 @@ package com.lizhi.xingbao.service;
 
 
 import com.lizhi.xingbao.dto.AccountDto;
-import com.lizhi.xingbao.entity.Account;
 
 public interface UserService {
 
@@ -23,11 +22,11 @@ public interface UserService {
 
     /**
      * 更新用户头像
-     * @param id
+     * @param userId
      * @param url
      * @return
      */
-    AccountDto updateHeadImg(Integer id, String url);
+    AccountDto updateHeadImg(String userId, String url);
 
     /**
      * 用户登录
@@ -39,27 +38,27 @@ public interface UserService {
 
     /**
      * 修改用户密码
-     * @param id userId
+     * @param userId
      * @param currentPwd 当前密码
      * @param password 新密码
      * @return
      */
-    AccountDto modifyPwd(Integer id, String currentPwd, String password);
+    AccountDto modifyPwd(String userId, String currentPwd, String password);
 
     /**
      * 修改昵称
-     * @param id userId
+     * @param userId
      * @param nickName 用户昵称
      * @return
      */
-    AccountDto modifyNickName(Integer id, String nickName);
+    AccountDto modifyNickName(String userId, String nickName);
 
 
     /**
      * 修改手机号
-     * @param id userId
+     * @param userId
      * @param phone 手机号码
      * @return
      */
-    AccountDto modifyPhone(Integer id, String phone);
+    AccountDto modifyPhone(String userId, String phone);
 }
