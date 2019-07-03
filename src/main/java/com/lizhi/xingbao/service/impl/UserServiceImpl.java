@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.respository.UserRespository;
 import com.lizhi.xingbao.service.UserService;
@@ -22,34 +23,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Account createAccount(String phone, String password) {
+    public AccountDto createAccount(String phone, String password) {
 
         return null;
     }
 
 
     @Override
-    public Account updateHeadImg(Integer id, String url) {
+    public AccountDto updateHeadImg(Integer id, String url) {
         return null;
     }
 
     @Override
-    public Account userLogin(String phone, String password) {
+    public AccountDto userLogin(String phone, String password) {
         return null;
     }
 
     @Override
-    public Account modifyPwd(Integer id, String currentPwd, String password) {
+    public AccountDto modifyPwd(Integer id, String currentPwd, String password) {
         return null;
     }
 
     @Override
-    public Account modifyNickName(Integer id, String nickName) {
+    public AccountDto modifyNickName(Integer id, String nickName) {
         return null;
     }
 
     @Override
-    public Account modifyPhone(Integer id, String phone) {
+    public AccountDto modifyPhone(Integer id, String phone) {
         return null;
     }
 }

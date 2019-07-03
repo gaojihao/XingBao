@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.service;
 
 
+import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 
 public interface UserService {
@@ -18,7 +19,7 @@ public interface UserService {
      * @param password
      * @return
      */
-    Account createAccount(String phone, String password);
+    AccountDto createAccount(String phone, String password);
 
     /**
      * 更新用户头像
@@ -26,7 +27,7 @@ public interface UserService {
      * @param url
      * @return
      */
-    Account updateHeadImg(Integer id, String url);
+    AccountDto updateHeadImg(Integer id, String url);
 
     /**
      * 用户登录
@@ -34,7 +35,7 @@ public interface UserService {
      * @param password
      * @return
      */
-    Account userLogin(String phone, String password);
+    AccountDto userLogin(String phone, String password);
 
     /**
      * 修改用户密码
@@ -43,7 +44,7 @@ public interface UserService {
      * @param password 新密码
      * @return
      */
-    Account modifyPwd(Integer id, String currentPwd, String password);
+    AccountDto modifyPwd(Integer id, String currentPwd, String password);
 
     /**
      * 修改昵称
@@ -51,7 +52,7 @@ public interface UserService {
      * @param nickName 用户昵称
      * @return
      */
-    Account modifyNickName(Integer id, String nickName);
+    AccountDto modifyNickName(Integer id, String nickName);
 
 
     /**
@@ -60,5 +61,5 @@ public interface UserService {
      * @param phone 手机号码
      * @return
      */
-    Account modifyPhone(Integer id, String phone);
+    AccountDto modifyPhone(Integer id, String phone);
 }
