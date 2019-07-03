@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean isUserExist(String phone){
 
-        Account account = userRespository.findAccountsByPhoneEquals(phone);
+        Account account = userRespository.findAccountByPhoneEquals(phone);
 
         return account == null? false:true;
     }
@@ -53,5 +53,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public AccountDto modifyPhone(String userId, String phone) {
         return null;
+    }
+
+    private Account findUserByUserId(String userId) {
+        return userRespository.findAccountByUserIdEquals(userId);
     }
 }

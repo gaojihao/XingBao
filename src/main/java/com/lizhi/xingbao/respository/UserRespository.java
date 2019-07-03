@@ -11,8 +11,11 @@ public interface UserRespository extends JpaRepository<Account,Integer> {
      * @param phone 用户手机号
      * @return 存在true 不存在false
      */
-    Account findAccountsByPhoneEquals(String phone);
+    Account findAccountByPhoneEquals(String phone);
 
     Account findAccountByPhoneEqualsAndPasswordEquals(String phone,String password);
+
+
+    Account findAccountByUserIdEquals(String userId);
 
 }
