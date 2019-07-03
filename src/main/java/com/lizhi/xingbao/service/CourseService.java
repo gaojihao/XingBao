@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.service;
 
 
+import com.lizhi.xingbao.dto.CourseDto;
 import com.lizhi.xingbao.entity.Course;
 
 import java.awt.print.Pageable;
@@ -8,12 +9,10 @@ import java.util.List;
 
 public interface CourseService {
 
-    List<Course> queryAll(Course course, Pageable pageable);
+    List<CourseDto> queryAll(Course course, Pageable pageable);
 
-    Course findOne(Integer id);
+    CourseDto findOne(Integer id);
 
-    Course add(Course course);
-
-
+    CourseDto add(Course course);
 
 }
