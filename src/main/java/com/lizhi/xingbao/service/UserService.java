@@ -2,6 +2,7 @@ package com.lizhi.xingbao.service;
 
 
 import com.lizhi.xingbao.dto.AccountDto;
+import com.lizhi.xingbao.entity.Account;
 
 public interface UserService {
 
@@ -14,11 +15,10 @@ public interface UserService {
 
     /**
      * 创建用户
-     * @param phone
-     * @param password
+     * @param resources
      * @return
      */
-    AccountDto createAccount(String phone, String password);
+    AccountDto createAccount(Account resources);
 
     /**
      * 更新用户头像

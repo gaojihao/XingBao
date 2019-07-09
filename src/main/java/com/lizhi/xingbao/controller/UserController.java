@@ -1,8 +1,11 @@
 package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
+import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,13 +17,13 @@ public class UserController extends BaseController {
     private UserService userService;
 
     @RequestMapping("/register")
-    public Result register(String phone, String password){
+    public Result register(@Validated @RequestBody Account resources){
 
-        boolean exist = userService.isUserExist(phone);
+        boolean exist = userService.isUserExist(resources.getPhone());
         if (exist){
             return Result.fail("用户已存在");
         }
-        return Result.success(userService.createAccount(phone, password));
+        return Result.success(userService.createAccount(resources));
     }
 
     /**

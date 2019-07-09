@@ -13,7 +13,7 @@ public interface UserRespository extends JpaRepository<Account,Integer> {
      */
     Account findAccountByPhoneEquals(String phone);
 
-    Account findAccountByPhoneEqualsAndPasswordEquals(String phone,String password);
+    Account findByUsername(String username);
 
 
     Account findAccountByUserIdEquals(String userId);
