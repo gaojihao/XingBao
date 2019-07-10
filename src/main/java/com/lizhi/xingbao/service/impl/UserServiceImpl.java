@@ -1,6 +1,5 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.common.Exception.ServerException;
 import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.respository.UserRespository;
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public AccountDto createAccount(Account resources) {
 
-        if (userRespository.findByUsername(resources.getPhone()) != null){
+        if (userRespository.findAccountByPhoneEquals(resources.getPhone()) != null){
             return  null;
         }
 
