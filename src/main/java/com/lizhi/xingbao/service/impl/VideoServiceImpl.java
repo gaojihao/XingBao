@@ -1,5 +1,7 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.dto.VideoDto;
+import com.lizhi.xingbao.entity.Video;
 import com.lizhi.xingbao.respository.VideoRespository;
 import com.lizhi.xingbao.service.VideoService;
 import org.slf4j.Logger;
@@ -13,5 +15,20 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private VideoRespository videoRespository;
+
+    @Override
+    public VideoDto findOne(Integer Id) {
+        return null;
+    }
+
+    @Override
+    public void saveVideo(Video video) {
+
+    }
+
+    @Override
+    public void editVideo(Video video) {
+
+    }
 
 }
