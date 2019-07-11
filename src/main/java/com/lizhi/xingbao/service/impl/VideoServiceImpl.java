@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("VideoService")
 public class VideoServiceImpl implements VideoService {
     private static final Logger logger = LoggerFactory.getLogger(VideoServiceImpl.class);
@@ -29,6 +31,11 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public void editVideo(Video video) {
 
+    }
+
+    @Override
+    public List<VideoDto> queryByCourse(Integer course) {
+        return null;
     }
 
 }
