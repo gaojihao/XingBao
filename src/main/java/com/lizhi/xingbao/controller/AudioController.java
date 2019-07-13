@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AudioController extends BaseController{
 
     @Autowired
-    AudioService service;
+    private AudioService service;
 
     @PostMapping("/add")
     public void add(@RequestBody Audio audio) {
