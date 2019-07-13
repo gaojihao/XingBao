@@ -2,21 +2,19 @@ package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.entity.Audio;
-import com.lizhi.xingbao.respository.AudioRespository;
+import com.lizhi.xingbao.service.AudioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.print.Pageable;
-
 @RestController
 @RequestMapping("xingbao/api/v1/audio")
 public class AudioController extends BaseController{
 
     @Autowired
-    AudioRespository respository;
+    AudioService service;
 
     @PostMapping("/add")
     public void add(@RequestBody Audio audio) {
@@ -24,7 +22,7 @@ public class AudioController extends BaseController{
     }
 
     @PostMapping("/edit")
-    public Result edit(@RequestBody Audio audio){
+    public void edit(@RequestBody Audio audio){
         Result.success(null);
     }
 
@@ -39,9 +37,8 @@ public class AudioController extends BaseController{
     }
 
     @PostMapping("/list")
-    public Result query( Audio audio, @RequestBody Pageable pageable) {
+    public Result query(@RequestBody Integer course) {
         return Result.success(null);
     }
-
 
 }
