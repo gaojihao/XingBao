@@ -29,7 +29,7 @@ public class AudioServiceImpl implements AudioService {
 
 
     @Override
-    public AudioDto audioDetial(Integer Id){
+    public AudioDto audioDetail(Integer Id){
         return null;
     }
 

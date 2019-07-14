@@ -23,7 +23,7 @@ public interface AudioService {
      * @param Id 音频id
      * @return
      */
-    AudioDto audioDetial(Integer Id);
+    AudioDto audioDetail(Integer Id);
 
     /**
      * 删除音频
