@@ -55,7 +55,23 @@ public class AudioServiceImpl implements AudioService {
 
     @Override
     public AudioDto audioDetail(Integer Id){
-        return null;
+        Optional<Audio> optional = respository.findById(Id);
+
+        if (!optional.isPresent()){
+            return null;
+        }
+
+        Audio audio = optional.get();
+
+        AudioDto audioDto = new AudioDto();
+        audioDto.setCourse(audio.getCourse());
+        audioDto.setDuration(audio.getDuration());
+        audioDto.setTitle(audio.getTitle());
+        audioDto.setUrl(audio.getUrl());
+        audioDto.setAduioId(audio.getId());
+
+        return audioDto;
+
     }
 
 
