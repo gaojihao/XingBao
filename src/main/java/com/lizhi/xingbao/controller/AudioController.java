@@ -1,7 +1,7 @@
 package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
-import com.lizhi.xingbao.entity.Audio;
+import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.service.AudioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +17,12 @@ public class AudioController extends BaseController{
     private AudioService service;
 
     @PostMapping("/add")
-    public void add(@RequestBody Audio audio) {
+    public void add(@RequestBody AudioDto audio) {
         Result.success(null);
     }
 
     @PostMapping("/edit")
-    public void edit(@RequestBody Audio audio){
+    public void edit(@RequestBody AudioDto dto){
         Result.success(null);
     }
 
