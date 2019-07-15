@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.common.Exception.GlobalException;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.entity.Audio;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,12 +79,24 @@ public class AudioServiceImpl implements AudioService {
 
     @Override
     public void deleteAudio(Integer Id) {
-
+        respository.deleteById(Id);
     }
 
 
     @Override
     public List<AudioDto> getAudioList(Integer courseId){
-        return null;
+        List<AudioDto> list = new ArrayList<>();
+        List<Audio> audioList = respository.findAllByCourse(courseId);
+
+        for (Audio audio : audioList){
+            AudioDto audioDto = new AudioDto();
+            audioDto.setCourse(audio.getCourse());
+            audioDto.setDuration(audio.getDuration());
+            audioDto.setTitle(audio.getTitle());
+            audioDto.setUrl(audio.getUrl());
+            audioDto.setAduioId(audio.getId());
+            list.add(audioDto);
+        }
+        return list;
     }
 }
