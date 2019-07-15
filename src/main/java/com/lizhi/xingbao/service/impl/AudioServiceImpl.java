@@ -1,6 +1,5 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.common.Exception.GlobalException;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.entity.Audio;

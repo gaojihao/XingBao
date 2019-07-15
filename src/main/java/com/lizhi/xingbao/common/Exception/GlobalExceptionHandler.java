@@ -26,4 +26,24 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
+    @ExceptionHandler(ParamException.class)
+    public ResponseEntity<Result> handleParamException(HttpServletRequest request,ParamException e){
+        logger.error(e.getMessage(), e);
+        return ResponseEntity.ok(new Result(e.getCode(), e.getMessage()));
+    }
+
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<Result> handleBadRequestException(HttpServletRequest request,BadRequestException e){
+        logger.error(e.getMessage(), e);
+        return ResponseEntity.ok(new Result(e.getStatus(), e.getMessage()));
+    }
+
+    @ExceptionHandler(ServerException.class)
+    public ResponseEntity<Result> handleServerException(HttpServletRequest request,ServerException e){
+        logger.error(e.getMessage(), e);
+        return ResponseEntity.ok(new Result(e.getCode(), e.getMessage()));
+    }
+
+
 }
