@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.common.Exception.BadRequestException;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.entity.Audio;
@@ -24,6 +25,7 @@ public class AudioServiceImpl implements AudioService {
     @Override
     public void createAudio(AudioDto dto){
         if (respository.findByUrl(dto.getUrl()) != null){
+            throw new ParamException("url 已存在");
         }
 
         Audio audio = new Audio();
@@ -40,6 +42,7 @@ public class AudioServiceImpl implements AudioService {
         Optional<Audio> optional = respository.findById(dto.getAduioId());
 
         if (!optional.isPresent()){
+            throw new ParamException("目标不存在");
         }
 
         Audio audio = optional.get();
@@ -59,7 +62,7 @@ public class AudioServiceImpl implements AudioService {
         Optional<Audio> optional = respository.findById(Id);
 
         if (!optional.isPresent()){
-            return null;
+            throw new ParamException("目标不存在");
         }
 
         Audio audio = optional.get();

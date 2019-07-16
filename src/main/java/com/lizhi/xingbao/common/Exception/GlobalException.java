@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.common.Exception;
 
-public class GlobalException extends Exception {
+public class GlobalException extends RuntimeException {
 
     private static final long serialVersionUID = -5701182284190108797L;
 
