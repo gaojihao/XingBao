@@ -8,11 +8,35 @@ import java.util.List;
 
 public interface VideoService {
 
-    VideoDto findOne(Integer Id);
+    /**
+     * 创建视频
+     * @param dto
+     */
+    void createVideo(VideoDto dto);
 
-    void saveVideo(Video video);
+    /**
+     * 修改视频
+     * @param dto
+     */
+    void editVideo(VideoDto dto);
 
-    void editVideo(Video video);
+    /**
+     * 视频详情
+     * @param Id
+     * @return
+     */
+    VideoDto videoDetail(Integer Id);
 
-    List<VideoDto> queryByCourse(Integer course);
+    /**
+     * 获取课程下的视频列表
+     * @param course Id
+     * @return
+     */
+    List<VideoDto> getVideoList(Integer course);
+
+    /**
+     * 删除视频
+     * @param Id
+     */
+    void deleteVideo(Integer Id);
 }
