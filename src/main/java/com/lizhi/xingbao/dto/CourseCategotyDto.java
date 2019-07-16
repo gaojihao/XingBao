@@ -22,4 +22,6 @@ public class CourseCategotyDto implements Serializable {
      * 子标题
      */
     private String subTitle;
+
+    private Integer categoryId;
 }

@@ -9,10 +9,6 @@ public class CourseCategoty extends BaseEntity{
 
     private static final long serialVersionUID = 853305089047159145L;
 
-    public CourseCategoty(String name) {
-        this.name = name;
-    }
-
     private String name;
 
     private String desc;
