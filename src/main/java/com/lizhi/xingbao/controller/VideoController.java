@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
+import com.lizhi.xingbao.dto.VideoDto;
 import com.lizhi.xingbao.entity.Video;
 import com.lizhi.xingbao.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,27 +17,30 @@ public class VideoController extends BaseController{
     VideoService videoService;
 
     @PostMapping("/add")
-    public void add(@RequestBody Video video) {
+    public void add(@RequestBody VideoDto dto) {
+        videoService.createVideo(dto);
         Result.success(null);
     }
 
     @PostMapping("/edit")
-    public void edit(@RequestBody Video video){
+    public void edit(@RequestBody VideoDto dto){
+        videoService.editVideo(dto);
         Result.success(null);
     }
 
     @PostMapping("/detail")
     public Result detail(@RequestBody Integer id){
-        return Result.success(null);
+        return Result.success(videoService.videoDetail(id));
     }
 
     @PostMapping("/delete")
     public void delete(@RequestBody Integer id){
+        videoService.deleteVideo(id);
         Result.success(null);
     }
 
     @PostMapping("/list")
     public Result query(@RequestBody Integer course) {
-        return Result.success(null);
+        return Result.success(videoService.getVideoList(course));
     }
 }
