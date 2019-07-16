@@ -16,26 +16,30 @@ public class TagController extends BaseController{
 
     @RequestMapping("add")
     public void add(@RequestBody TagDto dto){
+        tagService.createTag(dto);
         Result.success(null);
     }
 
     @RequestMapping("delete")
     public void delete(@RequestBody Integer Id){
+        tagService.deleteTag(Id);
         Result.success(null);
     }
 
     @RequestMapping("edit")
     public Result edit(@RequestBody TagDto dto){
+        tagService.editTag(dto);
         return Result.success(null);
     }
 
     @RequestMapping("detail")
     public Result detail(@RequestBody Integer Id){
-        return Result.success(null);
+
+        return Result.success(tagService.tagDetail(Id));
     }
 
     @RequestMapping("list")
     public Result list(){
-        return Result.success(null);
+        return Result.success(tagService.getAllTags());
     }
 }
