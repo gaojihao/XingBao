@@ -5,4 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface BlogRespository extends JpaRepository<Blog,Integer>{
+
+    Blog findByUrl(String url);
+
+
 }
