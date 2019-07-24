@@ -1,6 +1,8 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.BlogDto;
+import com.lizhi.xingbao.entity.Blog;
 import com.lizhi.xingbao.respository.BlogRespository;
 import com.lizhi.xingbao.service.BlogService;
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("BlogService")
 public class BlogServiceImpl implements BlogService {
@@ -20,22 +23,55 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public void createBlog(BlogDto dto) {
+        if (blogRespository.findByUrl(dto.getUrl()) != null){
+            throw new ParamException("url 已存在");
+        }
+
+        Blog blog = new Blog();
+        blog.setContent(dto.getContent());
+        blog.setReadNum(0);
+        blog.setSummary(dto.getSummary());
+        blog.setTitle(dto.getTitle());
+
+        blogRespository.save(blog);
 
     }
 
     @Override
     public void editBlog(BlogDto dto){
+        Blog blog = blogRespository.findByUrl(dto.getUrl());
 
+        blog.setContent(dto.getContent());
+        blog.setReadNum(dto.getReadNum());
+        blog.setSummary(dto.getSummary());
+        blog.setTitle(dto.getTitle());
+
+        blogRespository.save(blog);
     }
 
     @Override
     public BlogDto blogDetail(Integer Id){
+        Optional<Blog> optional = blogRespository.findById(Id);
 
+        if (!optional.isPresent()){
+            throw new ParamException("目标不存在");
+        }
+
+        Blog blog = optional.get();
+
+        BlogDto dto = new BlogDto();
+        dto.setBlogId(blog.getId());
+        dto.setContent(blog.getContent());
+        dto.setReadNum(blog.getReadNum());
+        dto.setSummary(blog.getSummary());
+        dto.setTitle(blog.getTitle());
+        dto.setUrl(blog.getUrl());
+        return dto;
     }
 
     @Override
     public void deleteBlog(Integer Id){
-
+        blogRespository.deleteById(Id);
     }
 
     @Override
