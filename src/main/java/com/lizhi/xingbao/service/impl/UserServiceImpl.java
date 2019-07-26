@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.respository.UserRespository;
@@ -35,12 +36,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AccountDto updateHeadImg(String userId, String url) {
-        return null;
+    public void updateHeadImg(String userId, String url) {
+        Account account = userRespository.findAccountByUserIdEquals(userId);
+        if (account == null){
+            throw new ParamException("未找到该用户");
+        }
+
+        account.setImgUrl(url);
+        userRespository.save(account);
     }
 
     @Override
     public AccountDto userLogin(String phone, String password) {
+
         return null;
     }
 
@@ -50,16 +58,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AccountDto modifyNickName(String userId, String nickName) {
-        return null;
+    public void modifyNickName(String userId, String nickName) {
+
+        Account account = userRespository.findAccountByUserIdEquals(userId);
+        if (account == null){
+            throw new ParamException("未找到该用户");
+        }
+
+        account.setNickName(nickName);
+        userRespository.save(account);
     }
 
     @Override
-    public AccountDto modifyPhone(String userId, String phone) {
-        return null;
+    public void modifyPhone(String userId, String phone) {
+        Account account = userRespository.findAccountByUserIdEquals(userId);
+        if (account == null){
+            throw new ParamException("未找到该用户");
+        }
+
+        account.setPhone(phone);
+        userRespository.save(account);
     }
 
     private Account findUserByUserId(String userId) {
+
         return userRespository.findAccountByUserIdEquals(userId);
     }
 }

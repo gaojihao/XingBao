@@ -26,7 +26,7 @@ public interface UserService {
      * @param url
      * @return
      */
-    AccountDto updateHeadImg(String userId, String url);
+    void updateHeadImg(String userId, String url);
 
     /**
      * 用户登录
@@ -51,7 +51,7 @@ public interface UserService {
      * @param nickName 用户昵称
      * @return
      */
-    AccountDto modifyNickName(String userId, String nickName);
+    void modifyNickName(String userId, String nickName);
 
 
     /**
@@ -60,5 +60,5 @@ public interface UserService {
      * @param phone 手机号码
      * @return
      */
-    AccountDto modifyPhone(String userId, String phone);
+    void modifyPhone(String userId, String phone);
 }
