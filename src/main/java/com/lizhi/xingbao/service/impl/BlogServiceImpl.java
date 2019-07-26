@@ -59,14 +59,7 @@ public class BlogServiceImpl implements BlogService {
         }
 
         Blog blog = optional.get();
-
-        BlogDto dto = new BlogDto();
-        dto.setBlogId(blog.getId());
-        dto.setContent(blog.getContent());
-        dto.setReadNum(blog.getReadNum());
-        dto.setSummary(blog.getSummary());
-        dto.setTitle(blog.getTitle());
-        dto.setUrl(blog.getUrl());
+        BlogDto dto = toDto(blog);
         return dto;
     }
 
@@ -81,18 +74,22 @@ public class BlogServiceImpl implements BlogService {
         List<BlogDto> dtoList = new ArrayList<>();
 
         for (Blog blog : list){
-            BlogDto dto = new BlogDto();
-            dto.setUrl(blog.getUrl());
-            dto.setTitle(blog.getTitle());
-            dto.setSummary(blog.getSummary());
-            dto.setReadNum(blog.getReadNum());
-            dto.setContent(blog.getContent());
-            dto.setBlogId(blog.getId());
-
+            BlogDto dto = toDto(blog);
             dtoList.add(dto);
         }
 
         return dtoList;
+    }
+
+    BlogDto toDto(Blog blog){
+        BlogDto dto = new BlogDto();
+        dto.setUrl(blog.getUrl());
+        dto.setTitle(blog.getTitle());
+        dto.setSummary(blog.getSummary());
+        dto.setReadNum(blog.getReadNum());
+        dto.setContent(blog.getContent());
+        dto.setBlogId(blog.getId());
+        return dto;
     }
 
     @Override
@@ -101,14 +98,7 @@ public class BlogServiceImpl implements BlogService {
         List<BlogDto> dtoList = new ArrayList<>();
 
         for (Blog blog : list){
-            BlogDto dto = new BlogDto();
-            dto.setUrl(blog.getUrl());
-            dto.setTitle(blog.getTitle());
-            dto.setSummary(blog.getSummary());
-            dto.setReadNum(blog.getReadNum());
-            dto.setContent(blog.getContent());
-            dto.setBlogId(blog.getId());
-
+            BlogDto dto = toDto(blog);
             dtoList.add(dto);
         }
 
