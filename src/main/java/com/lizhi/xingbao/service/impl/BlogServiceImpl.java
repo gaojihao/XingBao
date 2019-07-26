@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,11 +77,41 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<BlogDto> getAllBlog(){
+        List<Blog> list = blogRespository.findAll();
+        List<BlogDto> dtoList = new ArrayList<>();
 
+        for (Blog blog : list){
+            BlogDto dto = new BlogDto();
+            dto.setUrl(blog.getUrl());
+            dto.setTitle(blog.getTitle());
+            dto.setSummary(blog.getSummary());
+            dto.setReadNum(blog.getReadNum());
+            dto.setContent(blog.getContent());
+            dto.setBlogId(blog.getId());
+
+            dtoList.add(dto);
+        }
+
+        return dtoList;
     }
 
     @Override
     public List<BlogDto> queryBlog(Pageable pageable){
+        List<Blog> list = blogRespository.findAll(pageable).getContent();
+        List<BlogDto> dtoList = new ArrayList<>();
 
+        for (Blog blog : list){
+            BlogDto dto = new BlogDto();
+            dto.setUrl(blog.getUrl());
+            dto.setTitle(blog.getTitle());
+            dto.setSummary(blog.getSummary());
+            dto.setReadNum(blog.getReadNum());
+            dto.setContent(blog.getContent());
+            dto.setBlogId(blog.getId());
+
+            dtoList.add(dto);
+        }
+
+        return dtoList;
     }
 }
