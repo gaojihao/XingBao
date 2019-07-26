@@ -21,32 +21,31 @@ public class BlogController extends BaseController{
 
     @RequestMapping("/create")
     public void createBlog(@RequestBody BlogDto blogDto){
-
+        blogService.createBlog(blogDto);
         Result.success(null);
     }
 
     @RequestMapping("/delete")
     public void delete(@RequestBody Integer Id){
-
+        blogService.deleteBlog(Id);
         Result.success(null);
     }
 
     @RequestMapping("/edit")
     public void edit(@RequestBody BlogDto blogDto){
-
+        blogService.editBlog(blogDto);
         Result.success(null);
     }
 
     @RequestMapping("/detail")
     public Result detail(@RequestBody Integer Id){
-
-        return Result.success(null);
+        return Result.success(blogService.blogDetail(Id));
     }
 
     @RequestMapping("/list")
     public Result list( BlogDto blogDto,@RequestBody Pageable pageable){
 
-        return Result.success(null);
+        return Result.success(blogService.queryBlog(pageable));
     }
 
 
