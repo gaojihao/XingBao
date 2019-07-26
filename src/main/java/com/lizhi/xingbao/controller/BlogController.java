@@ -2,14 +2,12 @@ package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.dto.BlogDto;
-import com.lizhi.xingbao.respository.BlogRespository;
 import com.lizhi.xingbao.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.awt.print.Pageable;
 
 
 @RestController
@@ -43,7 +41,7 @@ public class BlogController extends BaseController{
     }
 
     @RequestMapping("/list")
-    public Result list( BlogDto blogDto,@RequestBody Pageable pageable){
+    public Result list(BlogDto blogDto, @RequestBody Pageable pageable){
 
         return Result.success(blogService.queryBlog(pageable));
     }
