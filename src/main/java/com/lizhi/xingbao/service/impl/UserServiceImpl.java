@@ -32,7 +32,21 @@ public class UserServiceImpl implements UserService {
             return  null;
         }
 
+        userRespository.save(resources);
+
         return null;
+    }
+
+    private AccountDto toDto(Account account){
+        AccountDto dto = new AccountDto();
+        dto.setImgUrl(account.getImgUrl());
+        dto.setLevel(account.getLevel());
+        dto.setNickName(account.getNickName());
+        dto.setPhone(account.getPhone());
+        dto.setSex(account.getSex());
+        dto.setUserId(account.getUserId());
+        dto.setVip(account.getVip());
+        return dto;
     }
 
     @Override
@@ -48,13 +62,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public AccountDto userLogin(String phone, String password) {
+        Account account = userRespository.findAccountByPhoneEquals(phone);
 
-        return null;
+        if (account == null || !account.getPassword().equals(password)){
+            throw new ParamException("用户名或密码错误");
+        }
+
+        return toDto(account);
     }
 
     @Override
-    public AccountDto modifyPwd(String userId, String currentPwd, String password) {
-        return null;
+    public void modifyPwd(String userId, String currentPwd, String password) {
+        Account account = userRespository.findAccountByUserIdEquals(userId);
+        if (account == null){
+            throw new ParamException("未找到该用户");
+        }
+
+        if (!account.getPassword().equals(currentPwd)){
+            throw new ParamException("密码错误");
+        }
+
+        account.setPassword(password);
+        userRespository.save(account);
     }
 
     @Override

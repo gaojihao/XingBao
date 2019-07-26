@@ -43,7 +43,7 @@ public interface UserService {
      * @param password 新密码
      * @return
      */
-    AccountDto modifyPwd(String userId, String currentPwd, String password);
+    void modifyPwd(String userId, String currentPwd, String password);
 
     /**
      * 修改昵称
