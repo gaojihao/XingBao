@@ -4,6 +4,7 @@ import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.CollectDto;
 import com.lizhi.xingbao.dto.CourseDto;
 import com.lizhi.xingbao.entity.Collect;
+import com.lizhi.xingbao.request.CollectRequest;
 import com.lizhi.xingbao.respository.CollectRespository;
 import com.lizhi.xingbao.service.CollectService;
 import org.slf4j.Logger;
@@ -23,23 +24,26 @@ public class CollectServiceImpl implements CollectService {
     private CollectRespository collectRespository;
 
     @Override
-    public void createCollect(CollectDto dto){
+    public void updateCollect(CollectRequest request){
         Collect collect = new Collect();
-        collect.setUserId(dto.getUserId());
-        collect.setCourse(dto.getCourse());
+        collect.setUserId(request.getUserId());
+        collect.setCourse(request.getCourseId());
 
-        collectRespository.save(collect);
+        Collect res = collectRespository.findByUserIdAndCourse(request.getUserId(),request.getCourseId());
 
-    }
-
-    @Override
-    public void deleteCollect(CollectDto dto){
-        Collect collect = collectRespository.findByUserIdAndCourse(dto.getUserId(),dto.getCourse());
-        if (collect == null){
-            throw new ParamException("未找到该资源");
+        if (request.getIsAdd()){
+            if (res == null){
+                collectRespository.save(collect);
+            }else {
+                throw new ParamException("资源已收藏");
+            }
+        }else {
+            if (res == null){
+                throw new ParamException("出错了");
+            }else {
+                collectRespository.delete(res);
+            }
         }
-
-        collectRespository.delete(collect);
 
     }
 
