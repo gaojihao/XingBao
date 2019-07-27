@@ -48,7 +48,7 @@ public class CollectServiceImpl implements CollectService {
     }
 
     @Override
-    public List<CollectDto> getCollectByUserId(Integer userId, Pageable pageable){
+    public List<CollectDto> getCollectByUserId(String userId, Pageable pageable){
         if (userId == null){
             throw new ParamException("参数错误");
         }

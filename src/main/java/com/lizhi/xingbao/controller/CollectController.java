@@ -4,6 +4,7 @@ import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.request.CollectRequest;
 import com.lizhi.xingbao.service.CollectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,8 @@ public class CollectController extends BaseController{
     }
 
     @PostMapping("/list")
-    public Result list(@RequestBody CollectRequest request) {
-        return Result.success(null);
+    public Result list(@RequestBody String userId, @RequestBody Pageable pageable) {
+        return Result.success(collectService.getCollectByUserId(userId, pageable));
     }
 
 }

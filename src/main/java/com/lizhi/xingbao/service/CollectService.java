@@ -10,5 +10,5 @@ import java.util.List;
 public interface CollectService {
     void updateCollect(CollectRequest request);
 
-    List<CollectDto> getCollectByUserId(Integer userId, Pageable pageable);
+    List<CollectDto> getCollectByUserId(String userId, Pageable pageable);
 }

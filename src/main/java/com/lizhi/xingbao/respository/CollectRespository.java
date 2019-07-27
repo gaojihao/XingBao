@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CollectRespository extends JpaRepository<Collect,Integer> {
-    List<Collect> findAllByUserId(Integer userId, Pageable pageable);
+    List<Collect> findAllByUserId(String userId, Pageable pageable);
 
     Collect findByUserIdAndCourse(String userId, Integer courseId);
 }
