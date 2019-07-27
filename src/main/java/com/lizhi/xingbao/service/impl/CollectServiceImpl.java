@@ -13,4 +13,6 @@ public class CollectServiceImpl implements CollectService {
 
     @Autowired
     private CollectRespository collectRespository;
+
+
 }
