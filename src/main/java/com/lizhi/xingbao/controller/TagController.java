@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("xingbao/api/v1/tag")
 public class TagController extends BaseController{
+
     @Autowired
     private TagService tagService;
 

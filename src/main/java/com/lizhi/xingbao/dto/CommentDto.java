@@ -27,4 +27,6 @@ public class CommentDto implements Serializable {
      * 评分
      */
     private Integer level;
+
+    private Integer commentId;
 }

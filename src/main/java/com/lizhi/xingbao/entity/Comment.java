@@ -27,6 +27,8 @@ public class Comment extends BaseEntity{
      */
     private Integer level;
 
+
+
     public String getUserId() {
         return userId;
     }
