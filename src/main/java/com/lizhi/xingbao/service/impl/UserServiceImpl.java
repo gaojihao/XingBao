@@ -40,6 +40,8 @@ public class UserServiceImpl implements UserService {
         String nickName = "星宝"+phone.substring(7);
         account.setNickName(nickName);
         account.setUserId(encrypt);
+        account.setPhone(phone);
+        account.setPassword(password);
 
         userRespository.save(account);
     }
