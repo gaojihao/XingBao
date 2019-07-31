@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
+import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,11 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 用户注册
+     * @param resources
+     * @return
+     */
     @RequestMapping("/register")
     public Result register(@Validated @RequestBody Account resources){
 
@@ -35,11 +41,9 @@ public class UserController extends BaseController {
     @RequestMapping("/login")
     public Result login(String phone, String password){
 
-        if (userService.userLogin(phone, password) == null){
-            return Result.fail("用户名或密码错误");
-        }
+        AccountDto dto = userService.userLogin(phone, password);
 
-        return Result.success(userService.userLogin(phone, password));
+        return Result.success(dto);
     }
 
 
