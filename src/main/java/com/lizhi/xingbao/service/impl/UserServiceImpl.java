@@ -31,13 +31,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createAccount(Account resources) {
+    public void createAccount(String phone, String password) {
 
-        String encrypt = MD5Util.getMD5(resources.getPhone() + resources.getPassword());
+        String encrypt = MD5Util.getMD5(phone + password);
 
-        resources.setUserId(encrypt);
+        Account account = new Account();
 
-        userRespository.save(resources);
+        String nickName = "星宝"+phone.substring(7);
+        account.setNickName(nickName);
+        account.setUserId(encrypt);
+
+        userRespository.save(account);
     }
 
     private AccountDto toDto(Account account){

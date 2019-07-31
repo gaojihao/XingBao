@@ -21,14 +21,14 @@ public class UserController extends BaseController {
      * @return
      */
     @PostMapping("register")
-    public Result register(@RequestBody Account resources){
+    public Result register(@RequestParam String phone,@RequestParam String password){
 
-        boolean exist = userService.isUserExist(resources.getPhone());
+        boolean exist = userService.isUserExist(phone);
         if (exist){
             return Result.fail("用户已存在");
         }
 
-        userService.createAccount(resources);
+        userService.createAccount(phone, password);
 
         return Result.success(null);
     }

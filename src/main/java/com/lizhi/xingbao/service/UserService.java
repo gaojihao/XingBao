@@ -20,7 +20,7 @@ public interface UserService {
      * @param resources
      * @return
      */
-    void createAccount(Account resources);
+    void createAccount(String phone, String password);
 
     /**
      * 更新用户头像
