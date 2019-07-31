@@ -6,10 +6,7 @@ import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("xingbao/api/v1/user")
@@ -30,7 +27,10 @@ public class UserController extends BaseController {
         if (exist){
             return Result.fail("用户已存在");
         }
-        return Result.success(userService.createAccount(resources));
+
+        userService.createAccount(resources);
+
+        return Result.success(null);
     }
 
     /**
@@ -70,6 +70,15 @@ public class UserController extends BaseController {
     public Result updateMobile(@RequestBody String userId,@RequestBody String phone){
         userService.modifyPhone(userId, phone);
         return Result.success(null);
+    }
+
+    /**
+     * 用户列表
+     * @return
+     */
+    @GetMapping("/list")
+    public Result list(){
+        return Result.success(userService.findAll());
     }
 
 

@@ -5,10 +5,14 @@ import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.respository.UserRespository;
 import com.lizhi.xingbao.service.UserService;
+import com.lizhi.xingbao.utils.EncryptUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
@@ -26,15 +30,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AccountDto createAccount(Account resources) {
+    public void createAccount(Account resources) {
 
-        if (userRespository.findAccountByPhoneEquals(resources.getPhone()) != null){
-            return  null;
-        }
+        String encrypt = EncryptUtils.desEncrypt(resources.getPhone() + resources.getPassword());
+
+        resources.setUserId(encrypt);
 
         userRespository.save(resources);
-
-        return null;
     }
 
     private AccountDto toDto(Account account){
@@ -107,6 +109,19 @@ public class UserServiceImpl implements UserService {
 
         account.setPhone(phone);
         userRespository.save(account);
+    }
+
+    @Override
+    public List<AccountDto> findAll() {
+        List<Account> list =  userRespository.findAll();
+        List<AccountDto> dtos = new ArrayList<>();
+
+        for (Account account : list){
+            AccountDto dto = toDto(account);
+            dtos.add(dto);
+        }
+
+        return dtos;
     }
 
     private Account findUserByUserId(String userId) {

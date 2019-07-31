@@ -4,6 +4,8 @@ package com.lizhi.xingbao.service;
 import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 
+import java.util.List;
+
 public interface UserService {
 
     /**
@@ -18,7 +20,7 @@ public interface UserService {
      * @param resources
      * @return
      */
-    AccountDto createAccount(Account resources);
+    void createAccount(Account resources);
 
     /**
      * 更新用户头像
@@ -61,4 +63,7 @@ public interface UserService {
      * @return
      */
     void modifyPhone(String userId, String phone);
+
+
+    List<AccountDto> findAll();
 }
