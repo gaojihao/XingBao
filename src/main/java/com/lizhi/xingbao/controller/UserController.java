@@ -6,6 +6,7 @@ import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +23,8 @@ public class UserController extends BaseController {
      * @param resources
      * @return
      */
-    @RequestMapping("/register")
-    public Result register(@Validated @RequestBody Account resources){
+    @PostMapping("register")
+    public Result register(@RequestBody Account resources){
 
         boolean exist = userService.isUserExist(resources.getPhone());
         if (exist){
@@ -38,12 +39,37 @@ public class UserController extends BaseController {
      * @param password
      * @return
      */
-    @RequestMapping("/login")
-    public Result login(String phone, String password){
+    @PostMapping("/login")
+    public Result login(@RequestBody String phone, @RequestBody String password){
 
         AccountDto dto = userService.userLogin(phone, password);
 
         return Result.success(dto);
+    }
+
+
+    @PostMapping("/update/headerImage")
+    public Result updateImg(@RequestBody String userId,@RequestBody String url){
+        userService.updateHeadImg(userId, url);
+        return Result.success(null);
+    }
+
+    @PostMapping("/update/pwd")
+    public Result updatePwd(@RequestBody String userId,@RequestBody String currentPwd,@RequestBody String password){
+        userService.modifyPwd(userId, currentPwd, password);
+        return Result.success(null);
+    }
+
+    @PostMapping("/update/nickName")
+    public Result updateNickName(@RequestBody String userId,@RequestBody String nickName){
+        userService.modifyNickName(userId, nickName);
+        return Result.success(null);
+    }
+
+    @PostMapping("/update/phone")
+    public Result updateMobile(@RequestBody String userId,@RequestBody String phone){
+        userService.modifyPhone(userId, phone);
+        return Result.success(null);
     }
 
 
