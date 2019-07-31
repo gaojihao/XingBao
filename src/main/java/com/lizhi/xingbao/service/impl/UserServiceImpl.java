@@ -6,6 +6,7 @@ import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.respository.UserRespository;
 import com.lizhi.xingbao.service.UserService;
 import com.lizhi.xingbao.utils.EncryptUtils;
+import com.lizhi.xingbao.utils.MD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void createAccount(Account resources) {
 
-        String encrypt = EncryptUtils.desEncrypt(resources.getPhone() + resources.getPassword());
+        String encrypt = MD5Util.getMD5(resources.getPhone() + resources.getPassword());
 
         resources.setUserId(encrypt);
 
