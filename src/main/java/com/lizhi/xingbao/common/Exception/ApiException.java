@@ -15,22 +15,22 @@ public class ApiException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public ApiException(String message, String errorCode) {
+    public ApiException(String errorCode,String message) {
         super(message);
         this.errorCode = errorCode;
     }
 
-    public ApiException(String message, Throwable cause, String errorCode) {
+    public ApiException(String errorCode,String message, Throwable cause) {
         super(message, cause);
         this.errorCode = errorCode;
     }
 
-    public ApiException(Throwable cause, String errorCode) {
+    public ApiException(String errorCode,Throwable cause) {
         super(cause);
         this.errorCode = errorCode;
     }
 
-    public ApiException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String errorCode) {
+    public ApiException(String errorCode,String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.errorCode = errorCode;
     }
