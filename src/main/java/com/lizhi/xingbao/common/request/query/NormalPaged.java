@@ -9,4 +9,5 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 public class NormalPaged extends BasePaged {
 
+    private static final long serialVersionUID = -7246012034971217725L;
 }

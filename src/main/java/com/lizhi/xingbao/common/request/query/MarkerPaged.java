@@ -8,4 +8,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 public class MarkerPaged extends BasePaged {
+
+    private static final long serialVersionUID = -4637211484393863203L;
 }

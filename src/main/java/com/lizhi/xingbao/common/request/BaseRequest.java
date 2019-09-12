@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 public class BaseRequest<Q> implements Serializable {
 
+    private static final long serialVersionUID = 8675571977097330217L;
     private String requestId;
 
     private String caller;
