@@ -39,4 +39,16 @@ public class MarkerPaged extends BasePaged {
         super.setItemsPerPage(itemsPerPage);
         return this;
     }
+
+    public int findLimit() {
+        return this.getItemsPerPage() + 1;
+    }
+
+    public boolean isFirstPage() {
+        return forward && marker == null;
+    }
+
+    public boolean isLastPage() {
+        return !forward && marker == null;
+    }
 }
