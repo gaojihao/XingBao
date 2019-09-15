@@ -19,3 +19,11 @@
 
 ### Hutool
 [Hutool官方文档](https://www.hutool.cn/docs/#/)
+
+### Lombok
+[Lombok](https://projectlombok.org/)
+
+### Mapstruct
+[Mapstruct官方文档](https://mapstruct.org/)
+
+### Validation
