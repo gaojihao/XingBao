@@ -27,3 +27,9 @@
 [Mapstruct官方文档](https://mapstruct.org/)
 
 ### Validation
+
+### MyBatis-Plus
+[MyBatis-Plus](https://mp.baomidou.com/guide/generator.html)
+
+### Swagger
+[Swagger官方文档](https://swagger.io/)
