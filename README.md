@@ -28,6 +28,11 @@
 
 [MyBatis教程](https://www.yiibai.com/mybatis/)
 
+### MyBatis-Generator
+[Mybatis-Generator之最完美配置详解](https://blog.csdn.net/zsq520520/article/details/50952830)
+
+[SpringBoot使用Mybatis-Generator](https://juejin.im/post/5b9389f3e51d450e43690f35)
+
 ### MyBatis-Plus
 [MyBatis-Plus](https://mp.baomidou.com/guide/generator.html)
 
