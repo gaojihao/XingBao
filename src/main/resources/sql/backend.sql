@@ -40,15 +40,14 @@ CREATE TABLE `blog` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE `categoty` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `sub_title` varchar(255) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `categoty` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `name` varchar(50) DEFAULT NULL COMMENT '标题',
+  `sub_title` varchar(255) DEFAULT NULL COMMENT '子标题',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2109 DEFAULT CHARSET=utf8 COMMENT='分类';
 
 CREATE TABLE `collect` (
   `id` int(11) NOT NULL,
