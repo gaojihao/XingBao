@@ -47,69 +47,63 @@ CREATE TABLE IF NOT EXISTS `categoty` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2109 DEFAULT CHARSET=utf8 COMMENT='分类';
 
 CREATE TABLE `collect` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `course` int(11) DEFAULT NULL,
-  `user_id` varchar(255) DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `course` int(11) DEFAULT NULL COMMENT '课程id',
+  `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='收藏';
 
 CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  `course` int(11) DEFAULT NULL,
-  `level` int(11) DEFAULT NULL,
-  `user_id` varchar(255) DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `content` varchar(255) DEFAULT NULL COMMENT '评论内容',
+  `course` int(11) DEFAULT NULL COMMENT '课程id',
+  `level` int(11) DEFAULT NULL COMMENT '星级',
+  `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='评论';
 
 CREATE TABLE `picture` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `filename` varchar(255) DEFAULT NULL,
-  `height` varchar(255) DEFAULT NULL,
-  `size` varchar(255) DEFAULT NULL,
-  `width` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `filename` varchar(64) DEFAULT NULL COMMENT '文件名称',
+  `height` varchar(8) DEFAULT NULL COMMENT '高度',
+  `size` varchar(8) DEFAULT NULL COMMENT '大小',
+  `width` varchar(8) DEFAULT NULL COMMENT '宽度',
+  `url` varchar(64) DEFAULT NULL COMMENT '链接',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='图片';
 
 CREATE TABLE `star` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `course` int(11) DEFAULT NULL,
-  `user_id` varchar(255) DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `course` int(11) DEFAULT NULL COMMENT '课程id',
+  `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2016 DEFAULT CHARSET=utf8 COMMENT='点赞';
 
 CREATE TABLE `tag` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `name` varchar(16) DEFAULT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2004 DEFAULT CHARSET=utf8 COMMENT='标签';
 
 CREATE TABLE `video` (
-  `id` int(11) NOT NULL,
-  `create_time` bigint(20) NOT NULL,
-  `delete_flag` bit(1) DEFAULT NULL,
-  `update_time` bigint(20) DEFAULT NULL,
-  `course` int(11) DEFAULT NULL,
-  `duration` int(11) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `course` int(11) DEFAULT NULL COMMENT '课程id',
+  `duration` int(11) DEFAULT NULL COMMENT '时长',
+  `title` varchar(128) DEFAULT NULL COMMENT '名称',
+  `url` varchar(255) DEFAULT NULL COMMENT '链接',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2012 DEFAULT CHARSET=utf8 COMMENT='视频';
 
 
