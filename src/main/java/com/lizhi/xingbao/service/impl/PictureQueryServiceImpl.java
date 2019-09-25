@@ -41,8 +41,6 @@ public class PictureQueryServiceImpl implements PictureQueryService {
 
         Picture pic =  picture.get();
 
-        pic.setDelete_flag(true);
-
         pictureRepository.save(pic);
     }
 

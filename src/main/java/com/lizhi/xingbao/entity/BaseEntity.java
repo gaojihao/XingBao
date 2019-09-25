@@ -27,9 +27,6 @@ public abstract class BaseEntity implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Long updateTime;
 
-    private Boolean delete_flag = false;
-
-
     public Long getCreateTime() {
         return createTime;
     }
@@ -52,9 +49,4 @@ public abstract class BaseEntity implements Serializable {
     }
 
     public void setId(Integer id) { Id = id; }
-
-
-    public Boolean getDelete_flag() { return delete_flag; }
-
-    public void setDelete_flag(Boolean delete_flag) { this.delete_flag = delete_flag; }
 }
