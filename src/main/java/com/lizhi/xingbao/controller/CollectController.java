@@ -18,16 +18,15 @@ public class CollectController extends BaseController{
     private CollectService collectService;
 
     @PostMapping("/add")
-    public void add(@RequestBody CollectRequest request) {
+    public Result add(@RequestBody CollectRequest request) {
         if (request.getCourseId() == null || request.getUserId() == null ||
         request.getIsAdd() == null){
-            Result.fail("参数错误");
-            return;
+            return Result.fail("参数错误");
         }
 
         collectService.updateCollect(request);
 
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/list")

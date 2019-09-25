@@ -19,22 +19,26 @@ public class CourseController extends BaseController{
     private CourseService courseService;
 
     @PostMapping("/add")
-    public void add(@RequestBody CourseDto dto) {
-        Result.success(null);
+    public Result add(@RequestBody CourseDto dto) {
+
+        return Result.success(null);
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody Integer courseId) {
-        Result.success(null);
+    public Result delete(@RequestBody Integer courseId) {
+
+        return Result.success(null);
     }
 
     @PostMapping("/edit")
     public Result edit(@RequestBody CourseDto dto) {
+
         return Result.success(null);
     }
 
     @PostMapping("/list")
     public Result list(CourseDto dto, @RequestBody Pageable pageable) {
+
         return Result.success(null);
     }
 

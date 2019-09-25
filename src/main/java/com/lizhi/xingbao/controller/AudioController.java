@@ -17,15 +17,15 @@ public class AudioController extends BaseController{
     private AudioService service;
 
     @PostMapping("/add")
-    public void add(@RequestBody AudioDto audio) {
+    public Result add(@RequestBody AudioDto audio) {
         service.createAudio(audio);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/edit")
-    public void edit(@RequestBody AudioDto dto){
+    public Result edit(@RequestBody AudioDto dto){
         service.editAudio(dto);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/detail")
@@ -35,9 +35,9 @@ public class AudioController extends BaseController{
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody Integer id){
+    public Result delete(@RequestBody Integer id){
         service.deleteAudio(id);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/list")

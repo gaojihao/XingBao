@@ -18,15 +18,15 @@ public class CommentController extends BaseController{
     private CommentService commentService;
 
     @RequestMapping("add")
-    public void add(@RequestBody CommentDto dto) {
+    public Result add(@RequestBody CommentDto dto) {
         commentService.createComment(dto);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @RequestMapping("delete")
-    public void delete(@RequestBody Integer Id) {
+    public Result delete(@RequestBody Integer Id) {
         commentService.deleteDetail(Id);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @RequestMapping("list")

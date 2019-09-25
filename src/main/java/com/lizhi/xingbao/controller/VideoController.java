@@ -17,30 +17,32 @@ public class VideoController extends BaseController{
     VideoService videoService;
 
     @PostMapping("/add")
-    public void add(@RequestBody VideoDto dto) {
+    public Result add(@RequestBody VideoDto dto) {
         videoService.createVideo(dto);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/edit")
-    public void edit(@RequestBody VideoDto dto){
+    public Result edit(@RequestBody VideoDto dto){
         videoService.editVideo(dto);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/detail")
     public Result detail(@RequestBody Integer id){
+
         return Result.success(videoService.videoDetail(id));
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody Integer id){
+    public Result delete(@RequestBody Integer id){
         videoService.deleteVideo(id);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @PostMapping("/list")
     public Result query(@RequestBody Integer course) {
+
         return Result.success(videoService.getVideoList(course));
     }
 }

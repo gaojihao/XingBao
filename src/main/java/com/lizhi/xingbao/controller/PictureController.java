@@ -34,6 +34,7 @@ public class PictureController extends BaseController {
      */
     @PostMapping(value = "/upload/picture")
     public Result upload(@RequestParam MultipartFile file) {
+
         return  Result.success(pictureQueryService.upload(file));
     }
 

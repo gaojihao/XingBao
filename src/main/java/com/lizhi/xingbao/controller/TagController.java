@@ -16,15 +16,15 @@ public class TagController extends BaseController{
     private TagService tagService;
 
     @RequestMapping("add")
-    public void add(@RequestBody TagDto dto){
+    public Result add(@RequestBody TagDto dto){
         tagService.createTag(dto);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @RequestMapping("delete")
-    public void delete(@RequestBody Integer Id){
+    public Result delete(@RequestBody Integer Id){
         tagService.deleteTag(Id);
-        Result.success(null);
+        return Result.success(null);
     }
 
     @RequestMapping("edit")
@@ -41,6 +41,7 @@ public class TagController extends BaseController{
 
     @RequestMapping("list")
     public Result list(){
+
         return Result.success(tagService.getAllTags());
     }
 }

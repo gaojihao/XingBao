@@ -17,17 +17,20 @@ public class StaredController extends BaseController{
     private StatedService statedService;
 
     @PostMapping("/add")
-    public void add(@RequestBody StarRequest request) {
-        Result.success(null);
+    public Result add(@RequestBody StarRequest request) {
+
+        return Result.success(null);
     }
 
     @PostMapping("/detail")
     public Result detail(@RequestBody StarRequest request) {
+
         return Result.success(null);
     }
 
     @PostMapping("/list")
     public Result list(@RequestBody StarRequest request) {
+
         return Result.success(null);
     }
 
