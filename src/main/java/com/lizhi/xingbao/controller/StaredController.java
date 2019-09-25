@@ -3,7 +3,6 @@ package com.lizhi.xingbao.controller;
 import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.request.StarRequest;
 import com.lizhi.xingbao.service.StatedService;
-import com.lizhi.xingbao.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -29,7 +29,6 @@ public class TagServiceImpl implements TagService {
 
         Tag tag = new Tag();
         tag.setName(dto.getName());
-        tag.setDesc(dto.getDesc());
 
         tagRespository.save(tag);
     }
@@ -45,7 +44,6 @@ public class TagServiceImpl implements TagService {
 
         Tag tag = optional.get();
         tag.setName(dto.getName());
-        tag.setDesc(dto.getDesc());
 
         tagRespository.save(tag);
     }
@@ -63,7 +61,6 @@ public class TagServiceImpl implements TagService {
         Tag tag = optional.get();
 
         TagDto dto = new TagDto();
-        dto.setDesc(tag.getDesc());
         dto.setName(tag.getName());
         dto.setTagId(tag.getId());
 
@@ -83,7 +80,6 @@ public class TagServiceImpl implements TagService {
 
         for (Tag tag : tagList){
             TagDto dto = new TagDto();
-            dto.setDesc(tag.getDesc());
             dto.setName(tag.getName());
             dto.setTagId(tag.getId());
             list.add(dto);
