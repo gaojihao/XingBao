@@ -106,4 +106,23 @@ CREATE TABLE IF NOT EXISTS `video` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2012 DEFAULT CHARSET=utf8 COMMENT='视频';
 
+CREATE TABLE IF NOT EXISTS `course` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `title` varchar(128) DEFAULT NULL COMMENT '名称',
+  `summary` varchar(128) DEFAULT NULL COMMENT '摘要',
+  `desc` varchar(128) DEFAULT NULL COMMENT '描述',
+  `sub_title` varchar(128) DEFAULT NULL COMMENT '子标题',
+  `cover_image` varchar(128) DEFAULT NULL COMMENT '封面url',
+  `category` int(11) DEFAULT NULL COMMENT '分类id',
+  `realPrice` int(11) DEFAULT NULL COMMENT '实际价格',
+  `price` int(11) DEFAULT NULL COMMENT '市场价格',
+  `buyCount` int(11) DEFAULT NULL COMMENT '购买人数',
+  `grade` int(11) DEFAULT NULL COMMENT '评分',
+  `type` int(11) DEFAULT NULL COMMENT '类型',
+  `category_name` varchar(128) DEFAULT NULL COMMENT '分类名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2019 DEFAULT CHARSET=utf8 COMMENT='课程';
+
 

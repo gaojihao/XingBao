@@ -30,7 +30,6 @@ public class CategoryServiceImpl implements CategoryService {
 
         CourseCategoty categoty = new CourseCategoty();
         categoty.setName(dto.getName());
-        categoty.setDesc(dto.getDesc());
         categoty.setSubTitle(dto.getSubTitle());
 
         courseCategoryRespository.save(categoty);
@@ -48,7 +47,6 @@ public class CategoryServiceImpl implements CategoryService {
         CourseCategoty categoty = optional.get();
         categoty.setSubTitle(dto.getSubTitle());
         categoty.setName(dto.getName());
-        categoty.setDesc(dto.getDesc());
 
         courseCategoryRespository.save(categoty);
     }
@@ -67,7 +65,6 @@ public class CategoryServiceImpl implements CategoryService {
         CourseCategotyDto dto = new CourseCategotyDto();
         dto.setSubTitle(categoty.getSubTitle());
         dto.setName(categoty.getName());
-        dto.setDesc(categoty.getDesc());
         dto.setCategoryId(categoty.getId());
 
         return dto;
@@ -90,7 +87,6 @@ public class CategoryServiceImpl implements CategoryService {
             CourseCategotyDto dto = new CourseCategotyDto();
             dto.setSubTitle(categoty.getSubTitle());
             dto.setName(categoty.getName());
-            dto.setDesc(categoty.getDesc());
             dto.setCategoryId(categoty.getId());
             list.add(dto);
         }

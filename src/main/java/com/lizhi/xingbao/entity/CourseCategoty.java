@@ -1,7 +1,10 @@
 package com.lizhi.xingbao.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "categoty")
 public class CourseCategoty extends BaseEntity{
@@ -11,40 +14,5 @@ public class CourseCategoty extends BaseEntity{
 
     private String name;
 
-    private String desc;
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getSubTitle() {
-        return subTitle;
-    }
-
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
-    }
-
     private String subTitle;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseCategoty{" +
-                "name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                ", subTitle='" + subTitle + '\'' +
-                '}';
-    }
 }
