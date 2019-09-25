@@ -48,7 +48,7 @@ public class Result {
     }
 
     public static Result success(Object data) {
-        return new Result(ResultCode.SUCCESS, data);
+        return new Result(ResultCode.SUCCESS.getValue(),ResultCode.SUCCESS.getDesc(), data);
     }
 
     public static Result fail(String message) {

@@ -17,31 +17,31 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(name = "create_time",nullable = false, updatable = false)
-    @CreatedDate
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Long createTime;
-
-    @Column(name = "update_time")
-    @LastModifiedDate
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
-    private Long updateTime;
-
-    public Long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
+//    @Column(name = "create_time",nullable = false, updatable = false)
+//    @CreatedDate
+//    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+//    private Long createTime;
+//
+//    @Column(name = "update_time")
+//    @LastModifiedDate
+//    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+//    private Long updateTime;
+//
+//    public Long getCreateTime() {
+//        return createTime;
+//    }
+//
+//    public void setCreateTime(Long createTime) {
+//        this.createTime = createTime;
+//    }
+//
+//    public Long getUpdateTime() {
+//        return updateTime;
+//    }
+//
+//    public void setUpdateTime(Long updateTime) {
+//        this.updateTime = updateTime;
+//    }
 
 
     public Integer getId() {

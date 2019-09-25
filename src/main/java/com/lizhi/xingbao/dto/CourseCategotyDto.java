@@ -14,11 +14,6 @@ public class CourseCategotyDto implements Serializable {
     private String name;
 
     /**
-     * 描述
-     */
-    private String desc;
-
-    /**
      * 子标题
      */
     private String subTitle;

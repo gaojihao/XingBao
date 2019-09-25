@@ -24,7 +24,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void createCategory(CourseCategotyDto dto) {
 
-        if (courseCategoryRespository.findByName(dto.getName()) == null){
+        if (courseCategoryRespository.findByName(dto.getName()) != null){
             throw new ParamException("目标已存在");
         }
 
