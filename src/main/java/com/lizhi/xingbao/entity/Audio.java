@@ -1,12 +1,14 @@
 package com.lizhi.xingbao.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "audio")
+@EqualsAndHashCode(callSuper = false)
 public class Audio extends BaseEntity{
 
     private static final long serialVersionUID = 2875226371844957533L;

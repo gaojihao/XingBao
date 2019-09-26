@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "blog")
+@EqualsAndHashCode(callSuper = false)
 public class Blog extends BaseEntity{
 
     private static final long serialVersionUID = -8386641090887103548L;

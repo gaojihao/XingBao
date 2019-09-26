@@ -1,12 +1,14 @@
 package com.lizhi.xingbao.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "collect")
+@EqualsAndHashCode(callSuper = false)
 public class Collect extends BaseEntity{
 
     private static final long serialVersionUID = 2021114237133735688L;
@@ -19,7 +21,7 @@ public class Collect extends BaseEntity{
     /**
      *所属课程
      */
-    @Column(name = "user_id")
+    @Column(name = "course")
     private Integer course;
 
 }

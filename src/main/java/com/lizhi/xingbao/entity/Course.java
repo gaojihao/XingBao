@@ -1,12 +1,14 @@
 package com.lizhi.xingbao.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "course")
+@EqualsAndHashCode(callSuper = false)
 public class Course extends BaseEntity{
 
     private static final long serialVersionUID = -5960960584954140332L;

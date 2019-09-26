@@ -1,12 +1,14 @@
 package com.lizhi.xingbao.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "comment")
+@EqualsAndHashCode(callSuper = false)
 public class Comment extends BaseEntity{
 
     private static final long serialVersionUID = -2734781684459288232L;

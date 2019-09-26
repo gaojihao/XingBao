@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "account")
+@EqualsAndHashCode(callSuper = false)
 public class Account extends BaseEntity {
 
     private static final long serialVersionUID = 3298587435085505430L;
@@ -57,7 +59,7 @@ public class Account extends BaseEntity {
     /**
      * VIP等级
      */
-    @Column(name = "password")
+    @Column(name = "level")
     private Integer level = 0;
 
 }
