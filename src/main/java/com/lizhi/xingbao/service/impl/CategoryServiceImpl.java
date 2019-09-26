@@ -66,6 +66,8 @@ public class CategoryServiceImpl implements CategoryService {
         dto.setSubTitle(categoty.getSubTitle());
         dto.setName(categoty.getName());
         dto.setCategoryId(categoty.getId());
+        dto.setCreateTime(categoty.getCreateTime());
+        dto.setUpdateTime(categoty.getUpdateTime());
 
         return dto;
 
@@ -88,6 +90,8 @@ public class CategoryServiceImpl implements CategoryService {
             dto.setSubTitle(categoty.getSubTitle());
             dto.setName(categoty.getName());
             dto.setCategoryId(categoty.getId());
+            dto.setCreateTime(categoty.getCreateTime());
+            dto.setUpdateTime(categoty.getUpdateTime());
             list.add(dto);
         }
 

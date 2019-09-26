@@ -19,4 +19,8 @@ public class CourseCategotyDto implements Serializable {
     private String subTitle;
 
     private Integer categoryId;
+
+    private String createTime;
+
+    private String updateTime;
 }
