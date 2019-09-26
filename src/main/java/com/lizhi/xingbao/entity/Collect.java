@@ -1,7 +1,10 @@
 package com.lizhi.xingbao.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "collect")
 public class Collect extends BaseEntity{
@@ -10,34 +13,13 @@ public class Collect extends BaseEntity{
     /**
      * 所属个人
      */
+    @Column(name = "user_id")
     private String userId;
 
     /**
      *所属课程
      */
+    @Column(name = "user_id")
     private Integer course;
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Integer getCourse() {
-        return course;
-    }
-
-    public void setCourse(Integer course) {
-        this.course = course;
-    }
-
-    @Override
-    public String toString() {
-        return "Collect{" +
-                "userId='" + userId + '\'' +
-                ", course=" + course +
-                '}';
-    }
 }
