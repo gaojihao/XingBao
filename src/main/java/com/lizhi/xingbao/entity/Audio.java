@@ -1,7 +1,10 @@
 package com.lizhi.xingbao.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "audio")
 public class Audio extends BaseEntity{
@@ -10,62 +13,24 @@ public class Audio extends BaseEntity{
     /**
      * 标题
      */
+    @Column(name = "title")
     private String title;
 
     /**
      * 资源地址
      */
+    @Column(name = "url")
     private String url;
 
     /**
      * 时长
      */
+    @Column(name = "duration")
     private Integer duration;
 
     /**
      * 所属课程
      */
+    @Column(name = "course")
     private Integer course;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
-    public Integer getCourse() {
-        return course;
-    }
-
-    public void setCourse(Integer course) {
-        this.course = course;
-    }
-
-    @Override
-    public String toString() {
-        return "Audio{" +
-                "title='" + title + '\'' +
-                ", url='" + url + '\'' +
-                ", duration=" + duration +
-                ", course=" + course +
-                '}';
-    }
 }

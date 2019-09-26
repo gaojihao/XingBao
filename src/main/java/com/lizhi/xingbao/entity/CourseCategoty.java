@@ -14,7 +14,9 @@ public class CourseCategoty extends BaseEntity{
 
     private static final long serialVersionUID = 853305089047159145L;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "sub_title")
     private String subTitle;
 }
