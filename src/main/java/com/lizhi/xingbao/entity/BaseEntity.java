@@ -20,11 +20,7 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(name = "create_time",nullable = false, updatable = false)
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private String createTime;
 
-    @Column(name = "update_time")
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private String updateTime;
 }

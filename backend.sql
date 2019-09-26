@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `account` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `img_url` varchar(64) DEFAULT NULL COMMENT '头像url',
   `jwt` varchar(64) DEFAULT NULL COMMENT 'jwt',
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `account` (
 
 CREATE TABLE IF NOT EXISTS `audio` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `duration` int(11) DEFAULT NULL COMMENT '时长',
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `audio` (
 
 CREATE TABLE IF NOT EXISTS `blog` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `read_num` int(11) DEFAULT NULL COMMENT '阅读数',
   `summary` varchar(128) NOT NULL COMMENT '摘要',
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
 
 CREATE TABLE IF NOT EXISTS `categoty` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(50) DEFAULT NULL COMMENT '标题',
   `sub_title` varchar(50) DEFAULT NULL COMMENT '子标题',
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `categoty` (
 
 CREATE TABLE IF NOT EXISTS `collect` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `collect` (
 
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` varchar(256) DEFAULT NULL COMMENT '评论内容',
   `course` int(11) DEFAULT NULL COMMENT '课程id',
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 CREATE TABLE IF NOT EXISTS `picture` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `filename` varchar(64) DEFAULT NULL COMMENT '文件名称',
   `height` varchar(8) DEFAULT NULL COMMENT '高度',
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `picture` (
 
 CREATE TABLE IF NOT EXISTS `star` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `star` (
 
 CREATE TABLE IF NOT EXISTS `tag` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(16) DEFAULT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`)
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 
 CREATE TABLE IF NOT EXISTS `video` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `duration` int(11) DEFAULT NULL COMMENT '时长',
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `video` (
 
 CREATE TABLE IF NOT EXISTS `course` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `title` varchar(128) DEFAULT NULL COMMENT '名称',
   `summary` varchar(128) DEFAULT NULL COMMENT '摘要',

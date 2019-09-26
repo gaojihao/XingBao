@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "categoty")
+@Table(name = "category")
 @EqualsAndHashCode(callSuper = false)
 public class CourseCategoty extends BaseEntity{
 
