@@ -5,6 +5,7 @@ import com.lizhi.xingbao.dto.CourseCategotyDto;
 import com.lizhi.xingbao.entity.CourseCategoty;
 import com.lizhi.xingbao.respository.CourseCategoryRespository;
 import com.lizhi.xingbao.service.CategoryService;
+import com.lizhi.xingbao.utils.PageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service("CategoryService")
@@ -80,7 +82,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CourseCategotyDto> getAllCategoty() {
+    public Map getAllCategoty() {
         List<CourseCategotyDto> list = new ArrayList<>();
 
         List<CourseCategoty> categotyList = courseCategoryRespository.findAll();
@@ -95,6 +97,6 @@ public class CategoryServiceImpl implements CategoryService {
             list.add(dto);
         }
 
-        return list;
+        return PageUtil.toPage(list,list.size());
     }
 }

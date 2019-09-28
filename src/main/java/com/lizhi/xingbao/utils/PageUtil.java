@@ -32,8 +32,8 @@ public class PageUtil extends cn.hutool.core.util.PageUtil {
      */
     public static Map toPage(Page page) {
         Map<String,Object> map = new LinkedHashMap<>(2);
-        map.put("content",page.getContent());
-        map.put("totalElements",page.getTotalElements());
+        map.put("data",page.getContent());
+        map.put("totalCount",page.getTotalElements());
         return map;
     }
 
@@ -42,10 +42,10 @@ public class PageUtil extends cn.hutool.core.util.PageUtil {
      * @param totalElements
      * @return
      */
-    public static Map toPage(Object object, Object totalElements) {
+    public static Map toPage(Object object, int totalElements) {
         Map<String,Object> map = new LinkedHashMap<>(2);
-        map.put("content",object);
-        map.put("totalElements",totalElements);
+        map.put("data",object);
+        map.put("totalCount",totalElements);
 
         return map;
     }

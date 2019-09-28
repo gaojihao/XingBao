@@ -4,6 +4,7 @@ package com.lizhi.xingbao.service;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CategoryService {
     /**
@@ -37,5 +38,5 @@ public interface CategoryService {
      * 获取所有大类
      * @return
      */
-    List<CourseCategotyDto> getAllCategoty();
+    Map getAllCategoty();
 }
