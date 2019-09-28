@@ -14,9 +14,6 @@ public class QueryHelp {
 
     /**
      * @描述 :  转换为Predicate
-     * @作者 :  Dong ZhaoYang
-     * @日期 :  2017/8/7
-     * @时间 :  17:25
      */
     @SuppressWarnings("unchecked")
     public static <R, Q> Predicate getPredicate(Root<R> root, Q query, CriteriaBuilder cb) {
