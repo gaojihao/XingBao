@@ -3,9 +3,11 @@ package com.lizhi.xingbao.controller;
 import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
 import com.lizhi.xingbao.service.CategoryService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Api(value = "课程分类controller",tags = "课程分类")
 @RestController
 @RequestMapping("xingbao/api/v1/category")
 public class CategoryController extends BaseController{
