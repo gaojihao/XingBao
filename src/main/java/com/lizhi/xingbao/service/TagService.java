@@ -4,6 +4,7 @@ package com.lizhi.xingbao.service;
 import com.lizhi.xingbao.dto.TagDto;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TagService {
 
@@ -38,6 +39,6 @@ public interface TagService {
      * 获取所有tag
      * @return
      */
-    List<TagDto> getAllTags();
+    Map getAllTags();
 
 }

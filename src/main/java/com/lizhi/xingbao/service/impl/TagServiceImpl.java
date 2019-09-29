@@ -5,6 +5,7 @@ import com.lizhi.xingbao.dto.TagDto;
 import com.lizhi.xingbao.entity.Tag;
 import com.lizhi.xingbao.respository.TagRespository;
 import com.lizhi.xingbao.service.TagService;
+import com.lizhi.xingbao.utils.PageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service("TagService")
@@ -74,7 +76,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public List<TagDto> getAllTags() {
+    public Map getAllTags() {
         List<TagDto> list = new ArrayList<>();
         List<Tag> tagList = tagRespository.findAll();
 
@@ -84,6 +86,6 @@ public class TagServiceImpl implements TagService {
             dto.setTagId(tag.getId());
             list.add(dto);
         }
-        return list;
+        return PageUtil.toPage(list,list.size());
     }
 }

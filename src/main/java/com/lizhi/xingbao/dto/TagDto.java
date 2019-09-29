@@ -10,7 +10,5 @@ public class TagDto implements Serializable {
 
     private String name;
 
-    private String desc;
-
     private Integer tagId;
 }

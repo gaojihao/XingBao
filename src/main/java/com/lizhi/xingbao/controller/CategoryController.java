@@ -39,7 +39,6 @@ public class CategoryController extends BaseController{
     @ApiOperation(value = "获取分类详情", notes = "获取分类详情", httpMethod = "GET")
     @GetMapping("detail")
     public Result detail(@RequestParam(name = "id") Integer Id){
-
         return Result.success(service.categoryDetail(Id));
     }
 
