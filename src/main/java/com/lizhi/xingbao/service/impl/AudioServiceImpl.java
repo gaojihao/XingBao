@@ -4,11 +4,17 @@ import com.lizhi.xingbao.common.Exception.BadRequestException;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.entity.Audio;
+import com.lizhi.xingbao.mapper.AudioMapper;
+import com.lizhi.xingbao.request.AudioQueryCriteria;
 import com.lizhi.xingbao.respository.AudioRespository;
 import com.lizhi.xingbao.service.AudioService;
+import com.lizhi.xingbao.utils.PageUtil;
+import com.lizhi.xingbao.utils.QueryHelp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,6 +27,9 @@ public class AudioServiceImpl implements AudioService {
 
     @Autowired
     private AudioRespository respository;
+
+    @Autowired
+    private AudioMapper audioMapper;
 
     @Override
     public void createAudio(AudioDto dto){
@@ -86,19 +95,8 @@ public class AudioServiceImpl implements AudioService {
 
 
     @Override
-    public List<AudioDto> getAudioList(Integer courseId){
-        List<AudioDto> list = new ArrayList<>();
-        List<Audio> audioList = respository.findAllByCourse(courseId);
-
-        for (Audio audio : audioList){
-            AudioDto audioDto = new AudioDto();
-            audioDto.setCourse(audio.getCourse());
-            audioDto.setDuration(audio.getDuration());
-            audioDto.setTitle(audio.getTitle());
-            audioDto.setUrl(audio.getUrl());
-            audioDto.setAduioId(audio.getId());
-            list.add(audioDto);
-        }
-        return list;
+    public Object getAudioList(AudioQueryCriteria criteria, Pageable pageable){
+        Page<Audio> page = respository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
+        return PageUtil.toPage(page.map(audioMapper::toDto));
     }
 }

@@ -1,6 +1,8 @@
 package com.lizhi.xingbao.service;
 
 import com.lizhi.xingbao.dto.AudioDto;
+import com.lizhi.xingbao.request.AudioQueryCriteria;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -33,8 +35,9 @@ public interface AudioService {
 
     /**
      * 获取课程下的音频列表
-     * @param courseId 课程id
+     * @param criteria 条件查询
+     * @param pageable 分页信息
      * @return
      */
-    List<AudioDto> getAudioList(Integer courseId);
+    Object getAudioList(AudioQueryCriteria criteria, Pageable pageable);
 }
