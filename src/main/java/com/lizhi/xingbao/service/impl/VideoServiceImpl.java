@@ -5,11 +5,16 @@ import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.dto.VideoDto;
 import com.lizhi.xingbao.entity.Audio;
 import com.lizhi.xingbao.entity.Video;
+import com.lizhi.xingbao.request.VideoQueryCriteria;
 import com.lizhi.xingbao.respository.VideoRespository;
 import com.lizhi.xingbao.service.VideoService;
+import com.lizhi.xingbao.utils.PageUtil;
+import com.lizhi.xingbao.utils.QueryHelp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -65,34 +70,23 @@ public class VideoServiceImpl implements VideoService {
         }
 
         Video video = optional.get();
-        VideoDto dto = new VideoDto();
+        return toDto(video);
+    }
 
+    VideoDto toDto(Video video) {
+        VideoDto dto = new VideoDto();
         dto.setCourse(video.getCourse());
         dto.setDuration(video.getDuration());
         dto.setTitle(video.getTitle());
         dto.setUrl(video.getUrl());
         dto.setVideoId(video.getId());
-
         return dto;
-
     }
 
     @Override
-    public List<VideoDto> getVideoList(Integer course) {
-
-        List<VideoDto> list = new ArrayList<>();
-        List<Video> videoList = videoRespository.queryAllByCourse(course);
-
-        for (Video video : videoList){
-            VideoDto dto = new VideoDto();
-            dto.setCourse(video.getCourse());
-            dto.setDuration(video.getDuration());
-            dto.setTitle(video.getTitle());
-            dto.setUrl(video.getUrl());
-            dto.setVideoId(video.getId());
-            list.add(dto);
-        }
-        return list;
+    public Object getVideoList(VideoQueryCriteria criteria, Pageable pageable) {
+        Page <Video> page = videoRespository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
+        return PageUtil.toPage(page.map(this::toDto));
     }
 
     @Override

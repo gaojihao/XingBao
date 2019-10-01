@@ -3,6 +3,8 @@ package com.lizhi.xingbao.service;
 
 import com.lizhi.xingbao.dto.VideoDto;
 import com.lizhi.xingbao.entity.Video;
+import com.lizhi.xingbao.request.VideoQueryCriteria;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -29,10 +31,11 @@ public interface VideoService {
 
     /**
      * 获取课程下的视频列表
-     * @param course Id
+     * @param criteria
+     * @param pageable
      * @return
      */
-    List<VideoDto> getVideoList(Integer course);
+    Object getVideoList(VideoQueryCriteria criteria, Pageable pageable);
 
     /**
      * 删除视频
