@@ -7,5 +7,4 @@ public class StarRequest {
 
     private Integer courseId;
     private Integer userId;
-    private float level;
 }
