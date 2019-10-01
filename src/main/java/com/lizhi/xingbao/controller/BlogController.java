@@ -28,7 +28,7 @@ public class BlogController extends BaseController{
 
     @ApiOperation(value = "删除文章", notes = "删除文章", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "id") Integer Id){
+    public Result delete(@RequestParam(name = "blogId") Integer Id){
         blogService.deleteBlog(Id);
         return Result.success(null);
     }
@@ -42,7 +42,7 @@ public class BlogController extends BaseController{
 
     @ApiOperation(value = "获取文章详情", notes = "获取文章详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "id") Integer Id){
+    public Result detail(@RequestParam(name = "blogId") Integer Id){
 
         return Result.success(blogService.blogDetail(Id));
     }

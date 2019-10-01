@@ -24,7 +24,7 @@ public class CategoryController extends BaseController{
 
     @ApiOperation(value = "删除分类", notes = "删除分类", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "id") Integer Id){
+    public Result delete(@RequestParam(name = "categoryId") Integer Id){
         service.deleteCategoty(Id);
         return Result.success(null);
     }
@@ -38,7 +38,7 @@ public class CategoryController extends BaseController{
 
     @ApiOperation(value = "获取分类详情", notes = "获取分类详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "id") Integer Id){
+    public Result detail(@RequestParam(name = "categoryId") Integer Id){
         return Result.success(service.categoryDetail(Id));
     }
 

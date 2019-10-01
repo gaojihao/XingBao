@@ -29,5 +29,5 @@ public class AudioDto implements Serializable {
     private Integer course;
 
 
-    private Integer aduioId;
+    private Integer audioId;
 }

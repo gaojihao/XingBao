@@ -32,4 +32,9 @@ public class PictureDto implements Serializable {
      * 链接
      */
     private String url;
+
+    /**
+     * 图片Id
+     */
+    private Integer pictureId;
 }

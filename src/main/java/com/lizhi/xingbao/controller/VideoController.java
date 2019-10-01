@@ -27,7 +27,7 @@ public class VideoController extends BaseController{
 
     @ApiOperation(value = "删除视频", notes = "删除视频", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "id") Integer Id){
+    public Result delete(@RequestParam(name = "videoId") Integer Id){
         videoService.deleteVideo(Id);
         return Result.success(null);
     }
@@ -41,7 +41,7 @@ public class VideoController extends BaseController{
 
     @ApiOperation(value = "获取视频详情", notes = "获取视频详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "id") Integer Id){
+    public Result detail(@RequestParam(name = "videoId") Integer Id){
 
         return Result.success(videoService.videoDetail(Id));
     }

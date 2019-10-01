@@ -28,7 +28,7 @@ public class CourseController extends BaseController{
 
     @ApiOperation(value = "删除课程", notes = "删除课程", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "id") Integer Id) {
+    public Result delete(@RequestParam(name = "courseId") Integer Id) {
 
         return Result.success(null);
     }
@@ -42,7 +42,7 @@ public class CourseController extends BaseController{
 
     @ApiOperation(value = "获取课程详情", notes = "获取课程详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "id") Integer Id) {
+    public Result detail(@RequestParam(name = "courseId") Integer Id) {
         return Result.success(null);
     }
 

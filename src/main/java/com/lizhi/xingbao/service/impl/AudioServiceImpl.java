@@ -41,7 +41,7 @@ public class AudioServiceImpl implements AudioService {
 
     @Override
     public void editAudio(AudioDto dto){
-        Optional<Audio> optional = respository.findById(dto.getAduioId());
+        Optional<Audio> optional = respository.findById(dto.getAudioId());
 
         if (!optional.isPresent()){
             throw new ParamException("目标不存在");
@@ -84,7 +84,7 @@ public class AudioServiceImpl implements AudioService {
         audioDto.setDuration(audio.getDuration());
         audioDto.setTitle(audio.getTitle());
         audioDto.setUrl(audio.getUrl());
-        audioDto.setAduioId(audio.getId());
+        audioDto.setAudioId(audio.getId());
         return audioDto;
     }
 

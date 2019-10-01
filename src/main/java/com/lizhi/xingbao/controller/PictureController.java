@@ -48,7 +48,7 @@ public class PictureController extends BaseController {
      */
     @ApiOperation(value = "删除图片", notes = "删除图片", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "id") Integer Id){
+    public Result delete(@RequestParam(name = "pictureId") Integer Id){
         pictureQueryService.delete(Id);
         return Result.success(null);
     }

@@ -67,4 +67,9 @@ public class CourseDto implements Serializable {
      * 类型
      */
     private Integer type;
+
+    /**
+     * 课程Id
+     */
+    private Integer courseId;
 }

@@ -25,7 +25,7 @@ public class TagController extends BaseController{
 
     @ApiOperation(value = "删除标签", notes = "删除标签", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "id") Integer Id){
+    public Result delete(@RequestParam(name = "tagId") Integer Id){
         tagService.deleteTag(Id);
         return Result.success(null);
     }
@@ -39,7 +39,7 @@ public class TagController extends BaseController{
 
     @ApiOperation(value = "获取标签详情", notes = "获取标签详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "id") Integer Id){
+    public Result detail(@RequestParam(name = "tagId") Integer Id){
 
         return Result.success(tagService.tagDetail(Id));
     }
