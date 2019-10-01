@@ -38,35 +38,13 @@ public class PictureQueryServiceImpl implements PictureQueryService {
         Optional<Picture> picture = pictureRepository.findById(id);
 
         ValidationUtil.isNull(picture,"Picture", "id", id);
-
         Picture pic =  picture.get();
 
         pictureRepository.save(pic);
     }
 
     @Override
-    public List<Picture> queryAll(Picture picture, Pageable pageable) {
+    public List<Picture> queryAll(Pageable pageable) {
         return  pictureRepository.findAll();
-    }
-
-    class Spec implements Specification<Picture> {
-
-        private Picture picture;
-
-        public Spec(Picture picture){
-            this.picture = picture;
-        }
-
-        @Override
-        public Predicate toPredicate(Root<Picture> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
-            List<Predicate> list = new ArrayList<>();
-
-            if (!ObjectUtils.isEmpty(picture.getFilename())){
-                list.add(cb.like(root.get("filename").as(String.class), "%"+picture.getFilename()+"%"));
-            }
-
-            Predicate [] p = new Predicate[list.size()];
-            return cb.and(list.toArray(p));
-        }
     }
 }

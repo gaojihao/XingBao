@@ -17,11 +17,10 @@ public interface PictureQueryService {
 
     /**
      * 分页获取图片数据
-     * @param picture
      * @param pageable
      * @return
      */
-    List<Picture> queryAll(Picture picture, Pageable pageable);
+    List<Picture> queryAll(Pageable pageable);
 
     /**
      * 删除图片
