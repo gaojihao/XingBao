@@ -6,5 +6,4 @@ import lombok.Data;
 public class CollectRequest {
     private Integer courseId;
     private String userId;
-    private Boolean isAdd;
 }

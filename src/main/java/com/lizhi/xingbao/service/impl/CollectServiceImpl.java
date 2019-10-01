@@ -31,37 +31,21 @@ public class CollectServiceImpl implements CollectService {
 
         Collect res = collectRespository.findByUserIdAndCourse(request.getUserId(),request.getCourseId());
 
-        if (request.getIsAdd()){
-            if (res == null){
-                collectRespository.save(collect);
-            }else {
-                throw new ParamException("资源已收藏");
-            }
+        if (res == null){
+            collectRespository.save(collect);
         }else {
-            if (res == null){
-                throw new ParamException("出错了");
-            }else {
-                collectRespository.delete(res);
-            }
+            throw new ParamException("资源已收藏");
         }
-
     }
 
     @Override
-    public List<CollectDto> getCollectByUserId(String userId, Pageable pageable){
-        if (userId == null){
-            throw new ParamException("参数错误");
+    public void cancelCollect(CollectRequest request) {
+        Collect res = collectRespository.findByUserIdAndCourse(request.getUserId(),request.getCourseId());
+
+        if (res != null) {
+            collectRespository.delete(res);
+        }else {
+            throw new ParamException("你还未收藏该资源");
         }
-
-        List<Collect> list = collectRespository.findAllByUserId(userId, pageable);
-        List<CollectDto> dtoList = new ArrayList<>();
-
-        for (Collect collect : list){
-            CollectDto dto = new CollectDto();
-            dto.setCourse(collect.getCourse());
-            dto.setUserId(collect.getUserId());
-        }
-
-        return dtoList;
     }
 }
