@@ -1,10 +1,8 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.lizhi.xingbao.common.Exception.BadRequestException;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.AudioDto;
 import com.lizhi.xingbao.entity.Audio;
-import com.lizhi.xingbao.mapper.AudioMapper;
 import com.lizhi.xingbao.request.AudioQueryCriteria;
 import com.lizhi.xingbao.respository.AudioRespository;
 import com.lizhi.xingbao.service.AudioService;
@@ -17,8 +15,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service("AudioService")
@@ -27,9 +23,6 @@ public class AudioServiceImpl implements AudioService {
 
     @Autowired
     private AudioRespository respository;
-
-    @Autowired
-    private AudioMapper audioMapper;
 
     @Override
     public void createAudio(AudioDto dto){
@@ -76,15 +69,7 @@ public class AudioServiceImpl implements AudioService {
 
         Audio audio = optional.get();
 
-        AudioDto audioDto = new AudioDto();
-        audioDto.setCourse(audio.getCourse());
-        audioDto.setDuration(audio.getDuration());
-        audioDto.setTitle(audio.getTitle());
-        audioDto.setUrl(audio.getUrl());
-        audioDto.setAduioId(audio.getId());
-
-        return audioDto;
-
+        return toDto(audio);
     }
 
 
@@ -93,10 +78,20 @@ public class AudioServiceImpl implements AudioService {
         respository.deleteById(Id);
     }
 
+    private AudioDto toDto(Audio audio) {
+        AudioDto audioDto = new AudioDto();
+        audioDto.setCourse(audio.getCourse());
+        audioDto.setDuration(audio.getDuration());
+        audioDto.setTitle(audio.getTitle());
+        audioDto.setUrl(audio.getUrl());
+        audioDto.setAduioId(audio.getId());
+        return audioDto;
+    }
+
 
     @Override
     public Object getAudioList(AudioQueryCriteria criteria, Pageable pageable){
         Page<Audio> page = respository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
-        return PageUtil.toPage(page.map(audioMapper::toDto));
+        return PageUtil.toPage(page.map(this::toDto));
     }
 }
