@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.service;
 
 import com.lizhi.xingbao.dto.BlogDto;
+import com.lizhi.xingbao.request.BlogQueryCriteria;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -39,8 +40,9 @@ public interface BlogService {
 
     /**
      * 分页查询
+     * @param criteria 条件查询
      * @param pageable
      * @return
      */
-    List<BlogDto> queryBlog(Pageable pageable);
+    Object queryBlog(BlogQueryCriteria criteria, Pageable pageable);
 }

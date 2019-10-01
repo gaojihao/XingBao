@@ -2,13 +2,16 @@ package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.dto.BlogDto;
+import com.lizhi.xingbao.request.BlogQueryCriteria;
 import com.lizhi.xingbao.service.BlogService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 
+@Api(tags = "文章")
 @RestController
 @RequestMapping("xingbao/api/v1/blog")
 public class BlogController extends BaseController{
@@ -46,9 +49,9 @@ public class BlogController extends BaseController{
 
     @ApiOperation(value = "获取文章列表", notes = "获取文章列表", httpMethod = "GET")
     @GetMapping("list")
-    public Result list(BlogDto blogDto, @RequestBody Pageable pageable){
+    public Result list(BlogQueryCriteria criteria, Pageable pageable){
 
-        return Result.success(blogService.queryBlog(pageable));
+        return Result.success(blogService.queryBlog(criteria, pageable));
     }
 
 

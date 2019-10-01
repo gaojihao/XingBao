@@ -6,8 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AudioQueryCriteria {
-
+public class BlogQueryCriteria {
     @Query
-    private Integer course;
+    private Integer categoryId;
 }

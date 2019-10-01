@@ -3,11 +3,15 @@ package com.lizhi.xingbao.service.impl;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.BlogDto;
 import com.lizhi.xingbao.entity.Blog;
+import com.lizhi.xingbao.request.BlogQueryCriteria;
 import com.lizhi.xingbao.respository.BlogRespository;
 import com.lizhi.xingbao.service.BlogService;
+import com.lizhi.xingbao.utils.PageUtil;
+import com.lizhi.xingbao.utils.QueryHelp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -93,15 +97,8 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<BlogDto> queryBlog(Pageable pageable){
-        List<Blog> list = blogRespository.findAll(pageable).getContent();
-        List<BlogDto> dtoList = new ArrayList<>();
-
-        for (Blog blog : list){
-            BlogDto dto = toDto(blog);
-            dtoList.add(dto);
-        }
-
-        return dtoList;
+    public Object queryBlog(BlogQueryCriteria criteria, Pageable pageable){
+        Page<Blog> page = blogRespository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
+        return PageUtil.toPage(page.map(this::toDto));
     }
 }
