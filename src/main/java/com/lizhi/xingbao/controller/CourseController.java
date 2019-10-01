@@ -2,15 +2,16 @@ package com.lizhi.xingbao.controller;
 
 import com.lizhi.xingbao.common.Result;
 import com.lizhi.xingbao.dto.CourseDto;
+import com.lizhi.xingbao.request.CourseQueryCriteria;
 import com.lizhi.xingbao.service.CourseService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
 
+@Api(tags = "课程")
 @RestController
 @RequestMapping("xingbao/api/v1/course")
 public class CourseController extends BaseController{
@@ -18,26 +19,36 @@ public class CourseController extends BaseController{
     @Autowired
     private CourseService courseService;
 
-    @PostMapping("/add")
-    public Result add(@RequestBody CourseDto dto) {
+    @ApiOperation(value = "添加课程", notes = "添加课程", httpMethod = "POST")
+    @PostMapping("add")
+    public Result add(@ModelAttribute CourseDto dto) {
 
         return Result.success(null);
     }
 
-    @PostMapping("/delete")
-    public Result delete(@RequestBody Integer courseId) {
+    @ApiOperation(value = "删除课程", notes = "删除课程", httpMethod = "GET")
+    @GetMapping("delete")
+    public Result delete(@RequestParam(name = "id") Integer Id) {
 
         return Result.success(null);
     }
 
-    @PostMapping("/edit")
-    public Result edit(@RequestBody CourseDto dto) {
+    @ApiOperation(value = "编辑课程", notes = "编辑课程", httpMethod = "POST")
+    @PostMapping("edit")
+    public Result edit(@ModelAttribute CourseDto dto) {
 
         return Result.success(null);
     }
 
-    @PostMapping("/list")
-    public Result list(CourseDto dto, @RequestBody Pageable pageable) {
+    @ApiOperation(value = "获取课程详情", notes = "获取课程详情", httpMethod = "GET")
+    @GetMapping("detail")
+    public Result detail(@RequestParam(name = "id") Integer Id) {
+        return Result.success(null);
+    }
+
+    @ApiOperation(value = "获取课程列表", notes = "获取课程列表", httpMethod = "GET")
+    @GetMapping("list")
+    public Result list(CourseQueryCriteria criteria, Pageable pageable) {
 
         return Result.success(null);
     }
