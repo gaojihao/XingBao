@@ -41,7 +41,8 @@ public class AudioController extends BaseController{
 
     @ApiOperation(value = "获取音频详情", notes = "获取音频详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "id") Integer Id){
+    public Result detail(@RequestParam(name = "id") Integer Id) {
+
         return Result.success(service.audioDetail(Id));
     }
 
