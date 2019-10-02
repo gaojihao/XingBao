@@ -9,4 +9,7 @@ import lombok.Setter;
 public class CourseQueryCriteria {
     @Query
     private Integer categoryId;
+
+    @Query
+    private Integer type;
 }

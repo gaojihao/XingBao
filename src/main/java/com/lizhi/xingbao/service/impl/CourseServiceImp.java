@@ -1,16 +1,20 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.CourseDto;
 import com.lizhi.xingbao.entity.Course;
+import com.lizhi.xingbao.request.CourseQueryCriteria;
 import com.lizhi.xingbao.respository.CourseRespository;
 import com.lizhi.xingbao.service.CourseService;
+import com.lizhi.xingbao.utils.PageUtil;
+import com.lizhi.xingbao.utils.QueryHelp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Pageable;
-import java.util.List;
+import java.util.Optional;
 
 @Service("CourseService")
 public class CourseServiceImp implements CourseService {
@@ -20,18 +24,49 @@ public class CourseServiceImp implements CourseService {
     private CourseRespository courseRespository;
 
     @Override
-    public List<CourseDto> queryAll(Course course, Pageable pageable) {
-        return null;
+    public Object queryAll(CourseQueryCriteria criteria, Pageable pageable) {
+        Page<Course> page = courseRespository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
+        return PageUtil.toPage(page.map(this::toDto));
     }
 
     @Override
     public CourseDto findOne(Integer id) {
-        return null;
+        Optional<Course> optional = courseRespository.findById(id);
+        if (!optional.isPresent()) {
+            throw new ParamException("不存在");
+        }
+        Course course = optional.get();
+        return toDto(course);
     }
 
+
     @Override
-    public CourseDto add(Course course) {
-        return null;
+    public void add(CourseDto dto) {
+        if (courseRespository.findByTitle(dto.getTitle()) != null) {
+            throw new ParamException("课程已存在");
+        }
+
+        Course course = new Course();
+        course.setCategory(dto.getCategory());
+        course.setBuyCount(0);
+        course.setCategoryName(course.getCategoryName());
+        course.setCoverImage(dto.getCoverImage());
+        course.setDesc(dto.getDesc());
+        course.setType(dto.getType());
+        course.setGrade(dto.getGrade());
+        course.setPrice(dto.getPrice());
+        course.setRealPrice(dto.getRealPrice());
+        course.setSubTitle(dto.getSubTitle());
+        course.setSummary(dto.getSummary());
+        course.setTitle(dto.getTitle());
+
+        courseRespository.save(course);
+
+    }
+
+    private CourseDto toDto(Course course) {
+        CourseDto dto = new CourseDto();
+        return dto;
     }
 
 }

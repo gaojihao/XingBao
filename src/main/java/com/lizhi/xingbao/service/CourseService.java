@@ -2,17 +2,17 @@ package com.lizhi.xingbao.service;
 
 
 import com.lizhi.xingbao.dto.CourseDto;
-import com.lizhi.xingbao.entity.Course;
+import com.lizhi.xingbao.request.CourseQueryCriteria;
+import org.springframework.data.domain.Pageable;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 public interface CourseService {
 
-    List<CourseDto> queryAll(Course course, Pageable pageable);
+    Object queryAll(CourseQueryCriteria criteria, Pageable pageable);
 
     CourseDto findOne(Integer id);
 
-    CourseDto add(Course course);
+    void add(CourseDto dto);
 
 }

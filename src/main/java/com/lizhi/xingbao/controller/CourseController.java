@@ -22,7 +22,6 @@ public class CourseController extends BaseController{
     @ApiOperation(value = "添加课程", notes = "添加课程", httpMethod = "POST")
     @PostMapping("add")
     public Result add(@ModelAttribute CourseDto dto) {
-
         return Result.success(null);
     }
 
