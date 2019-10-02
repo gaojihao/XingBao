@@ -24,13 +24,13 @@ public class CourseServiceImp implements CourseService {
     private CourseRespository courseRespository;
 
     @Override
-    public Object queryAll(CourseQueryCriteria criteria, Pageable pageable) {
+    public Object getCourseList(CourseQueryCriteria criteria, Pageable pageable) {
         Page<Course> page = courseRespository.findAll(((root, criteriaQuery, cb) -> QueryHelp.getPredicate(root, criteria, cb)),pageable);
         return PageUtil.toPage(page.map(this::toDto));
     }
 
     @Override
-    public CourseDto findOne(Integer id) {
+    public CourseDto courseDetail(Integer id) {
         Optional<Course> optional = courseRespository.findById(id);
         if (!optional.isPresent()) {
             throw new ParamException("不存在");
@@ -62,6 +62,36 @@ public class CourseServiceImp implements CourseService {
 
         courseRespository.save(course);
 
+    }
+
+    @Override
+    public void deleteCourse(Integer Id) {
+        courseRespository.deleteById(Id);
+    }
+
+    @Override
+    public void editCourse(CourseDto dto) {
+        Optional<Course> optional = courseRespository.findById(dto.getCourseId());
+        if (!optional.isPresent()){
+            throw new ParamException("目标不存在");
+        }
+
+        Course course = optional.get();
+        course.setCategory(dto.getCategory());
+        course.setBuyCount(dto.getBuyCount());
+        course.setCategoryName(course.getCategoryName());
+        course.setCoverImage(dto.getCoverImage());
+        course.setDesc(dto.getDesc());
+        course.setType(dto.getType());
+        course.setGrade(dto.getGrade());
+        course.setPrice(dto.getPrice());
+        course.setRealPrice(dto.getRealPrice());
+        course.setSubTitle(dto.getSubTitle());
+        course.setSummary(dto.getSummary());
+        course.setTitle(dto.getTitle());
+        course.setId(dto.getCourseId());
+
+        courseRespository.save(course);
     }
 
     private CourseDto toDto(Course course) {

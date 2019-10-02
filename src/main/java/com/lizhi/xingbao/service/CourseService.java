@@ -9,10 +9,37 @@ import java.util.List;
 
 public interface CourseService {
 
-    Object queryAll(CourseQueryCriteria criteria, Pageable pageable);
-
-    CourseDto findOne(Integer id);
-
+    /**
+     * 添加课程
+     * @param dto
+     */
     void add(CourseDto dto);
+
+    /**
+     * 课程详情
+     * @param id
+     * @return
+     */
+    CourseDto courseDetail(Integer id);
+
+    /**
+     * 修改课程信息
+     * @param dto
+     */
+    void editCourse(CourseDto dto);
+
+    /**
+     * 删除课程
+     * @param Id
+     */
+    void deleteCourse(Integer Id);
+
+    /**
+     * 获取课程列表
+     * @param criteria 查询条件
+     * @param pageable 分页
+     * @return
+     */
+    Object getCourseList(CourseQueryCriteria criteria, Pageable pageable);
 
 }
