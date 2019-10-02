@@ -30,11 +30,11 @@ public class CategoryServiceImpl implements CategoryService {
             throw new ParamException("目标已存在");
         }
 
-        CourseCategoty categoty = new CourseCategoty();
-        categoty.setName(dto.getName());
-        categoty.setSubTitle(dto.getSubTitle());
+        CourseCategoty category = new CourseCategoty();
+        category.setName(dto.getName());
+        category.setSubTitle(dto.getSubTitle());
 
-        courseCategoryRespository.save(categoty);
+        courseCategoryRespository.save(category);
 
     }
 
@@ -46,11 +46,12 @@ public class CategoryServiceImpl implements CategoryService {
             throw new ParamException("目标不存在");
         }
 
-        CourseCategoty categoty = optional.get();
-        categoty.setSubTitle(dto.getSubTitle());
-        categoty.setName(dto.getName());
+        CourseCategoty category = optional.get();
+        category.setSubTitle(dto.getSubTitle());
+        category.setName(dto.getName());
+        category.setId(dto.getCategoryId());
 
-        courseCategoryRespository.save(categoty);
+        courseCategoryRespository.save(category);
     }
 
 
@@ -62,14 +63,14 @@ public class CategoryServiceImpl implements CategoryService {
             throw new ParamException("目标不存在");
         }
 
-        CourseCategoty categoty = optional.get();
+        CourseCategoty category = optional.get();
 
         CourseCategotyDto dto = new CourseCategotyDto();
-        dto.setSubTitle(categoty.getSubTitle());
-        dto.setName(categoty.getName());
-        dto.setCategoryId(categoty.getId());
-        dto.setCreateTime(categoty.getCreateTime());
-        dto.setUpdateTime(categoty.getUpdateTime());
+        dto.setSubTitle(category.getSubTitle());
+        dto.setName(category.getName());
+        dto.setCategoryId(category.getId());
+        dto.setCreateTime(category.getCreateTime());
+        dto.setUpdateTime(category.getUpdateTime());
 
         return dto;
 
@@ -78,6 +79,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategoty(Integer Id) {
+
         courseCategoryRespository.deleteById(Id);
     }
 

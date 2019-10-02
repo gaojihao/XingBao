@@ -50,6 +50,7 @@ public class BlogServiceImpl implements BlogService {
         blog.setReadNum(dto.getReadNum());
         blog.setSummary(dto.getSummary());
         blog.setTitle(dto.getTitle());
+        blog.setId(dto.getBlogId());
 
         blogRespository.save(blog);
     }
