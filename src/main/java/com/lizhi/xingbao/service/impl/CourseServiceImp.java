@@ -45,7 +45,11 @@ public class CourseServiceImp implements CourseService {
         if (courseRespository.findByTitle(dto.getTitle()) != null) {
             throw new ParamException("课程已存在");
         }
+        courseRespository.save(toEntity(dto));
 
+    }
+
+    private Course toEntity(CourseDto dto){
         Course course = new Course();
         course.setCategory(dto.getCategory());
         course.setBuyCount(0);
@@ -60,8 +64,7 @@ public class CourseServiceImp implements CourseService {
         course.setSummary(dto.getSummary());
         course.setTitle(dto.getTitle());
 
-        courseRespository.save(course);
-
+        return course;
     }
 
     @Override
@@ -76,19 +79,7 @@ public class CourseServiceImp implements CourseService {
             throw new ParamException("目标不存在");
         }
 
-        Course course = optional.get();
-        course.setCategory(dto.getCategory());
-        course.setBuyCount(dto.getBuyCount());
-        course.setCategoryName(course.getCategoryName());
-        course.setCoverImage(dto.getCoverImage());
-        course.setDesc(dto.getDesc());
-        course.setType(dto.getType());
-        course.setGrade(dto.getGrade());
-        course.setPrice(dto.getPrice());
-        course.setRealPrice(dto.getRealPrice());
-        course.setSubTitle(dto.getSubTitle());
-        course.setSummary(dto.getSummary());
-        course.setTitle(dto.getTitle());
+        Course course = toEntity(dto);
         course.setId(dto.getCourseId());
 
         courseRespository.save(course);
