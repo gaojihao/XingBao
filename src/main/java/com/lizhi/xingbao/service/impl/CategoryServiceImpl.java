@@ -2,7 +2,7 @@ package com.lizhi.xingbao.service.impl;
 
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
-import com.lizhi.xingbao.entity.CourseCategoty;
+import com.lizhi.xingbao.entity.CourseCategory;
 import com.lizhi.xingbao.respository.CourseCategoryRespository;
 import com.lizhi.xingbao.service.CategoryService;
 import com.lizhi.xingbao.utils.PageUtil;
@@ -30,7 +30,7 @@ public class CategoryServiceImpl implements CategoryService {
             throw new ParamException("目标已存在");
         }
 
-        CourseCategoty category = new CourseCategoty();
+        CourseCategory category = new CourseCategory();
         category.setName(dto.getName());
         category.setSubTitle(dto.getSubTitle());
 
@@ -40,13 +40,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void editCategory(CourseCategotyDto dto) {
-        Optional<CourseCategoty> optional = courseCategoryRespository.findById(dto.getCategoryId());
+        Optional<CourseCategory> optional = courseCategoryRespository.findById(dto.getCategoryId());
 
         if (!optional.isPresent()){
             throw new ParamException("目标不存在");
         }
 
-        CourseCategoty category = optional.get();
+        CourseCategory category = optional.get();
         category.setSubTitle(dto.getSubTitle());
         category.setName(dto.getName());
         category.setId(dto.getCategoryId());
@@ -57,13 +57,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CourseCategotyDto categoryDetail(Integer Id) {
-        Optional<CourseCategoty> optional = courseCategoryRespository.findById(Id);
+        Optional<CourseCategory> optional = courseCategoryRespository.findById(Id);
 
         if (!optional.isPresent()){
             throw new ParamException("目标不存在");
         }
 
-        CourseCategoty category = optional.get();
+        CourseCategory category = optional.get();
 
         CourseCategotyDto dto = new CourseCategotyDto();
         dto.setSubTitle(category.getSubTitle());
@@ -87,15 +87,15 @@ public class CategoryServiceImpl implements CategoryService {
     public Map getAllCategoty() {
         List<CourseCategotyDto> list = new ArrayList<>();
 
-        List<CourseCategoty> categotyList = courseCategoryRespository.findAll();
+        List<CourseCategory> categoryList = courseCategoryRespository.findAll();
 
-        for (CourseCategoty categoty : categotyList) {
+        for (CourseCategory category : categoryList) {
             CourseCategotyDto dto = new CourseCategotyDto();
-            dto.setSubTitle(categoty.getSubTitle());
-            dto.setName(categoty.getName());
-            dto.setCategoryId(categoty.getId());
-            dto.setCreateTime(categoty.getCreateTime());
-            dto.setUpdateTime(categoty.getUpdateTime());
+            dto.setSubTitle(category.getSubTitle());
+            dto.setName(category.getName());
+            dto.setCategoryId(category.getId());
+            dto.setCreateTime(category.getCreateTime());
+            dto.setUpdateTime(category.getUpdateTime());
             list.add(dto);
         }
 

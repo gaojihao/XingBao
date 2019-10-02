@@ -1,10 +1,8 @@
 package com.lizhi.xingbao.service;
 
 import com.lizhi.xingbao.entity.Picture;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.awt.print.Pageable;
-import java.util.List;
 
 public interface PictureQueryService {
 
@@ -20,7 +18,7 @@ public interface PictureQueryService {
      * @param pageable
      * @return
      */
-    List<Picture> queryAll(Pageable pageable);
+    Object queryAll(Pageable pageable);
 
     /**
      * 删除图片

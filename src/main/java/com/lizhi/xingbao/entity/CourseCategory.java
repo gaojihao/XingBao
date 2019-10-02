@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "category")
 @EqualsAndHashCode(callSuper = false)
-public class CourseCategoty extends BaseEntity{
+public class CourseCategory extends BaseEntity{
 
 
     private static final long serialVersionUID = 853305089047159145L;

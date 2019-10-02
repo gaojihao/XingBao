@@ -5,10 +5,9 @@ import com.lizhi.xingbao.service.PictureQueryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.awt.print.Pageable;
 
 @Api(tags = "图片")
 @RestController
