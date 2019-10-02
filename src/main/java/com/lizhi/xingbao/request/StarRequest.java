@@ -6,5 +6,5 @@ import lombok.Data;
 public class StarRequest {
 
     private Integer courseId;
-    private Integer userId;
+    private String userId;
 }

@@ -22,6 +22,7 @@ public class StaredController extends BaseController{
         if (request.getCourseId() == null || request.getUserId() == null ){
             return Result.fail("参数错误");
         }
+        statedService.updateStar(request);
         return Result.success(null);
     }
 
@@ -31,6 +32,7 @@ public class StaredController extends BaseController{
         if (request.getCourseId() == null || request.getUserId() == null ){
             return Result.fail("参数错误");
         }
+        statedService.cancelStar(request);
         return Result.success(null);
     }
 }
