@@ -79,8 +79,19 @@ public class CourseServiceImp implements CourseService {
             throw new ParamException("目标不存在");
         }
 
-        Course course = toEntity(dto);
-        course.setId(dto.getCourseId());
+        Course course = optional.get();
+        course.setCategory(dto.getCategory());
+        course.setBuyCount(dto.getBuyCount());
+        course.setCategoryName(course.getCategoryName());
+        course.setCoverImage(dto.getCoverImage());
+        course.setDesc(dto.getDesc());
+        course.setType(dto.getType());
+        course.setGrade(dto.getGrade());
+        course.setPrice(dto.getPrice());
+        course.setRealPrice(dto.getRealPrice());
+        course.setSubTitle(dto.getSubTitle());
+        course.setSummary(dto.getSummary());
+        course.setTitle(dto.getTitle());
 
         courseRespository.save(course);
     }
