@@ -51,7 +51,4 @@ public class CourseController extends BaseController{
 
         return Result.success(courseService.getCourseList(criteria,pageable));
     }
-
-
-
 }
