@@ -25,6 +25,7 @@ public class PictureController extends BaseController {
     @ApiOperation(value = "获取图片列表", notes = "获取图片列表", httpMethod = "GET")
     @GetMapping(value = "/list")
     public Result getPictures(Pageable pageable) {
+
         return Result.success(pictureQueryService.queryAll(pageable));
     }
 
@@ -36,19 +37,20 @@ public class PictureController extends BaseController {
     @ApiOperation(value = "上传图片", notes = "上传图片", httpMethod = "POST")
     @PostMapping(value = "/upload")
     public Result upload(@RequestParam MultipartFile file) {
+
         return  Result.success(pictureQueryService.upload(file));
     }
 
 
     /**
      * 删除图片
-     * @param Id
+     * @param url
      * @return
      */
     @ApiOperation(value = "删除图片", notes = "删除图片", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "pictureId") Integer Id){
-        pictureQueryService.delete(Id);
+    public Result delete(@RequestParam(name = "url") String url){
+        pictureQueryService.delete(url);
         return Result.success(null);
     }
 }

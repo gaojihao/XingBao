@@ -22,7 +22,7 @@ public interface PictureQueryService {
 
     /**
      * 删除图片
-     * @param id
+     * @param url
      */
-    void delete(Integer id);
+    void delete(String url);
 }

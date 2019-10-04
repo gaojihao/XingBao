@@ -1,15 +1,14 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.entity.Picture;
 import com.lizhi.xingbao.respository.PictureRepository;
 import com.lizhi.xingbao.service.PictureQueryService;
 import com.lizhi.xingbao.utils.PageUtil;
-import com.lizhi.xingbao.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import java.util.Optional;
 
 @Service("PictureQueryService")
 public class PictureQueryServiceImpl implements PictureQueryService {
@@ -26,13 +25,13 @@ public class PictureQueryServiceImpl implements PictureQueryService {
     }
 
     @Override
-    public void delete(Integer id){
-        Optional<Picture> picture = pictureRepository.findById(id);
+    public void delete(String url){
+        Picture picture = pictureRepository.findByUrl(url);
+        if (picture == null) {
+            throw  new ParamException("未找到改url");
+        }
 
-        ValidationUtil.isNull(picture,"Picture", "id", id);
-        Picture pic =  picture.get();
-
-        pictureRepository.delete(pic);
+        pictureRepository.delete(picture);
     }
 
     @Override

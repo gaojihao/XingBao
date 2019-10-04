@@ -9,16 +9,6 @@ public class PictureDto implements Serializable {
     private static final long serialVersionUID = -7607958846578560681L;
 
     /**
-     * 名称
-     */
-    private String filename;
-
-    /**
-     * 尺寸
-     */
-    private String size;
-
-    /**
      * 高
      */
     private Integer height;
@@ -32,9 +22,4 @@ public class PictureDto implements Serializable {
      * 链接
      */
     private String url;
-
-    /**
-     * 图片Id
-     */
-    private Integer pictureId;
 }

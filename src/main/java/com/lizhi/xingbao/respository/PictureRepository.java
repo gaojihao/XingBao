@@ -4,4 +4,5 @@ import com.lizhi.xingbao.entity.Picture;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PictureRepository extends PagingAndSortingRepository<Picture,Integer> {
+    Picture findByUrl(String url);
 }
