@@ -17,8 +17,8 @@ public class CategoryController extends BaseController{
 
     @ApiOperation(value = "添加分类", notes = "添加分类", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@RequestBody String name){
-        service.createCategory(name);
+    public Result add(@RequestBody  CourseCategotyDto dto){
+        service.createCategory(dto);
         return Result.success(null);
     }
 

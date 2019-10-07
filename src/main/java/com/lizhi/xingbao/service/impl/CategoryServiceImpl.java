@@ -25,14 +25,13 @@ public class CategoryServiceImpl implements CategoryService {
     private CourseCategoryRespository courseCategoryRespository;
 
     @Override
-    public void createCategory(String name) {
-        logger.info(name);
-        if (courseCategoryRespository.findByName(name) != null){
+    public void createCategory(CourseCategotyDto dto) {
+        if (courseCategoryRespository.findByName(dto.getName()) != null){
             throw new ParamException("目标已存在");
         }
 
         CourseCategory category = new CourseCategory();
-        category.setName(name);
+        category.setName(dto.getName());
         courseCategoryRespository.save(category);
 
     }
