@@ -31,7 +31,7 @@ public class CategoryController extends BaseController{
 
     @ApiOperation(value = "编辑分类", notes = "编辑分类", httpMethod = "POST")
     @PostMapping("edit")
-    public Result edit(@ModelAttribute CourseCategotyDto dto){
+    public Result edit(@RequestBody CourseCategotyDto dto){
         service.editCategory(dto);
         return Result.success(null);
     }
