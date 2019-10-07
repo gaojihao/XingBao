@@ -1,5 +1,6 @@
 package com.lizhi.xingbao.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
 import com.lizhi.xingbao.entity.CourseCategory;
@@ -24,16 +25,14 @@ public class CategoryServiceImpl implements CategoryService {
     private CourseCategoryRespository courseCategoryRespository;
 
     @Override
-    public void createCategory(CourseCategotyDto dto) {
-
-        if (courseCategoryRespository.findByName(dto.getName()) != null){
+    public void createCategory(String name) {
+        logger.info(name);
+        if (courseCategoryRespository.findByName(name) != null){
             throw new ParamException("目标已存在");
         }
 
         CourseCategory category = new CourseCategory();
-        category.setName(dto.getName());
-        category.setSubTitle(dto.getSubTitle());
-
+        category.setName(name);
         courseCategoryRespository.save(category);
 
     }
@@ -47,7 +46,6 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         CourseCategory category = optional.get();
-        category.setSubTitle(dto.getSubTitle());
         category.setName(dto.getName());
         category.setId(dto.getCategoryId());
 
@@ -66,7 +64,6 @@ public class CategoryServiceImpl implements CategoryService {
         CourseCategory category = optional.get();
 
         CourseCategotyDto dto = new CourseCategotyDto();
-        dto.setSubTitle(category.getSubTitle());
         dto.setName(category.getName());
         dto.setCategoryId(category.getId());
         dto.setCreateTime(category.getCreateTime());
@@ -91,7 +88,6 @@ public class CategoryServiceImpl implements CategoryService {
 
         for (CourseCategory category : categoryList) {
             CourseCategotyDto dto = new CourseCategotyDto();
-            dto.setSubTitle(category.getSubTitle());
             dto.setName(category.getName());
             dto.setCategoryId(category.getId());
             dto.setCreateTime(category.getCreateTime());

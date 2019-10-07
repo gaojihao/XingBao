@@ -9,9 +9,9 @@ import java.util.Map;
 public interface CategoryService {
     /**
      * 创建大类
-     * @param dto
+     * @param name
      */
-    void createCategory(CourseCategotyDto dto);
+    void createCategory(String name);
 
 
     /**

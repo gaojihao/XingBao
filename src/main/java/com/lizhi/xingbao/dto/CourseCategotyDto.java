@@ -13,11 +13,6 @@ public class CourseCategotyDto implements Serializable {
      */
     private String name;
 
-    /**
-     * 子标题
-     */
-    private String subTitle;
-
     private Integer categoryId;
 
     private String createTime;
