@@ -7,6 +7,7 @@ import com.lizhi.xingbao.respository.UserRespository;
 import com.lizhi.xingbao.service.UserService;
 import com.lizhi.xingbao.utils.EncryptUtils;
 import com.lizhi.xingbao.utils.MD5Util;
+import com.lizhi.xingbao.utils.PageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
@@ -119,7 +121,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<AccountDto> findAll() {
+    public Map findAll() {
         List<Account> list =  userRespository.findAll();
         List<AccountDto> dtos = new ArrayList<>();
 
@@ -128,7 +130,7 @@ public class UserServiceImpl implements UserService {
             dtos.add(dto);
         }
 
-        return dtos;
+        return PageUtil.toPage(dtos,dtos.size());
     }
 
     private Account findUserByUserId(String userId) {

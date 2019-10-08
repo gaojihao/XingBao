@@ -5,6 +5,7 @@ import com.lizhi.xingbao.dto.AccountDto;
 import com.lizhi.xingbao.entity.Account;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
@@ -65,5 +66,5 @@ public interface UserService {
     void modifyPhone(String userId, String phone);
 
 
-    List<AccountDto> findAll();
+    Map findAll();
 }
