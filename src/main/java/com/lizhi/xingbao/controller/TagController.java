@@ -18,7 +18,7 @@ public class TagController extends BaseController{
 
     @ApiOperation(value = "添加标签", notes = "标签分类", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute TagDto dto){
+    public Result add(@RequestBody TagDto dto){
         tagService.createTag(dto);
         return Result.success(null);
     }
@@ -32,7 +32,7 @@ public class TagController extends BaseController{
 
     @ApiOperation(value = "编辑标签", notes = "编辑标签", httpMethod = "POST")
     @PostMapping("edit")
-    public Result edit(@ModelAttribute TagDto dto){
+    public Result edit(@RequestBody TagDto dto){
         tagService.editTag(dto);
         return Result.success(null);
     }
