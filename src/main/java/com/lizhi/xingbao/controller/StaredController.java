@@ -18,7 +18,7 @@ public class StaredController extends BaseController{
 
     @ApiOperation(value = "点赞", notes = "点赞", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute StarRequest request) {
+    public Result add(@RequestBody StarRequest request) {
         if (request.getCourseId() == null || request.getUserId() == null ){
             return Result.fail("参数错误");
         }
@@ -28,7 +28,7 @@ public class StaredController extends BaseController{
 
     @ApiOperation(value = "取消收藏", notes = "取消收藏", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@ModelAttribute StarRequest request) {
+    public Result delete(@RequestBody StarRequest request) {
         if (request.getCourseId() == null || request.getUserId() == null ){
             return Result.fail("参数错误");
         }

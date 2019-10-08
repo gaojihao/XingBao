@@ -20,7 +20,7 @@ public class CourseController extends BaseController{
 
     @ApiOperation(value = "添加课程", notes = "添加课程", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute CourseDto dto) {
+    public Result add(@RequestBody CourseDto dto) {
         courseService.add(dto);
         return Result.success(null);
     }
@@ -34,7 +34,7 @@ public class CourseController extends BaseController{
 
     @ApiOperation(value = "编辑课程", notes = "编辑课程", httpMethod = "POST")
     @PostMapping("edit")
-    public Result edit(@ModelAttribute CourseDto dto) {
+    public Result edit(@RequestBody CourseDto dto) {
         courseService.editCourse(dto);
         return Result.success(null);
     }

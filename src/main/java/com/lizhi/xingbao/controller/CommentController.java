@@ -20,7 +20,7 @@ public class CommentController extends BaseController{
 
     @ApiOperation(value = "评论", notes = "评论", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute CommentDto dto) {
+    public Result add(@RequestBody CommentDto dto) {
         commentService.createComment(dto);
         return Result.success(null);
     }

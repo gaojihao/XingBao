@@ -20,7 +20,7 @@ public class VideoController extends BaseController{
 
     @ApiOperation(value = "添加视频", notes = "添加视频", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute VideoDto dto) {
+    public Result add(@RequestBody VideoDto dto) {
         videoService.createVideo(dto);
         return Result.success(null);
     }
@@ -34,7 +34,7 @@ public class VideoController extends BaseController{
 
     @ApiOperation(value = "编辑视频", notes = "编辑视频", httpMethod = "POST")
     @PostMapping("edit")
-    public Result edit(@ModelAttribute VideoDto dto){
+    public Result edit(@RequestBody VideoDto dto){
         videoService.editVideo(dto);
         return Result.success(null);
     }

@@ -19,7 +19,7 @@ public class CollectController extends BaseController{
 
     @ApiOperation(value = "收藏", notes = "收藏", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute CollectRequest request) {
+    public Result add(@RequestBody CollectRequest request) {
         if (request.getCourseId() == null || request.getUserId() == null ){
             return Result.fail("参数错误");
         }
@@ -31,7 +31,7 @@ public class CollectController extends BaseController{
 
     @ApiOperation(value = "取消收藏", notes = "取消收藏", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@ModelAttribute CollectRequest request) {
+    public Result delete(@RequestBody CollectRequest request) {
         if (request.getCourseId() == null || request.getUserId() == null ){
             return Result.fail("参数错误");
         }

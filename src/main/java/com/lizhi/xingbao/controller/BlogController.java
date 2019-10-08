@@ -21,7 +21,7 @@ public class BlogController extends BaseController{
 
     @ApiOperation(value = "添加文章", notes = "添加文章", httpMethod = "POST")
     @PostMapping("add")
-    public Result createBlog(@ModelAttribute BlogDto blogDto){
+    public Result createBlog(@RequestBody BlogDto blogDto){
         blogService.createBlog(blogDto);
         return Result.success(null);
     }
@@ -35,7 +35,7 @@ public class BlogController extends BaseController{
 
     @ApiOperation(value = "编辑文章", notes = "编辑文章", httpMethod = "POST")
     @PostMapping("edit")
-    public Result edit(@ModelAttribute BlogDto blogDto){
+    public Result edit(@RequestBody BlogDto blogDto){
         blogService.editBlog(blogDto);
         return Result.success(null);
     }

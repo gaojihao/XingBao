@@ -20,7 +20,7 @@ public class AudioController extends BaseController{
 
     @ApiOperation(value = "添加音频", notes = "添加音频", httpMethod = "POST")
     @PostMapping("add")
-    public Result add(@ModelAttribute AudioDto audio) {
+    public Result add(@RequestBody AudioDto audio) {
         service.createAudio(audio);
         return Result.success(null);
     }
@@ -34,7 +34,7 @@ public class AudioController extends BaseController{
 
     @ApiOperation(value = "编辑音频", notes = "编辑音频", httpMethod = "POST")
     @PostMapping("edit")
-    public Result edit(@ModelAttribute AudioDto audio){
+    public Result edit(@RequestBody AudioDto audio){
         service.editAudio(audio);
         return Result.success(null);
     }
