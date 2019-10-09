@@ -24,4 +24,10 @@ public class Collect extends BaseEntity{
     @Column(name = "course")
     private Integer course;
 
+    /**
+     * 类型
+     */
+    @Column(name = "type")
+    private int type;
+
 }

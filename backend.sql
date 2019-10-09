@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `collect` (
   `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
+  `type` int(4) DEFAULT NULL COMMENT '类型',
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='收藏';
@@ -72,7 +73,6 @@ CREATE TABLE IF NOT EXISTS `picture` (
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `filename` varchar(64) DEFAULT NULL COMMENT '文件名称',
   `height` varchar(8) DEFAULT NULL COMMENT '高度',
-  `size` varchar(8) DEFAULT NULL COMMENT '大小',
   `width` varchar(8) DEFAULT NULL COMMENT '宽度',
   `url` varchar(64) DEFAULT NULL COMMENT '链接',
   PRIMARY KEY (`id`)
@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `star` (
   `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
+  `type` int(4) DEFAULT NULL COMMENT '类型',
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2016 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='点赞';

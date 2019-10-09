@@ -7,4 +7,9 @@ public class StarRequest {
 
     private Integer courseId;
     private String userId;
+
+    /**
+     * 类型type 0:课程  1:文章
+     */
+    private int type;
 }
