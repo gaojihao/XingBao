@@ -1,6 +1,5 @@
 package com.lizhi.xingbao.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
 import com.lizhi.xingbao.entity.CourseCategory;
@@ -65,9 +64,6 @@ public class CategoryServiceImpl implements CategoryService {
         CourseCategotyDto dto = new CourseCategotyDto();
         dto.setName(category.getName());
         dto.setCategoryId(category.getId());
-        dto.setCreateTime(category.getCreateTime());
-        dto.setUpdateTime(category.getUpdateTime());
-
         return dto;
 
     }
@@ -89,8 +85,6 @@ public class CategoryServiceImpl implements CategoryService {
             CourseCategotyDto dto = new CourseCategotyDto();
             dto.setName(category.getName());
             dto.setCategoryId(category.getId());
-            dto.setCreateTime(category.getCreateTime());
-            dto.setUpdateTime(category.getUpdateTime());
             list.add(dto);
         }
 
