@@ -53,7 +53,6 @@ public class CourseServiceImp implements CourseService {
         Course course = new Course();
         course.setCategory(dto.getCategory());
         course.setBuyCount(0);
-        course.setCategoryName(course.getCategoryName());
         course.setCoverImage(dto.getCoverImage());
         course.setDesc(dto.getDesc());
         course.setType(dto.getType());
@@ -62,6 +61,7 @@ public class CourseServiceImp implements CourseService {
         course.setRealPrice(dto.getRealPrice());
         course.setSubTitle(dto.getSubTitle());
         course.setSummary(dto.getSummary());
+        course.setCategoryName("test");
         course.setTitle(dto.getTitle());
 
         return course;
