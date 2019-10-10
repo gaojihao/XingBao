@@ -39,11 +39,6 @@ public class CourseDto implements Serializable {
     private Integer category;
 
     /**
-     * 所属分类名称
-     */
-    private String categoryName;
-
-    /**
      * 实际价格
      */
     private Integer realPrice;
