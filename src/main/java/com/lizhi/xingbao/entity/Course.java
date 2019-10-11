@@ -27,7 +27,7 @@ public class Course extends BaseEntity{
     /**
      * 描述
      */
-    @Column(name = "desc")
+    @Column(name = "course_desc")
     private String desc;
 
     /**
@@ -81,6 +81,6 @@ public class Course extends BaseEntity{
     /**
      * 类型
      */
-    @Column(name = "type")
+    @Column(name = "course_type")
     private Integer type;
 }
