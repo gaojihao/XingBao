@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.service;
 
-import com.lizhi.xingbao.entity.Picture;
+import com.lizhi.xingbao.dto.PictureDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,7 +11,7 @@ public interface PictureQueryService {
      * @param file
      * @return
      */
-    Picture upload(MultipartFile file);
+    PictureDto upload(MultipartFile file);
 
     /**
      * 分页获取图片数据

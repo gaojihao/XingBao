@@ -14,6 +14,8 @@ public class BlogDto implements Serializable {
 
     private Integer readNum;
 
+    private String cover;
+
     private String summary;
 
     private String content;

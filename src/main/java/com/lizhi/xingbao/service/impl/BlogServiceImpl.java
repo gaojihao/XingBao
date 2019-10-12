@@ -37,6 +37,8 @@ public class BlogServiceImpl implements BlogService {
         blog.setReadNum(0);
         blog.setSummary(dto.getSummary());
         blog.setTitle(dto.getTitle());
+        blog.setCover(dto.getCover());
+        blog.setUrl("url");
 
         blogRespository.save(blog);
 
@@ -51,6 +53,7 @@ public class BlogServiceImpl implements BlogService {
         blog.setSummary(dto.getSummary());
         blog.setTitle(dto.getTitle());
         blog.setId(dto.getBlogId());
+        blog.setCover(dto.getCover());
 
         blogRespository.save(blog);
     }
@@ -94,6 +97,7 @@ public class BlogServiceImpl implements BlogService {
         dto.setReadNum(blog.getReadNum());
         dto.setContent(blog.getContent());
         dto.setBlogId(blog.getId());
+        dto.setCover(blog.getCover());
         return dto;
     }
 
