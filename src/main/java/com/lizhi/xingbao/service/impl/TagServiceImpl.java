@@ -65,8 +65,6 @@ public class TagServiceImpl implements TagService {
         TagDto dto = new TagDto();
         dto.setName(tag.getName());
         dto.setTagId(tag.getId());
-        dto.setCreateTime(tag.getCreateTime());
-        dto.setUpdateTime(tag.getUpdateTime());
 
         return dto;
 
@@ -86,8 +84,6 @@ public class TagServiceImpl implements TagService {
             TagDto dto = new TagDto();
             dto.setName(tag.getName());
             dto.setTagId(tag.getId());
-            dto.setCreateTime(tag.getCreateTime());
-            dto.setUpdateTime(tag.getUpdateTime());
             list.add(dto);
         }
         return PageUtil.toPage(list,list.size());
