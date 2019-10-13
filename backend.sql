@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `account` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `img_url` varchar(64) DEFAULT NULL COMMENT '头像url',
   `jwt` varchar(64) DEFAULT NULL COMMENT 'jwt',
   `level` int(11) DEFAULT NULL COMMENT '级别',
@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS `account` (
 
 CREATE TABLE IF NOT EXISTS `audio` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `duration` int(11) DEFAULT NULL COMMENT '时长',
   `title` varchar(128) DEFAULT NULL COMMENT '标题',
@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS `audio` (
 
 CREATE TABLE IF NOT EXISTS `blog` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `read_num` int(11) DEFAULT NULL COMMENT '阅读数',
   `summary` varchar(128) NOT NULL COMMENT '摘要',
   `title` varchar(50) NOT NULL COMMENT '标题',
@@ -39,17 +39,16 @@ CREATE TABLE IF NOT EXISTS `blog` (
 
 CREATE TABLE IF NOT EXISTS `category` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(50) DEFAULT NULL COMMENT '标题',
-  `sub_title` varchar(50) DEFAULT NULL COMMENT '子标题',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2109 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='分类';
 
 CREATE TABLE IF NOT EXISTS `collect` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `type` int(4) DEFAULT NULL COMMENT '类型',
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
@@ -58,8 +57,8 @@ CREATE TABLE IF NOT EXISTS `collect` (
 
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` varchar(256) DEFAULT NULL COMMENT '评论内容',
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `level` int(11) DEFAULT NULL COMMENT '星级',
@@ -69,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 CREATE TABLE IF NOT EXISTS `picture` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `filename` varchar(64) DEFAULT NULL COMMENT '文件名称',
   `height` varchar(8) DEFAULT NULL COMMENT '高度',
   `width` varchar(8) DEFAULT NULL COMMENT '宽度',
@@ -80,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `picture` (
 
 CREATE TABLE IF NOT EXISTS `star` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `type` int(4) DEFAULT NULL COMMENT '类型',
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
@@ -90,16 +89,16 @@ CREATE TABLE IF NOT EXISTS `star` (
 
 CREATE TABLE IF NOT EXISTS `tag` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(16) DEFAULT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2004 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='标签';
 
 CREATE TABLE IF NOT EXISTS `video` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `course` int(11) DEFAULT NULL COMMENT '课程id',
   `duration` int(11) DEFAULT NULL COMMENT '时长',
   `title` varchar(128) DEFAULT NULL COMMENT '名称',
@@ -108,22 +107,23 @@ CREATE TABLE IF NOT EXISTS `video` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2012 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='视频';
 
 CREATE TABLE IF NOT EXISTS `course` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `title` varchar(128) DEFAULT NULL COMMENT '名称',
-  `summary` varchar(128) DEFAULT NULL COMMENT '摘要',
-  `desc` varchar(128) DEFAULT NULL COMMENT '描述',
-  `sub_title` varchar(128) DEFAULT NULL COMMENT '子标题',
-  `cover_image` varchar(128) DEFAULT NULL COMMENT '封面url',
-  `category` int(11) DEFAULT NULL COMMENT '分类id',
-  `realPrice` int(11) DEFAULT NULL COMMENT '实际价格',
-  `price` int(11) DEFAULT NULL COMMENT '市场价格',
-  `buyCount` int(11) DEFAULT NULL COMMENT '购买人数',
-  `grade` int(11) DEFAULT NULL COMMENT '评分',
-  `type` int(11) DEFAULT NULL COMMENT '类型',
-  `category_name` varchar(128) DEFAULT NULL COMMENT '分类名称',
-  PRIMARY KEY (`id`)
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `title` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '名称',
+    `summary` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '摘要',
+    `course_desc` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '描述',
+    `sub_title` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '子标题',
+    `cover_image` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '封面url',
+    `category` int(11) DEFAULT NULL COMMENT '分类id',
+    `real_price` int(11) DEFAULT NULL COMMENT '实际价格',
+    `price` int(11) DEFAULT NULL COMMENT '市场价格',
+    `buy_count` int(11) DEFAULT NULL COMMENT '购买人数',
+    `grade` int(11) DEFAULT NULL COMMENT '评分',
+    `course_type` int(11) DEFAULT NULL COMMENT '类型',
+    `published` tinyint(1) DEFAULT NULL COMMENT '是否发布',
+    `category_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2019 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='课程';
 
 
