@@ -67,4 +67,6 @@ public class CourseDto implements Serializable {
      * 课程Id
      */
     private Integer courseId;
+
+    private Boolean published;
 }

@@ -63,6 +63,7 @@ public class CourseServiceImp implements CourseService {
         course.setSummary(dto.getSummary());
         course.setCategoryName("test");
         course.setTitle(dto.getTitle());
+        course.setPublished(dto.getPublished());
 
         return course;
     }
@@ -89,12 +90,25 @@ public class CourseServiceImp implements CourseService {
         course.setSubTitle(dto.getSubTitle());
         course.setSummary(dto.getSummary());
         course.setTitle(dto.getTitle());
+        course.setPublished(dto.getPublished());
 
         courseRespository.save(course);
     }
 
     private CourseDto toDto(Course course) {
         CourseDto dto = new CourseDto();
+        dto.setCategory(course.getCategory());
+        dto.setBuyCount(course.getBuyCount());
+        dto.setCourseId(course.getId());
+        dto.setCoverImage(course.getCoverImage());
+        dto.setDesc(course.getDesc());
+        dto.setGrade(course.getGrade());
+        dto.setPrice(course.getPrice());
+        dto.setRealPrice(course.getRealPrice());
+        dto.setSubTitle(course.getSubTitle());
+        dto.setTitle(course.getTitle());
+        dto.setType(course.getType());
+        dto.setSummary(course.getSummary());
         return dto;
     }
 

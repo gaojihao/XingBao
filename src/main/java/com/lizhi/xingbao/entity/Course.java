@@ -83,4 +83,8 @@ public class Course extends BaseEntity{
      */
     @Column(name = "course_type")
     private Integer type;
+
+    //是否发布
+    @Column(name = "published")
+    private Boolean published;
 }
