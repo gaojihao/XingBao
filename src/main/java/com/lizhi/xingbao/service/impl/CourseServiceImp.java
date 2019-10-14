@@ -63,7 +63,7 @@ public class CourseServiceImp implements CourseService {
         course.setSummary(dto.getSummary());
         course.setCategoryName("test");
         course.setTitle(dto.getTitle());
-        course.setPublished(dto.getPublished());
+        course.setPublished(false);
 
         return course;
     }
