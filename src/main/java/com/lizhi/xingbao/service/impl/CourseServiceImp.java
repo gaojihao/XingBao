@@ -95,6 +95,18 @@ public class CourseServiceImp implements CourseService {
         courseRespository.save(course);
     }
 
+    @Override
+    public void updatePublishState(Integer Id,Boolean publish){
+        Optional<Course> optional = courseRespository.findById(Id);
+        if (!optional.isPresent()){
+            throw new ParamException("目标不存在");
+        }
+
+        Course course = optional.get();
+        course.setPublished(publish);
+        courseRespository.save(course);
+    }
+
     private CourseDto toDto(Course course) {
         CourseDto dto = new CourseDto();
         dto.setCategory(course.getCategory());

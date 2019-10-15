@@ -5,8 +5,6 @@ import com.lizhi.xingbao.dto.CourseDto;
 import com.lizhi.xingbao.request.CourseQueryCriteria;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
 public interface CourseService {
 
     /**
@@ -33,6 +31,14 @@ public interface CourseService {
      * @param Id
      */
     void deleteCourse(Integer Id);
+
+
+    /**
+     * 更新发布状态
+     * @param Id
+     * @param publish
+     */
+    void updatePublishState(Integer Id,Boolean publish);
 
     /**
      * 获取课程列表

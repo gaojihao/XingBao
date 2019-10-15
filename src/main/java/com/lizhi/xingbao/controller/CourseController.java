@@ -39,6 +39,14 @@ public class CourseController extends BaseController{
         return Result.success(null);
     }
 
+    @ApiOperation(value = "更新课程发布状态", notes = "更新课程发布状态", httpMethod = "POST")
+    @PostMapping("update/publish")
+    public Result updatePublishState(@RequestParam(name = "courseId") Integer Id,
+                                     @RequestParam(name = "published") Boolean published) {
+        courseService.updatePublishState(Id, published);
+        return Result.success(null);
+    }
+
     @ApiOperation(value = "获取课程详情", notes = "获取课程详情", httpMethod = "GET")
     @GetMapping("detail")
     public Result detail(@RequestParam(name = "courseId") Integer Id) {
