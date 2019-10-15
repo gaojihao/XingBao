@@ -28,5 +28,8 @@ public class VideoDto implements Serializable {
      */
     private Integer course;
 
+    /**
+     * ID
+     */
     private Integer videoId;
 }
