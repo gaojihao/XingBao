@@ -48,4 +48,11 @@ public interface CourseService {
      */
     Object getCourseList(CourseQueryCriteria criteria, Pageable pageable);
 
+    /**
+     * app获取课程列表
+     * @param pageable 分页
+     * @return
+     */
+    Object courseListOfPublished(Pageable pageable);
+
 }

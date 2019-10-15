@@ -30,6 +30,12 @@ public class CourseServiceImp implements CourseService {
     }
 
     @Override
+    public Object courseListOfPublished(Pageable pageable) {
+        Page<Course> page = courseRespository.findAll(pageable);
+        return PageUtil.toPage(page.map(this::toDto));
+    }
+
+    @Override
     public CourseDto courseDetail(Integer id) {
         Optional<Course> optional = courseRespository.findById(id);
         if (!optional.isPresent()) {

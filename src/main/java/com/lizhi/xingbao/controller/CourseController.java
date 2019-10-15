@@ -59,4 +59,12 @@ public class CourseController extends BaseController{
 
         return Result.success(courseService.getCourseList(criteria,pageable));
     }
+
+    @ApiOperation(value = "app获取已发布课程列表", notes = "app获取已发布课程列表", httpMethod = "GET")
+    @GetMapping("app/list")
+    public Result courseListOfPublish(Pageable pageable) {
+
+        return Result.success(courseService.courseListOfPublished(pageable));
+    }
+
 }
