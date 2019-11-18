@@ -60,8 +60,8 @@ public class AudioServiceImpl implements AudioService {
 
 
     @Override
-    public AudioDto audioDetail(Integer Id){
-        Optional<Audio> optional = respository.findById(Id);
+    public AudioDto audioDetail(Integer audioId){
+        Optional<Audio> optional = respository.findById(audioId);
 
         if (!optional.isPresent()){
             throw new ParamException("目标不存在");
@@ -74,8 +74,8 @@ public class AudioServiceImpl implements AudioService {
 
 
     @Override
-    public void deleteAudio(Integer Id) {
-        respository.deleteById(Id);
+    public void deleteAudio(Integer audioId) {
+        respository.deleteById(audioId);
     }
 
     private AudioDto toDto(Audio audio) {

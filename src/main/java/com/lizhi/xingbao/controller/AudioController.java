@@ -27,8 +27,8 @@ public class AudioController extends BaseController{
 
     @ApiOperation(value = "删除音频", notes = "删除音频", httpMethod = "GET")
     @GetMapping("delete")
-    public Result delete(@RequestParam(name = "audioId") Integer Id){
-        service.deleteAudio(Id);
+    public Result delete(@RequestParam(name = "audioId") Integer audioId){
+        service.deleteAudio(audioId);
         return Result.success(null);
     }
 
@@ -41,9 +41,9 @@ public class AudioController extends BaseController{
 
     @ApiOperation(value = "获取音频详情", notes = "获取音频详情", httpMethod = "GET")
     @GetMapping("detail")
-    public Result detail(@RequestParam(name = "audioId") Integer Id) {
+    public Result detail(@RequestParam(name = "audioId") Integer audioId) {
 
-        return Result.success(service.audioDetail(Id));
+        return Result.success(service.audioDetail(audioId));
     }
 
     @ApiOperation(value = "获取音频列表", notes = "获取音频列表", httpMethod = "GET")

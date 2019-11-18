@@ -22,16 +22,16 @@ public interface AudioService {
 
     /**
      * 获取音频详情
-     * @param Id 音频id
+     * @param audioId 音频id
      * @return
      */
-    AudioDto audioDetail(Integer Id);
+    AudioDto audioDetail(Integer audioId);
 
     /**
      * 删除音频
-     * @param Id 音频id
+     * @param audioId 音频id
      */
-    void deleteAudio(Integer Id);
+    void deleteAudio(Integer audioId);
 
     /**
      * 获取课程下的音频列表

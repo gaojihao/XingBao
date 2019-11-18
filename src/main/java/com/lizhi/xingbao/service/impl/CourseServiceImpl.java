@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service("CourseService")
-public class CourseServiceImp implements CourseService {
-    private static final Logger logger = LoggerFactory.getLogger(CourseServiceImp.class);
+public class CourseServiceImpl implements CourseService {
+    private static final Logger logger = LoggerFactory.getLogger(CourseServiceImpl.class);
 
     @Autowired
     private CourseRespository courseRespository;
