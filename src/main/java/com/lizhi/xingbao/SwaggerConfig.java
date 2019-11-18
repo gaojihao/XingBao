@@ -16,7 +16,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket petApi() {
-        return new Docket(DocumentationType.SWAGGER_2.SWAGGER_2)
+        return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.lizhi.xingbao")) //指定提供接口所在的基包
