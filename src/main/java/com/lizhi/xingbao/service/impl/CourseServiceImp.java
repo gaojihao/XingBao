@@ -5,6 +5,7 @@ import com.lizhi.xingbao.dto.CourseDto;
 import com.lizhi.xingbao.entity.Course;
 import com.lizhi.xingbao.request.CourseQueryCriteria;
 import com.lizhi.xingbao.respository.CourseRespository;
+import com.lizhi.xingbao.service.CategoryService;
 import com.lizhi.xingbao.service.CourseService;
 import com.lizhi.xingbao.utils.PageUtil;
 import com.lizhi.xingbao.utils.QueryHelp;
@@ -22,6 +23,9 @@ public class CourseServiceImp implements CourseService {
 
     @Autowired
     private CourseRespository courseRespository;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @Override
     public Object getCourseList(CourseQueryCriteria criteria, Pageable pageable) {
