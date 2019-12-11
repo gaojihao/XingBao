@@ -51,7 +51,7 @@ public class PictureQueryServiceImpl implements PictureQueryService {
 
 
         // 要上传的目标文件存放路径
-        String localPath = "/Users/zhi.li/image";
+        String localPath = "/image";
         // 上传成功或者失败的提示
         String msg = "";
 
