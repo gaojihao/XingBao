@@ -4,10 +4,6 @@
 ### JPA
 [JPA官方地址](https://spring.io/projects/spring-data-jpa)
 
-### Querydsl
-[Querydsl官方地址](http://www.querydsl.com/)
-
-
 ### Shiro
 [Shiro官方地址](http://shiro.apache.org/index.html)
 
