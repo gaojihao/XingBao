@@ -22,7 +22,8 @@ public class FileUtils {
     public static Picture upload(MultipartFile file, String path, String fileName){
 
         //生成新的文件名
-        String realPath = path + "/" + FileNameUtils.getFileName(fileName);
+        String imagePath = path + "/" + FileNameUtils.getFileName(fileName);
+        String realPath = "/Users/Aaron" + imagePath;
 
 
         File dest = new File(realPath);
@@ -57,7 +58,7 @@ public class FileUtils {
         Picture picture = new Picture();
         picture.setWidth(sourceImg.getWidth());
         picture.setHeight(sourceImg.getHeight());
-        picture.setUrl(realPath);
+        picture.setUrl(imagePath);
         picture.setFilename(fileName);
 
         return picture;

@@ -8,6 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class XBWebAppConfigurer implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/image/**").addResourceLocations("file:/Users/zhi.li/image/");
+        registry.addResourceHandler("/image/**").addResourceLocations("file:/Users/Aaron/image/");
     }
 }
