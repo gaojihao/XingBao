@@ -22,12 +22,6 @@ public class Picture extends BaseEntity {
     private String filename;
 
     /**
-     * 尺寸
-     */
-    @Column(name = "size")
-    private String size;
-
-    /**
      * 高
      */
     @Column(name = "height")
