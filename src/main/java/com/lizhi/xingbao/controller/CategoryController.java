@@ -49,4 +49,11 @@ public class CategoryController extends BaseController{
         return Result.success(service.getAllCategoty());
     }
 
+    @ApiOperation(value = "获取分类及课程列表", notes = "获取分类及课程列表", httpMethod = "GET")
+    @GetMapping("course/list")
+    public Result courseList(){
+
+        return Result.success(service.getCategotyList());
+    }
+
 }

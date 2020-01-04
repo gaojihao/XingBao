@@ -1,10 +1,13 @@
 package com.lizhi.xingbao.service.impl;
 
 import com.lizhi.xingbao.common.Exception.ParamException;
+import com.lizhi.xingbao.dto.CategoryModel;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
 import com.lizhi.xingbao.entity.CourseCategory;
 import com.lizhi.xingbao.respository.CourseCategoryRespository;
+import com.lizhi.xingbao.respository.CourseRespository;
 import com.lizhi.xingbao.service.CategoryService;
+import com.lizhi.xingbao.service.CourseService;
 import com.lizhi.xingbao.utils.PageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +25,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private CourseCategoryRespository courseCategoryRespository;
+
+    @Autowired
+    private CourseService courseService;
 
     @Override
     public void createCategory(CourseCategotyDto dto) {
@@ -89,5 +95,23 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         return PageUtil.toPage(list,list.size());
+    }
+
+    @Override
+    public List<CategoryModel> getCategotyList() {
+        List<CategoryModel> list = new ArrayList<>();
+
+        List<CourseCategory> categoryList = courseCategoryRespository.findAll();
+
+        for (CourseCategory category : categoryList) {
+            CategoryModel categoryModel = new CategoryModel();
+            categoryModel.setTitle(category.getName());
+            categoryModel.setCategoryId(category.getId());
+            categoryModel.setList(courseService.getAllCourseOfCategory(category.getId()));
+            list.add(categoryModel);
+        }
+
+        return list;
+
     }
 }

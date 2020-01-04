@@ -1,6 +1,7 @@
 package com.lizhi.xingbao.service;
 
 
+import com.lizhi.xingbao.dto.CategoryModel;
 import com.lizhi.xingbao.dto.CourseCategotyDto;
 
 import java.util.List;
@@ -39,4 +40,10 @@ public interface CategoryService {
      * @return
      */
     Map getAllCategoty();
+
+    /**
+     * 获取分类及分类下的课程
+     * @return
+     */
+    List<CategoryModel> getCategotyList();
 }

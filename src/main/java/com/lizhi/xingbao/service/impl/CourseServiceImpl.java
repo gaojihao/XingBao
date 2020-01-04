@@ -2,6 +2,7 @@ package com.lizhi.xingbao.service.impl;
 
 import com.lizhi.xingbao.common.Exception.ParamException;
 import com.lizhi.xingbao.dto.CourseDto;
+import com.lizhi.xingbao.dto.CourseModel;
 import com.lizhi.xingbao.entity.Course;
 import com.lizhi.xingbao.request.CourseQueryCriteria;
 import com.lizhi.xingbao.respository.CourseRespository;
@@ -15,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service("CourseService")
@@ -132,6 +136,20 @@ public class CourseServiceImpl implements CourseService {
         dto.setType(course.getType());
         dto.setSummary(course.getSummary());
         return dto;
+    }
+
+    @Override
+    public List<CourseModel> getAllCourseOfCategory(Integer categoryId) {
+        List<Course> courseList = courseRespository.findAllByCategory(categoryId);
+        List<CourseModel> list = new ArrayList<>();
+
+        for (Course course : courseList) {
+            CourseModel model = new CourseModel();
+            model.setCourseTitle(course.getTitle());
+            model.setCourseId(course.getId());
+            list.add(model);
+        }
+        return list;
     }
 
 }
