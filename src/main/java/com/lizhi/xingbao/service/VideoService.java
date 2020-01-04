@@ -5,11 +5,19 @@ import com.lizhi.xingbao.dto.VideoDto;
 import com.lizhi.xingbao.entity.Video;
 import com.lizhi.xingbao.request.VideoQueryCriteria;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 public interface VideoService {
 
+    /**
+     * 上传视频
+     * @param file
+     * @return
+     */
+    Map upload(MultipartFile file);
     /**
      * 创建视频
      * @param dto

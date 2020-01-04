@@ -16,9 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service("VideoService")
@@ -27,6 +29,17 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private VideoRespository videoRespository;
+
+    @Override
+    public Map upload(MultipartFile file) {
+        //检查文件是否为空
+        if (file.isEmpty()){
+            throw new ParamException("请上传视频文件");
+        }
+
+
+        return null;
+    }
 
     @Override
     public void createVideo(VideoDto dto) {
