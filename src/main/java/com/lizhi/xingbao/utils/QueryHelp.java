@@ -110,7 +110,7 @@ public class QueryHelp {
                 field.setAccessible(accessible);
             }
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+
         }
         return cb.and(list.toArray(new Predicate[list.size()]));
     }
