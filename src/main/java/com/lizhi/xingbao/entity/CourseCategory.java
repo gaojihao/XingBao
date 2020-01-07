@@ -1,14 +1,10 @@
 package com.lizhi.xingbao.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
-@Data
 @Entity
 @Table(name = "category")
-@EqualsAndHashCode(callSuper = false)
 public class CourseCategory extends BaseEntity{
 
 
@@ -19,4 +15,20 @@ public class CourseCategory extends BaseEntity{
 
     @Column(name = "sub_title")
     private String subTitle;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
 }

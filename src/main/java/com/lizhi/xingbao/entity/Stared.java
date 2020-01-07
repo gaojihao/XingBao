@@ -1,14 +1,10 @@
 package com.lizhi.xingbao.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
-@Data
 @Entity
 @Table(name = "star")
-@EqualsAndHashCode(callSuper = false)
 public class Stared extends BaseEntity{
 
     private static final long serialVersionUID = -5917699228674048265L;
@@ -29,4 +25,28 @@ public class Stared extends BaseEntity{
      */
     @Column(name = "type")
     private int type;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getCourse() {
+        return course;
+    }
+
+    public void setCourse(Integer course) {
+        this.course = course;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }

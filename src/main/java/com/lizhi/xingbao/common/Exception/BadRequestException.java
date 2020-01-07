@@ -1,9 +1,7 @@
 package com.lizhi.xingbao.common.Exception;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-@Getter
 public class BadRequestException extends RuntimeException {
 
     private Integer status = 400;
@@ -17,4 +15,7 @@ public class BadRequestException extends RuntimeException {
         this.status = status.value();
     }
 
+    public Integer getStatus() {
+        return status;
+    }
 }

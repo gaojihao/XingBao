@@ -1,10 +1,8 @@
 package com.lizhi.xingbao.dto;
 
-import lombok.Data;
 
 import java.io.Serializable;
 
-@Data
 public class AudioDto implements Serializable {
     private static final long serialVersionUID = 5861159903346986971L;
 
@@ -30,4 +28,44 @@ public class AudioDto implements Serializable {
 
 
     private Integer audioId;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public Integer getCourse() {
+        return course;
+    }
+
+    public void setCourse(Integer course) {
+        this.course = course;
+    }
+
+    public Integer getAudioId() {
+        return audioId;
+    }
+
+    public void setAudioId(Integer audioId) {
+        this.audioId = audioId;
+    }
 }
