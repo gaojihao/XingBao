@@ -1,10 +1,8 @@
 package com.lizhi.xingbao.dto;
 
-import lombok.Data;
 
 import java.io.Serializable;
 
-@Data
 public class CourseListDto implements Serializable {
 
 
@@ -16,5 +14,20 @@ public class CourseListDto implements Serializable {
 
     private Integer courseId;
 
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
 }
 
