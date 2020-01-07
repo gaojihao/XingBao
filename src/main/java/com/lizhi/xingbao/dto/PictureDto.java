@@ -1,10 +1,8 @@
 package com.lizhi.xingbao.dto;
 
-import lombok.Data;
 
 import java.io.Serializable;
 
-@Data
 public class PictureDto implements Serializable {
     private static final long serialVersionUID = -7607958846578560681L;
 
@@ -22,4 +20,28 @@ public class PictureDto implements Serializable {
      * 链接
      */
     private String url;
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }
