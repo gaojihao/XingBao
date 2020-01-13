@@ -13,5 +13,4 @@ public class XingbaoApplication {
 
         SpringApplication.run(XingbaoApplication.class, args);
     }
-
 }

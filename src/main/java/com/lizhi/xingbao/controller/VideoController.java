@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 
 @Api(tags = "视频")
 @RestController
@@ -28,14 +30,21 @@ public class VideoController extends BaseController{
      */
     @ApiOperation(value = "上传视频", notes = "上传视频", httpMethod = "POST")
     @PostMapping(value = "/upload")
-    public Result upload(@RequestParam MultipartFile file, HttpServletRequest request) {
+    public Result upload(@RequestParam MultipartFile file, HttpServletRequest request) throws IOException {
         String realPath = request.getSession().getServletContext().getRealPath("/uploadFile/");
         String filename = file.getOriginalFilename();
+        File dest = new File(realPath,filename);
+        //判断文件父目录是否存在
+        if(!dest.getParentFile().exists()){
+            dest.getParentFile().mkdir();
+        }
+
+        file.transferTo(dest);
         String filePath = request.getScheme() + "://" +
                 request.getServerName() + ":"
                 + request.getServerPort()
                 + "/uploadFile/" + filename;
-        return  Result.success(videoService.upload(file));
+        return  Result.success(filePath);
     }
 
     @ApiOperation(value = "添加视频", notes = "添加视频", httpMethod = "POST")
