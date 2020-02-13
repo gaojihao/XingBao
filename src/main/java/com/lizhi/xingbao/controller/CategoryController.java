@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(value = "课程分类controller",tags = "课程分类")
 @RestController
-@RequestMapping("xingbao/api/v1/category")
+@RequestMapping("api/v1/category")
 public class CategoryController extends BaseController{
     @Autowired
     private CategoryService service;

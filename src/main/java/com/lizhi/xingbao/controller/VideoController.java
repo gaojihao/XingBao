@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @Api(tags = "视频")
 @RestController
-@RequestMapping("xingbao/api/v1/video")
+@RequestMapping("api/v1/video")
 public class VideoController extends BaseController{
     @Autowired
     VideoService videoService;
