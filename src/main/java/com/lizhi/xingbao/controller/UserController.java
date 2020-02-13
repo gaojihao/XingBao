@@ -60,6 +60,12 @@ public class UserController extends BaseController {
         return Result.success(null);
     }
 
+    @ApiOperation(value = "忘记密码", notes = "忘记密码", httpMethod = "POST")
+    @PostMapping("/pwd/reset")
+    public Result resetPwd(@RequestParam String smsCode,@RequestParam String phone,@RequestParam String password){
+        return Result.success(null);
+    }
+
     @ApiOperation(value = "获取个人信息", notes = "获取个人信息", httpMethod = "GET")
     @GetMapping("/info")
     public Result getMemberInfo(){
