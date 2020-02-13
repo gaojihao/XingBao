@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "标签")
 @RestController
-@RequestMapping("api/v1/tag")
+@RequestMapping("tag")
 public class TagController extends BaseController{
 
     @Autowired

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "音频")
 @RestController
-@RequestMapping("api/v1/audio")
+@RequestMapping("audio")
 public class AudioController extends BaseController{
 
     @Autowired

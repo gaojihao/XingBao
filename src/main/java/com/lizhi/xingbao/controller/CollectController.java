@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "收藏")
 @RestController
-@RequestMapping("api/v1/collect")
+@RequestMapping("collect")
 public class CollectController extends BaseController{
 
     @Autowired

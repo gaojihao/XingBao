@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "文章")
 @RestController
-@RequestMapping("api/v1/blog")
+@RequestMapping("blog")
 public class BlogController extends BaseController{
 
     @Autowired

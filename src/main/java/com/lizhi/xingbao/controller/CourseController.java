@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "课程")
 @RestController
-@RequestMapping("api/v1/course")
+@RequestMapping("course")
 public class CourseController extends BaseController{
 
     @Autowired

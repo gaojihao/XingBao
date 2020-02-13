@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "账户")
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("member")
 public class UserController extends BaseController {
 
     @Autowired

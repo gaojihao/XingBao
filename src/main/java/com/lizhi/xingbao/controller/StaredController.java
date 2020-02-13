@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "赞")
 @RestController
-@RequestMapping("api/v1/star")
+@RequestMapping("star")
 public class StaredController extends BaseController{
 
     @Autowired

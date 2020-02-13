@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "评论")
 @RestController
-@RequestMapping("api/v1/comment")
+@RequestMapping("comment")
 public class CommentController extends BaseController{
 
     @Autowired
