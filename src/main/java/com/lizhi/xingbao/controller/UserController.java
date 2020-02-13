@@ -53,13 +53,6 @@ public class UserController extends BaseController {
         return Result.success(dto);
     }
 
-    @ApiOperation(value = "修改头像", notes = "修改头像", httpMethod = "POST")
-    @PostMapping("/update/headerImage")
-    public Result updateImg(@RequestParam String userId,@RequestParam String url){
-        userService.updateHeadImg(userId, url);
-        return Result.success(null);
-    }
-
     @ApiOperation(value = "修改密码", notes = "修改密码", httpMethod = "POST")
     @PostMapping("/update/pwd")
     public Result updatePwd(@RequestParam String userId,@RequestParam String currentPwd,@RequestParam String password){
@@ -67,10 +60,15 @@ public class UserController extends BaseController {
         return Result.success(null);
     }
 
-    @ApiOperation(value = "修改昵称", notes = "修改昵称", httpMethod = "POST")
-    @PostMapping("/update/nickName")
-    public Result updateNickName(@RequestParam String userId,@RequestParam String nickName){
-        userService.modifyNickName(userId, nickName);
+    @ApiOperation(value = "获取个人信息", notes = "获取个人信息", httpMethod = "GET")
+    @GetMapping("/info")
+    public Result getMemberInfo(){
+        return Result.success(null);
+    }
+
+    @ApiOperation(value = "更新个人信息", notes = "更新个人信息", httpMethod = "POST")
+    @PostMapping("/update/info")
+    public Result updateMemberInfo(@RequestBody AccountDto info){
         return Result.success(null);
     }
 
