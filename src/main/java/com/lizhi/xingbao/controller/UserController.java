@@ -30,7 +30,7 @@ public class UserController extends BaseController {
 
         boolean exist = userService.isUserExist(phone);
         if (exist){
-            return Result.fail("用户已存在");
+            return Result.fail("用户已存在,请去登录");
         }
 
         userService.createAccount(phone, password);
@@ -50,7 +50,7 @@ public class UserController extends BaseController {
 
         AccountDto dto = userService.userLogin(phone, password);
 
-        return Result.success(dto);
+        return Result.success(dto.getUserId());
     }
 
     @ApiOperation(value = "修改密码", notes = "修改密码", httpMethod = "POST")
