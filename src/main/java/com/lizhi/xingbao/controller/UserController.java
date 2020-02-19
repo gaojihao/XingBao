@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Api(tags = "账户")
 @RestController
 @RequestMapping("member")
@@ -68,7 +70,12 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "获取个人信息", notes = "获取个人信息", httpMethod = "GET")
     @GetMapping("/info")
-    public Result getMemberInfo(){
+    public Result getMemberInfo(HttpServletRequest request){
+        String token = request.getHeader("token");
+        //@RequestHeader(value = "token") String token
+        if (token == null){
+            return Result.fail("请先登录");
+        }
         return Result.success(null);
     }
 
