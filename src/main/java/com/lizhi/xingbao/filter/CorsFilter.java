@@ -1,6 +1,6 @@
 package com.lizhi.xingbao.filter;
 
-import org.springframework.stereotype.Component;
+import org.springframework.http.HttpStatus;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -8,8 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@Component
+/**
+ * @author Aaron
+ */
+
 public class CorsFilter implements Filter {
+
+    private static final String OPTIONS_METHOD = "OPTIONS";
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -20,14 +26,16 @@ public class CorsFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         //解决跨域的问题
-        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Origin","http://localhost:3030");
-        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Credentials","true");
-        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With,X-App-Id, X-Token");
-        ((HttpServletResponse) response).setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-        ((HttpServletResponse) response).setHeader("Access-Control-Max-Age", "3600");
+        httpResponse.setHeader("Access-Control-Allow-Origin","*");
+        httpResponse.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+        httpResponse.setHeader("Access-Control-Allow-Credentials","true");
+        httpResponse.setHeader("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Cache-Control, Expires, Content-Type, X-E4M-With, Index-Url,"+"token");
 
-
-        chain.doFilter(request, response);
+        if (OPTIONS_METHOD.equals(httpRequest.getMethod())){
+            httpResponse.setStatus(HttpStatus.OK.value());
+        }else {
+            chain.doFilter(request, response);
+        }
     }
 
     @Override

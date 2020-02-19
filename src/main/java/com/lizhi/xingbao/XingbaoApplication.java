@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@ServletComponentScan(basePackages = {"com.lizhi.xingbao"})
 public class XingbaoApplication {
 
     public static void main(String[] args) {
