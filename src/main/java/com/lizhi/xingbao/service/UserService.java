@@ -65,6 +65,13 @@ public interface UserService {
      */
     void modifyPhone(String userId, String phone);
 
+    /**
+     * 获取用户信息
+     * @param token
+     * @return
+     */
+    AccountDto getMemberInfo(String token);
+
 
     Map findAll();
 }

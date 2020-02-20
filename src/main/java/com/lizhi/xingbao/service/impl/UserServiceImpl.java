@@ -121,6 +121,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public AccountDto getMemberInfo(String token){
+        Account account = userRespository.findAccountByUserIdEquals(token);
+        if (account == null){
+            throw new ParamException("未找到该用户");
+        }
+        return toDto(account);
+    }
+
+    @Override
     public Map findAll() {
         List<Account> list =  userRespository.findAll();
         List<AccountDto> dtos = new ArrayList<>();

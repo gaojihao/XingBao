@@ -72,16 +72,16 @@ public class UserController extends BaseController {
     @GetMapping("/info")
     public Result getMemberInfo(HttpServletRequest request){
         String token = request.getHeader("token");
-        //@RequestHeader(value = "token") String token
         if (token == null){
             return Result.fail("请先登录");
         }
-        return Result.success(null);
+        return Result.success(userService.getMemberInfo(token));
     }
 
     @ApiOperation(value = "更新个人信息", notes = "更新个人信息", httpMethod = "POST")
     @PostMapping("/update/info")
     public Result updateMemberInfo(@RequestBody AccountDto info){
+
         return Result.success(null);
     }
 
@@ -99,6 +99,7 @@ public class UserController extends BaseController {
     @ApiOperation(value = "用户列表", notes = "用户列表", httpMethod = "GET")
     @GetMapping("/list")
     public Result list(){
+
         return Result.success(userService.findAll());
     }
 
