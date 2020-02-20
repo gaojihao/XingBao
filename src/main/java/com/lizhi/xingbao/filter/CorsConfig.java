@@ -17,6 +17,7 @@ public class CorsConfig {
 
         registrationBean.setFilter(new CorsFilter());
         registrationBean.setName("corsFilter");
+        registrationBean.addUrlPatterns("/xingbao");
         registrationBean.setOrder(1);
         return registrationBean;
     }
