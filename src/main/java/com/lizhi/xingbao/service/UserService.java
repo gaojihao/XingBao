@@ -58,12 +58,13 @@ public interface UserService {
 
 
     /**
-     * 修改手机号
-     * @param userId
-     * @param phone 手机号码
-     * @return
+     *
+     * @param userId 用户userId
+     * @param phone 新手机号
+     * @param smsCode 验证码
+     * @param password 密码校验
      */
-    void modifyPhone(String userId, String phone);
+    void modifyPhone(String userId, String phone,String smsCode,String password);
 
     /**
      * 获取用户信息

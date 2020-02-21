@@ -91,8 +91,13 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "修改手机号", notes = "修改手机号", httpMethod = "POST")
     @PostMapping("/update/phone")
-    public Result updateMobile(@RequestParam String userId,@RequestParam String phone){
-        userService.modifyPhone(userId, phone);
+    public Result updateMobile(HttpServletRequest request,@RequestParam String phone,@RequestParam String smsCode,@RequestParam String password){
+        String token = request.getHeader("token");
+        if (token == null){
+            return Result.fail("请先登录");
+        }
+
+        userService.modifyPhone(phone, phone);
         return Result.success(null);
     }
 

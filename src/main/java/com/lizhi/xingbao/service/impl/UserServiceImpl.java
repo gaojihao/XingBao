@@ -110,10 +110,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void modifyPhone(String userId, String phone) {
+    public void modifyPhone(String userId, String phone,String smsCode,String password) {
         Account account = userRespository.findAccountByUserIdEquals(userId);
         if (account == null){
             throw new ParamException("未找到该用户");
+        }
+
+        //校验验证码
+
+        //校验密码
+        if (!account.getPassword().equals(password)){
+            throw new ParamException("密码错误");
         }
 
         account.setPhone(phone);
