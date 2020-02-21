@@ -118,6 +118,12 @@ public class UserServiceImpl implements UserService {
 
         //校验验证码
 
+        //校验手机号
+        Account member = userRespository.findAccountByPhoneEquals(phone);
+        if (member != null){
+            throw new ParamException("手机号已被使用，请检查您的手机号是否正确");
+        }
+
         //校验密码
         if (!account.getPassword().equals(password)){
             throw new ParamException("密码错误");

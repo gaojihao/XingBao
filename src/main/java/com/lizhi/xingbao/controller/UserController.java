@@ -97,7 +97,7 @@ public class UserController extends BaseController {
             return Result.fail("请先登录");
         }
 
-        userService.modifyPhone(phone, phone);
+        userService.modifyPhone(token,phone,smsCode,password);
         return Result.success(null);
     }
 
