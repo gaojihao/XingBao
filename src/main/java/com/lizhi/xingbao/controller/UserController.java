@@ -57,8 +57,12 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "修改密码", notes = "修改密码", httpMethod = "POST")
     @PostMapping("/update/pwd")
-    public Result updatePwd(@RequestParam String userId,@RequestParam String currentPwd,@RequestParam String password){
-        userService.modifyPwd(userId, currentPwd, password);
+    public Result updatePwd(HttpServletRequest request,@RequestParam String password,@RequestParam String newPassword){
+        String token = request.getHeader("token");
+        if (token == null){
+            return Result.fail("请先登录");
+        }
+        userService.modifyPwd(token, password, newPassword);
         return Result.success(null);
     }
 
