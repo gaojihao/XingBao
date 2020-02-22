@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `create_time` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `img_url` varchar(64) DEFAULT NULL COMMENT '头像url',
-  `jwt` varchar(64) DEFAULT NULL COMMENT 'jwt',
+  `birthday` DATE DEFAULT NULL COMMENT '出生年月',
   `level` int(11) DEFAULT NULL COMMENT '级别',
   `nick_name` varchar(64) DEFAULT NULL COMMENT '昵称',
   `password` varchar(64) DEFAULT NULL COMMENT '密码',
