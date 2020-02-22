@@ -2,6 +2,8 @@ package com.lizhi.xingbao.service.impl;
 
 
 import com.lizhi.xingbao.common.Exception.ParamException;
+import com.lizhi.xingbao.dto.FeedBackDto;
+import com.lizhi.xingbao.entity.Account;
 import com.lizhi.xingbao.entity.FeedBack;
 import com.lizhi.xingbao.respository.FeedBackRespository;
 import com.lizhi.xingbao.respository.UserRespository;
@@ -38,6 +40,21 @@ public class FeedBackServiceImpl implements FeedBackService {
         feedBack.setType(type);
 
         feedBackRespository.save(feedBack);
+    }
+
+    private FeedBackDto toDto(FeedBack feedBack){
+        FeedBackDto dto = new FeedBackDto();
+        dto.setContent(feedBack.getContent());
+        dto.setType(feedBack.getType());
+        dto.setCreateUser(feedBack.getCreateUser());
+        dto.setId(feedBack.getId());
+        dto.setCreateTime(feedBack.getCreateTime().toString());
+
+        Account account = userRespository.findAccountByUserIdEquals(feedBack.getCreateUser());
+        dto.setPhone(account.getPhone());
+        dto.setName(account.getNickName());
+
+        return dto;
     }
 
 }
