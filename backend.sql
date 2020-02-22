@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
     `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `content` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '内容',
     `type` int(11) DEFAULT NULL COMMENT '反馈类型',
-    `create_user` bigint(20) unsigned DEFAULT NULL COMMENT '创建人',
+    `create_user` varchar(256) DEFAULT NULL COMMENT '创建人',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3209 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='意见反馈';
 
