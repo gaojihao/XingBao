@@ -136,4 +136,16 @@ CREATE TABLE IF NOT EXISTS `feedback` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3209 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='意见反馈';
 
+CREATE TABLE IF NOT EXISTS `message` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一id，自动生成',
+    `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `content` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '内容',
+    `url` varchar(128)  DEFAULT NULL COMMENT '链接',
+    `type` int(11) DEFAULT NULL COMMENT '信息类型',
+    `recviver` varchar(256) DEFAULT NULL COMMENT '接收人',
+    `read` bit(1) DEFAULT NULL COMMENT '是否已读',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='信息';
+
 
