@@ -16,6 +16,8 @@ public class FeedBackDto implements Serializable {
 
     private Integer id;
 
+    private Boolean fixed = false;
+
     public int getType() {
         return type;
     }
@@ -87,6 +89,14 @@ public class FeedBackDto implements Serializable {
         this.typeDesc = typeDesc;
     }
 
+    public Boolean getFixed() {
+        return fixed;
+    }
+
+    public void setFixed(Boolean fixed) {
+        this.fixed = fixed;
+    }
+
     @Override
     public String toString() {
         return "FeedBackDto{" +
@@ -98,6 +108,7 @@ public class FeedBackDto implements Serializable {
                 ", typeDesc='" + typeDesc + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", id=" + id +
+                ", fixed=" + fixed +
                 '}';
     }
 }

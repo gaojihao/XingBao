@@ -69,6 +69,7 @@ public class FeedBackServiceImpl implements FeedBackService {
         dto.setType(feedBack.getType());
         dto.setCreateUser(feedBack.getCreateUser());
         dto.setId(feedBack.getId());
+        dto.setFixed(feedBack.getFixed());
         dto.setCreateTime(feedBack.getCreateTime().toString());
 
         Account account = userRespository.findAccountByUserIdEquals(feedBack.getCreateUser());

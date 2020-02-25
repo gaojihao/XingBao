@@ -20,6 +20,9 @@ public class FeedBack extends BaseEntity {
     @Column(name = "create_user")
     private String createUser;
 
+    @Column(name = "fixed")
+    private Boolean fixed = false;
+
     public String getContent() {
         return content;
     }
@@ -44,12 +47,21 @@ public class FeedBack extends BaseEntity {
         this.createUser = createUser;
     }
 
+    public Boolean getFixed() {
+        return fixed;
+    }
+
+    public void setFixed(Boolean fixed) {
+        this.fixed = fixed;
+    }
+
     @Override
     public String toString() {
         return "FeedBack{" +
                 "content='" + content + '\'' +
                 ", type=" + type +
                 ", createUser='" + createUser + '\'' +
+                ", fixed=" + fixed +
                 '}';
     }
 }

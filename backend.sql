@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS `message` (
     `type` int(11) DEFAULT NULL COMMENT '信息类型',
     `recviver` varchar(256) DEFAULT NULL COMMENT '接收人',
     `read` bit(1) DEFAULT NULL COMMENT '是否已读',
+    `fixed` bit(1) DEFAULT NULL COMMENT '是否已解决',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT='信息';
 
