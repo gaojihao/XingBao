@@ -27,6 +27,6 @@ public class Message extends BaseEntity {
     private int type;
 
     @Column(name = "read")
-    private boolean read;
+    private Boolean read = false;
 
 }

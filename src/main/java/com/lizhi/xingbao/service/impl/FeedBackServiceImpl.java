@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Aaron
  */
@@ -40,6 +43,24 @@ public class FeedBackServiceImpl implements FeedBackService {
         feedBack.setType(type);
 
         feedBackRespository.save(feedBack);
+    }
+
+    @Override
+    public void deleteFeedBack(Integer Id){
+        feedBackRespository.deleteById(Id);
+    }
+
+    @Override
+    public List<FeedBackDto> getAllFeedBack(){
+        List<FeedBackDto> list = new ArrayList<>();
+        List<FeedBack> feedBackList = feedBackRespository.findAll();
+
+        for (FeedBack feedBack : feedBackList){
+            FeedBackDto dto = toDto(feedBack);
+            list.add(dto);
+        }
+        return list;
+
     }
 
     private FeedBackDto toDto(FeedBack feedBack){

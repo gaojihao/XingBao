@@ -5,10 +5,7 @@ import com.lizhi.xingbao.service.FeedBackService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,6 +29,12 @@ public class MessageController extends BaseController {
         }
         service.add(token,type,content);
         return Result.success(null);
+    }
+
+    @ApiOperation(value = "意见反馈列表", notes = "意见反馈列表", httpMethod = "GET")
+    @GetMapping("feedBack/list")
+    public Result allFeedBack(HttpServletRequest request){
+        return Result.success(service.getAllFeedBack());
     }
 
 
